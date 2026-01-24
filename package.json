@@ -1,0 +1,31 @@
+{
+  "name": "interaction.work",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "start": "npm run dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "upgrader": "npx npm-check-updates --interactive -u",
+    
+    "test": "turbo run test",
+    "test:projects": "vitest run",
+    "test:projects:watch": "vitest --watch",
+    "view-report": "turbo run view-report"
+  },
+   "devDependencies": {
+    "@repo/vitest-config": "workspace:*",
+    "turbo": "^2.7.3",
+    "typescript": "5.9.3",
+    "vitest": "^4.0.16"
+  },
+  "keywords": [],
+  "author": "designerzen",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  }
+}
