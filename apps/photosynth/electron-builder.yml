@@ -1,0 +1,45 @@
+appId: com.designerzen.photosynth
+productName: PhotoSYNTH
+directories:
+  buildResources: public
+files:
+  - dist-electron
+  - dist
+  - node_modules
+asarUnpack:
+  - resources/**
+win:
+  target:
+    - nsis
+    - portable
+    - msi
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+portable:
+  artifactName: ${productName}-${version}.${ext}
+msi:
+  certificateFile: null
+  certificatePassword: null
+  signingHashAlgorithms:
+    - sha256
+mac:
+  target:
+    - dmg
+    - zip
+dmg:
+  contents:
+    - x: 410
+      y: 150
+      type: link
+      path: /Applications
+    - x: 130
+      y: 150
+      type: file
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Multimedia
