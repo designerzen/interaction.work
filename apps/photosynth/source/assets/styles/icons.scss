@@ -1,0 +1,50 @@
+@use "./_mixins.scss";
+
+%icon{
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	width:44px;
+	height:44px;
+	@extend %image-replacement;
+}
+
+.paypal{
+	@extend %icon;
+	background-image:url(assets/logos/paypal.svg);
+}
+
+.patreon{
+	@extend %icon;
+	background-image:url(assets/logos/patreon.svg);
+}
+							
+.drakemusic{
+	@extend %icon;
+	background-image:url(assets/logos/drakemusic.svg);
+}
+
+.aotf{
+	@extend %icon;
+	background-image:url(assets/logos/aotf.svg);
+}
+	
+.sxsw{
+	@extend %icon;
+	background-image:url(assets/logos/sxsw.svg);
+}
+
+.mmf{
+	@extend %icon;
+	background-image:url(assets/logos/mmf.svg);
+}
+
+.tensorflow{
+	@extend %icon;
+	background-image:url(assets/logos/tensorflow-tf.svg);
+}
+
+.designerzen{
+	@extend %icon;
+	background-image:url(assets/logos/designerzen.svg);
+}

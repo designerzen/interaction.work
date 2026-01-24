@@ -1,0 +1,1044 @@
+
+// App specific
+.interface body{
+
+	color: var( --shade-brand, var(--shade-red, red));
+
+	display: grid;
+	align-content: stretch;//space-between;
+    justify-content: center;
+	justify-items: center;
+
+	width: 100%;
+
+	// stretch full width for 1 unit of each
+	grid-template-columns: 100%;
+
+	// all space then footer
+	// grid-template-rows:
+	// 	1fr
+	// 	1fr
+	// 	calc(100vh - var(--pad) * 2) 
+	// 	auto;
+
+	// grid-template-rows:
+	// 	1fr
+	// 	33vh
+	// 	calc(100vh - var(--footer-gap) - var(--pad) * 2) 
+	// 	auto;
+
+	// grid-template-rows:
+	// 	1fr
+	// 	33vh
+	// 	calc(100dvh - var(--footer-gap) - var(--pad) * 2) 
+	// 	auto;
+
+	// the gap is just for fun
+	// minmax(250px, 33vh) - breaks SAFARI
+	grid-template-rows:
+		auto
+		auto
+		auto
+		auto
+		auto
+		auto;
+
+	// mmake this big to give adequate room to breathe
+	grid-template-areas: 
+		"hero"
+		"a11y"
+		"contact"
+		"affiliates"
+		"app"
+		"footer";
+}
+
+
+.link-to-requirements{
+	display: block;
+}
+
+// place items into grid
+#load-progress{
+	grid-area:app;
+	// position: sticky;
+	// bottom:0;
+	// margin:clamp( var(--pad), 25%, 25vmin ); //max-width:440px;	
+	align-self: center;
+	justify-self: center;
+}
+
+#intro{
+	grid-area:hero;
+	// position: sticky;
+	// top:var(--pad);		
+}
+
+#contact{
+	--side:var(--viewport-max-width);// clamp( var(--pad), 25%, 240px);
+	--w: calc((100% - var(--side) ) / 2);
+
+	grid-area:contact;
+	box-sizing: border-box;
+	color: var(--shade-white);
+	background-color: var(--shade-dark);
+	background-image: 
+		linear-gradient(
+			to bottom, 
+			rgba(0,0,0,0.8), 
+			rgba(0,0,0,0) 13%
+		)
+	;
+
+	// padding:
+	// 	calc( 2 * var(--pad)) 
+	// 	max( 2 * var(--pad), var(--w));
+
+	padding:calc( 4 * var(--pad)) ;
+	padding-bottom: calc( 3 * var(--pad)) ;
+
+	margin:0  var(--pad);
+	margin-top:0;
+	// margin-left:var(--pad);
+	// margin-right:var(--pad);
+	// margin-bottom:var(--pad);
+	// border-radius:var(--curve);
+	border-bottom-left-radius: var(--curve, 1rem);
+	border-bottom-right-radius: var(--curve, 1rem);
+	overflow: hidden;
+	position: relative;
+	z-index: 999;
+}
+
+#hero{
+	background-color:#ebebeb;// var(--shade-white);//var(--shade-grey);
+	border-radius:calc( 0.75 * var(--curve) );
+	font-size: 0;
+	user-select: none;
+}
+
+
+#affiliates{
+	color: var(--shade-white);
+	background-color: var(--shade-orange);
+	grid-area: affiliates;
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+	position: relative;
+	z-index: 999;
+	box-sizing: border-box;
+
+	// margin-top:var(--pad);
+	padding:var(--pad);
+	padding-top: calc( 2 * var(--pad) );
+	margin:var(--pad);
+	border-radius:var(--curve);
+
+	ul{
+		list-style: none;
+		display: grid;
+		gap:var(--pad);
+		grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+		justify-content: center;
+		justify-items: center;
+		align-content: center;
+		align-items: center;
+		padding-left: var(--pad);
+		padding-right: var(--pad);	
+
+		figure{
+			display: grid;
+			justify-content: center;
+			justify-items: center;
+			align-content: center;
+			align-items: center;
+			position: relative;
+			> * {
+				grid-area:1/-1;
+				// max-width: 100%;
+			}
+		}
+		img{
+			filter: invert(1);
+			min-width: 44px;
+		}
+		figcaption{
+			
+			$tip: .75em; // arrow tip size
+			$ang: 90deg; // arrow tip angle, may have jagged edges if != 90deg
+			$rad: 7px; // corner rounding
+			
+			--i:0.5;
+			--j:1;
+			--sgn: clamp(-1, (var(--j) - var(--i))/.1, 1);
+			// angular direction of axis going through middle of tooltip arrow 
+			--dir: calc(var(--sgn)*(var(--j) - 2*var(--i))*180deg);
+			/* position of arrow
+			* for --i/ --j set to 0 => 0% (left/ top)
+			* for --i/ --j set to .5 => 50% (middle)
+			* for --i/ --j set to 1 => 100% (right/ bottom) */
+			--oxy: calc(var(--i)*100%) calc(var(--j)*100%);
+			filter: drop-shadow(2px 2px 5px #363636);
+			// transparent border the size of arrow tip 
+			border: solid $tip transparent;
+			background-color: var(--shade-dark);
+			background: 
+				// square box set on padding-box
+				linear-gradient( var(--shade-dark) 0 0) padding-box, 
+				// arrow tip, gradient set on border-box
+				conic-gradient(
+					from calc(var(--dir) - .5*#{$ang}) at var(--oxy), 
+					var(--shade-dark) $ang, transparent 0%) 
+					var(--oxy)/ 50% 50% no-repeat border-box;
+					
+			position: absolute;
+			width:fit-content;
+			left:50%;
+			top:0;
+			z-index: 1;
+			text-wrap: wrap;
+			pointer-events: none;
+			user-select: none;
+			
+			opacity: 0;
+			padding: var(--pad);
+			transform: translate(-50%, calc(-100% + var(--pad,0) ) ); 
+			transition:
+				opacity var(--ease-s) linear,
+				transform var(--ease-m) linear;
+			
+			small{
+				display: block;
+				border-bottom:1px solid var(--col-white);
+			}
+		}
+		a{
+			color:var(--col-white);
+			
+		}
+		a:is(:hover, :focus, :focus-within){
+			figcaption{
+				opacity: 1;
+				transform: translate(-50%, calc( -100% - var(--pad,0)));
+				transition:
+					opacity var(--ease-s) linear,
+					transform var(--ease-m) var(--ease-out-back);
+			}
+			img{
+				filter: brightness(50%);
+			}
+		}
+	}
+
+	img{
+		filter:contrast(1000%) grayscale(100%);
+	}
+}
+
+#contact, #affiliates{
+	width: 100%;
+	// width: fit-content;
+	// max-width: calc(100% - 2 * var(--pad));
+	max-width: min( var(--viewport-max-width, 1080px), calc( 100% - 2 * var(--pad))); //, calc(100% - 2 * var(--pad)) ;
+}
+
+// transparent orange
+@supports (background-color: color-mix(in lch, red, red) ){
+	#affiliates{
+		background-color: color-mix(in lch, var(--shade-orange), transparent 50%);
+	}
+}
+
+
+#hero,
+.hero-bumper{
+	height:100%;
+	width: 100%;
+}
+.hero-bumper{
+	order:-1;
+}
+// now give each item it's own "page" in the grid
+#app{	
+	// position: sticky;
+	// top:0;
+	// grid-area: 1 / 2 / -1 / 3;
+	grid-area:app;
+}
+
+
+
+
+#foot{
+	grid-area: footer;
+}
+
+.interface .back-to-top{
+	visibility: hidden;
+	position: absolute;
+}
+
+// during loading we show all in a line
+.interface.loading body{
+	//grid-template-rows: 1fr auto;
+	// overrides
+	
+}
+
+#share-code{
+	--size:128px;
+	position: fixed;
+	top:calc( 2.5 * var(--pad) );
+	right:calc( 2.5 * var(--pad) );
+	z-index:808;
+
+	width:var(--size);
+	height: var(--size);
+
+	display: grid;
+	grid-template-areas: "area";
+
+	font-size: 10%;
+	color: transparent;
+
+	> *{
+		grid-area: area;
+	}
+
+	.qr,
+	.qr > * {
+		width:inherit;
+		height:inherit;
+	}
+}
+
+// once loaded we hide the #intro
+.interface.loaded{ 
+	background-color: black;
+
+	// prevent iOS from accidently scrolling the page
+	touch-action: none;
+	body{
+		grid-template-rows: 1fr auto;
+		// grid-template-rows:
+		// 	calc(100vh - var(--footer-gap) - var(--pad) * 2);
+		// grid-template-rows:
+		// 	calc(100dvh - var(--footer-gap) - var(--pad) * 2);
+		grid-template-rows:1fr;
+
+		// mmake this big to give adequate room to breathe
+		grid-template-areas: "app";
+
+		// grid-template-areas:  
+		// 	"app"
+		// 	"footer";
+		overflow: hidden;
+	}
+
+	#intro{
+		grid-area:app;
+		pointer-events: none;
+		box-sizing: border-box;
+		max-width: 100%;
+		max-height: 100%;
+
+		background: none;
+		display: none;
+	}
+
+	#contact{
+		display: none;
+	}
+
+	// load bar
+	#load-progress{
+		display: none;
+	}
+	#foot{
+		grid-area:app;
+	}
+}
+
+.interface #app{
+	
+}
+
+// ELECTRON App
+.interface.desktop{
+
+	body{
+		grid-template-rows:
+			calc(100vh - var(--footer-gap) - var(--pad) * 2) 
+			auto
+			calc(100vh - var(--footer-gap) - var(--pad) * 2)
+			auto;
+
+		// mmake this big to give adequate room to breathe
+		grid-template-areas: 
+			"hero"
+			"gap"
+			"a11y"
+			"app"
+			"footer";
+	}
+	// hide these butons
+	#buton-share, #button-fullscreen{
+		display: none;
+	}
+}
+
+// app specific styles (also applies to PWAs)
+.interface.app{ 
+
+	margin: 0;
+
+	&.loaded{
+		// try to use sparingly...
+		// hide all cruft and hide scrollbars too
+		// overflow:hidden;
+		// // saves on memory as it crops it too??
+		// overflow: clip;
+	}
+
+	// NB. only enable this once the app starts!
+	#intro{
+		// position: absolute;
+		// top:0;
+		// right:var(--pad);
+		// left:var(--pad);
+		// // above feedback
+		// bottom:var(--footer-gap);	
+		
+		// main title
+		h1{
+			text-align: center;
+			//background-color: $col-dark;
+			//color: var(--shade-grey);
+			
+			// margin-top:var(--pad);
+			transition:color var(--ease-s) ease-out;
+			// text-shadow: rgba(0,0,0,0.56) 0 1px 4px,
+			// 			rgba(0,0,0,0.56) 0 2px 4px,
+			// 			rgba(0,0,0,0.56) 0 3px 4px,
+			// 			rgba(255,255,255,0.96) 0 0 4px;
+		}
+		
+		h2{
+			// drop shadow
+			// text-shadow: rgba($col-white,0.96) 0 1px 4px,
+			// 			rgba($col-white,0.7) 0 2px 4px,
+			// 			rgba($col-white,0.5) 0 3px 4px,
+			// 			rgba($col-cream,0.56) 0 0 4px;
+			
+			// color: $col-tan;
+			margin:0 auto;
+			padding:var(--pad);
+		}
+	}
+
+	// #foot{
+	// 	position:absolute;
+	// 	left: 0;//calc( var(--pad));
+	// 	right: 0;//calc( var(--pad));
+	// 	bottom: 0;//var(--pad);
+	// }
+}
+
+	
+
+// inline logo :)
+.logo{
+	// z-index: -2;
+	align-self: center;
+	// text-indent: -99999rem;
+
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: var(--pad);
+
+	display: flex;
+	flex-direction: column;
+	
+	// scale
+	width:100%;
+	min-height:10vh;
+	// max-height:90vmin;
+	// max-width:90vmin;
+	
+	visibility: visible;
+	font-size: 0;
+
+	svg{
+		max-width: 25%;
+		// margin:auto;
+		color:inherit;
+		order: -1;
+		fill:currentColor;
+	}
+
+	// background:url(/source/assets/logos/interface.svg) no-repeat left;
+	// background-size: contain;
+	// background-position: left;
+}
+
+main.midi{
+	#button-midi{
+		display: flex;
+	}
+}
+
+main.video{
+	> img{
+		display: none;
+	}
+}
+
+// if static image mode
+main.img{
+	> video{
+		display: none;
+	}
+}
+
+//
+main.active{
+	button{
+		display: block;
+	}
+}
+
+.warning strong{
+	animation:TextThrob 4s linear infinite 0.05s both;
+}
+
+#app-frame{
+	--person-a-x:0;
+	--person-a-y:0;
+	--person-b-x:0;
+	--person-b-y:0;
+
+	// shadow
+	--wig:0;
+	--hue:180;
+	--l:20%;
+	
+	color:var(--shade-white);
+
+	// we only disable this in jumbo mode
+	position: relative;
+	display:flex;
+	flex-direction: column;
+
+	width: 100%;
+	min-width: fit-content;
+
+	// min-height: 320px;
+	min-height:calc(100dvh - var(--footer-gap) - var(--pad) * 2) ;
+	// max-width: 100%;
+	// max-height: 100vh;
+
+	// object-fit: contain;
+
+	transition:opacity var(--ease-s) ease-out;
+	
+	// face overlay to remind to show face
+	&::after{
+		content:'';
+		position: absolute;
+		top:var(--pad);
+		left:var(--pad);
+		right:var(--pad);
+		bottom:var(--pad);
+		background:url(assets/icons/child_care-24px.svg) no-repeat center center;
+		background-size: contain;
+		opacity:0;
+		//transform:translateZ(100px);
+		display: block;
+		z-index:1;
+		pointer-events: none;
+		display: none;
+	}
+}
+
+
+// Hide controls on mouse out on hover devices
+@media (any-hover: hover) {
+	//@supports (html:focus-within){
+	.loaded:not(.debug){
+		#toast{
+			transition:transform var(--ease-q) calc(var(--ease-s) + var(--ease-s));//0s $easeOutBack;
+			transform:translateY(150%);
+		}
+
+		// #control-panel,
+		.recordings,
+		.controls{
+			//visibility: hidden;
+			transition:opacity var(--ease-s) linear;
+			transition-delay: var(--ease-s);
+			// fade out
+			//animation: Fade var(--ease-s) linear 1500ms both reverse;
+			opacity:0;
+
+			> *{
+				--duration: var(--ease-q);
+				--overlap:0.6;
+				// --delay-offset: var(--ease-q);
+				// animation-name:Fade;
+				// animation-duration:var(--ease-s);
+				// animation-direction:reverse;
+				// animation-fill-mode: both;
+				// animation-delay:inherit;
+			}
+		}
+
+		main:focus-visible,
+		main:focus-within,
+		main:focus,
+		main:hover{
+			// hide and show parts
+
+			// move toast up
+			#toast{
+				transform:translateY(0);
+				transition-delay:0;
+			}
+
+			 .controls,
+			 .recordings{
+				opacity:1;	
+				transition-duration: var(--ease-q);
+				
+				> *{
+					//animation-name:BGColours, Fade;
+				}
+
+				//visibility: visible;
+				//animation: Fade var(--ease-q) linear 0s both;
+			}
+		}
+	}
+}
+
+
+// HELP DIALOG //////////////////////////////////////////////////////////////////
+
+// hide all help bits
+
+#help{
+	section{
+		// #help > *{
+		display: none;
+	}
+
+	details{
+		overflow: auto;
+	}
+}
+
+
+// #version,
+#midi-device{
+	display:none;
+}
+
+
+#control-panel{
+	
+	--panel-width:45%;
+	margin:auto;
+	padding:0;
+	
+	overflow: hidden;
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom: 0;
+
+	z-index:808; // NOT top - we have help and about remember!
+
+	// width:100%;
+
+	// prevent the form takin focus
+	pointer-events: none;	
+	
+	
+	display: block;
+
+	// alternate grid layout
+	display: grid;
+
+
+	grid-template-areas: 
+		"sidebar-left . sidebar-right"
+		"settings-panel settings-panel settings-panel"
+		"control-panel control-panel control-panel"
+		;
+
+	grid-template-rows: 
+		1fr
+		auto 
+		auto
+		auto
+	;
+
+	grid-template-columns: var(--panel-width) 1fr var(--panel-width);
+
+	* {
+		pointer-events: auto;
+	}
+
+	/*
+	// we need media queries to complete
+	--ratio:calc( var(--width)/var(--height));
+	max-width:var(--width);
+	max-height:var(--height);
+*/
+
+
+
+	// &::before{
+	// 	display: block;
+	// 	content:'';
+	// 	// width:calc(var(--width) / var(--height) * 100%);
+	// 	// height:calc( 100% );
+	// 	width:100%;
+	// 	padding-bottom:calc(var(--width) / var(--height) * 100%);
+	// }
+}
+
+#face-buttons{
+	--aspect-ratio:calc(var(--width) / var(--height)  );
+	margin:auto;
+	padding:0;
+	border:0;
+	width: 100%;
+	grid-area: 1/1/-1/-1;
+	pointer-events: none;
+	position: relative;
+	// padder!
+	&::before{
+		content:'';
+		display: block;
+		width:100%;//calc( var(--aspect-ratio) * 100vh );
+		width:inherit;
+		height:calc( 100%  / var(--aspect-ratio));
+		//height:auto;
+	
+		// overflow: hidden;
+		border:0;
+
+		padding-top:calc(  100%  / var(--aspect-ratio));
+		// padding-top:calc( var(--aspect-ratio) * 100% );
+		height:0;
+
+		max-width: 100%;
+		max-height: 100%;
+		pointer-events: none;
+
+		object-fit: contain;
+	}
+
+
+	// left:50%;
+	// top:50%;
+	// transform: translate(-50%, -50%);
+	// position: absolute;
+
+	// @media (orientation: portrait) {
+	// 	width: 100%;
+	// 	height:calc( 100vw / var(--aspect-ratio) );
+	// 	top:50%;
+	// 	left:auto;
+	// 	transform: translateY(-50%);
+	// }
+
+	legend{
+		color:transparent;
+		border:0;
+		pointer-events: none;
+		width:0;
+		overflow: hidden;
+		position: absolute;
+		top:0;
+		left:0;
+		white-space: nowrap;
+	}
+	button{
+		pointer-events: auto;
+		padding:0;
+		margin:0;
+	}
+}
+
+
+// Instrument and user option panels
+
+// left drag
+.person-a-panel,
+.person-c-panel{
+	grid-area: sidebar-left;
+}
+
+// Drag from the right
+.person-b-panel,
+.person-d-panel{
+	grid-area: sidebar-right;
+}
+
+
+.controls{
+	grid-area: control-panel;
+	background-color:var(--shade-dark, black);
+}
+
+.brand{
+	//background:url(/source/assets/logos/designerzen_current-color.svg) no-repeat left 2px center;
+	//background-size: contain;
+	//padding-left:1.3rem;
+	display: inline-flex;
+	align-items: center;
+	margin-left:0.25rem;
+	svg{
+		color:inherit;
+		height:1rem;
+		width:1rem;
+		// margin-top: -0.25rem;
+		margin-right:0.25rem;
+		stroke:currentColor;
+	}
+
+}
+
+#LookingGlassWebXRControls{
+	top: 90px !important;
+    bottom: auto !important;
+
+	&:first-child{
+		text-align: left;
+		user-select: none;
+	}
+	button{
+		height:auto !important;
+	}
+	*{
+		font-family: inherit;
+		
+	}
+}
+
+#settings{
+	// visibility: hidden;
+	display: none;
+	transform: translateY( 100% );
+	transition: 
+		transform var(--ease-m) var(--ease-out-back), 
+		opacity var(--ease-m) linear;
+
+	animation: none;
+	grid-area: settings-panel;
+	
+	.button-close{
+		position: absolute;
+		left:0;
+		right:0;
+		top: 0;
+		bottom: 0;
+		z-index:-1;
+		align-items: flex-end;
+		// get rid of icon
+   		--bg: unset;
+	}
+}
+
+// END OF MIDI MIDI MID MIDI ====================================
+
+// Icons for institutions that have presented or promoted this project
+.icon-list{
+	--size:clamp(44px, 100vw / (var(--items,6) + 0.2 ), 74px);
+	margin:0;
+	padding:0;
+	/* grid-auto-columns: 50%;
+	grid-auto-flow: column;
+	grid-gap:var(--pad);
+	grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+	grid-auto-columns: 1fr; */
+	list-style: none;
+	display: grid;
+	// grid-template-columns: repeat(auto-fill, minmax(var(--size), 1fr));
+	// grid-auto-rows: var(--size);
+	
+	//grid-template-rows: repeat(auto-fill, minmax(var(--size), 1fr));
+	//grid-auto-rows: minmax(var(--size), 1fr);
+
+	// just 1 column
+	grid-auto-columns: var(--size);
+	grid-auto-rows: var(--size);
+
+	// which direction to flow into 
+	grid-auto-flow: column;
+	
+	//grid-gap:var(--pad);
+	place-items: center center;
+	box-sizing: border-box;
+
+	// we flip things around if the screen is taller than wide	
+	// @media (orientation: portrait) {
+	// 	--size:44px;
+	// 	grid-auto-flow: row;
+	// 	margin-bottom:var(--pad);
+		
+	// // order:-1;
+	// // 	order:unset;
+	// }
+	li{
+		box-sizing: border-box;
+	}
+}
+
+// Associates and friends ---
+// .associates li::marker{
+// 	content:'#';
+// 	color:hsla(0, 0%, 100%, 0.5);
+// 	font-size: 66%;
+// } 
+
+// Each associate link
+.icon-list li a{
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: flex-end;
+	padding:var(--pad);
+	box-sizing: border-box;
+
+	font-size:0;
+	color:transparent;
+
+	user-select: none;
+	color:var(--shade-blue);
+	text-shadow: rgba(0,0,0,0.56) 0 1px 4px,
+					rgba(0,0,0,0.56) 0 2px 4px,
+					rgba(0,0,0,0.56) 0 3px 4px,
+					rgba(255,255,255,0.96) 0 0 4px;
+
+	svg{
+		color:inherit;
+		fill:currentColor;
+		width:100%;
+	}
+
+	&:focus,
+	&:hover{
+		color:var(--shade-orange);
+	}
+}
+
+// These are the noise backgrounds
+.filter{
+	opacity: 0.33;
+	position: absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	display: block;
+	background-image: url("data:image/svg+xml,%3Csvg class='filter' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='filter-noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='6.29' numOctaves='6' stitchTiles='stitch'%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23filter-noise)'%3E%3C/rect%3E%3C/svg%3E");
+}
+
+// fancy shared controls animations
+:is(header, fieldset, dialog[open]) > * {
+
+	--overlap:0.06;
+
+	$end:49;
+	@for $i from 1 to $end {
+
+		&:nth-child(#{$i}){
+			// delay is the amount of time to wait before reveal
+			--delay:calc( var(--delay-offset, var(--offset,0)) + #{$i - 1} * var(--overlap) * var(--duration) );
+		}
+	}
+}
+
+
+// Back to top ----------------------------------------------
+
+a.back-to-top{
+	flex:1 1 100%;
+	width:100%;
+	position: absolute;
+	bottom:0;
+	right:0;
+	
+	view-timeline: --backToTopReveal block;
+	animation-timeline: --backToTopReveal;
+	
+	animation-name: BackToTopReveal;
+	animation-fill-mode: both;
+	animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+
+
+#licenses{
+	
+	// prevent it staying single line
+	max-inline-size: 55ex;
+}
+
+
+#hero{
+	order:-42;
+	display: grid;
+	grid-area: poster;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	//grid-area: 1/-1/ 1/-1;
+	width: 100%;
+}
+
+#pwa{
+	grid-area:menu;
+	display: flex;
+	width: 100%;
+	gap:var(--pad);
+	flex-wrap: wrap;
+	justify-content: stretch;
+}
+
+svg.hero-bumper{
+	margin:auto;
+	width: 100%;
+}
+
+.educate{
+	border-radius: 999px;
+    border: 1px solid transparent;
+	padding: 2px 1px 2px 3px;
+	&:hover,&:focus{
+		border-color:var(--shade-brand, var(--shade-red, red));
+	}
+}
+
+.link-designerzen{
+	
+	--icon-size:1rem;
+
+	word-break: keep-all;
+	white-space: nowrap;
+	&::before{
+		content:'';
+		vertical-align: middle;
+		display: inline-block;
+		width: var(--icon-size);
+		height:var(--icon-size);
+		background-image: url(/source/assets/logos/designerzen.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		// padding-left:calc(var(--pad)*3.5);
+	}
+}

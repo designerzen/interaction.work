@@ -1,0 +1,24 @@
+@use "../_palette.scss";
+
+.theme-clash{
+	
+	:is(
+		button,
+		.button,
+		input[type=list],
+		.controls > *:not(div), 
+		.controls .folder-link
+	){
+		--hue: #{palette.$hue-blue};
+		--hue-selected: #{palette.$hue-red};
+		--hue-active: #{palette.$hue-yellow};
+	
+		--s:98%;
+		--s-selected:98%;
+		--s-active:98%;
+	
+		--l:8%;
+		--l-selected:48%;
+		--l-active:48%;
+	}
+}

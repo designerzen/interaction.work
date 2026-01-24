@@ -1,0 +1,93 @@
+@use "./_mixins.scss";
+
+:is(span).hide-text{
+	@extend %image-replacement;
+	position: absolute;
+	width:0;
+	overflow: hidden;
+	color:transparent;
+}	
+
+// for sections for enclosing content
+:is(section).mixed-content,
+:is(section article){
+	color:var(--shade-dark);
+	background-color:var(--shade-white);
+	border-radius:var(--curve, var(--pad, 24px));
+	padding:calc( var(--pad) * 3) calc(var(--pad) * 4);
+	box-shadow: var(--shadow);
+	margin-bottom:var(--pad);
+
+	& + :is(section).mixed-content{
+		margin-top:var(--pad);
+	}
+}
+
+
+/*
+// To pass the w3c accessibility standards (see a11yproject.com)
+// add this class to any element to visually hide it from the screen
+// without affecting the other elements whilst also allowing
+// the user to tab to focus and read the contents within them
+// https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+.sr-only{
+
+	border: 0;
+	// clip: rect(1px 1px 1px 1px); // IE6, IE7
+	clip: rect(1px, 1px, 1px, 1px);
+	clip: rect(0 0 0 0);
+	height: 1px; width: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	
+	// For long content, line feeds are not interpreted as spaces and small width
+	// causes content to wrap 1 word per line:
+	// https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+	white-space: nowrap; 
+  
+	// allow focus within
+	a:focus,
+	input:focus,
+	button:focus {
+		position:static;
+		width:auto; 
+		height:auto;
+	}
+}
+*/
+
+[screenreader-only]:not(:focus):not(:active),
+.sr-only:not(:focus):not(:active) {
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden  !important;
+    position: absolute !important;
+    white-space: nowrap  !important;
+	border: 0 !important;
+}
+
+.centralise{
+	margin-left: auto;
+	margin-right: auto;
+}
+  
+.note-sheet{
+	// 𝄙
+}
+
+.hidden,
+[hidden]{
+	display:none;
+}
+
+// Tweakpane
+.tp-dfwv{
+	z-index: 1080;
+}
+
+.emoji{
+	font-family: 'noto-emoji';
+}

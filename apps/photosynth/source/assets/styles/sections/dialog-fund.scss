@@ -1,0 +1,15 @@
+#fund{
+	.fund{
+		background: var(--shade-white);
+		border-radius:calc( 2 * var(--pad));
+		padding: var(--pad);
+	}
+	.links{
+		margin:0;
+		padding:0;
+		flex-wrap: wrap;
+		display: flex;
+		gap:var(--pad);
+		list-style: none;
+	}
+}

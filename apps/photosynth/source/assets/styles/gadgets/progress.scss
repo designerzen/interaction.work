@@ -1,0 +1,564 @@
+@use "../_ease";
+
+// Faster when we get nearer loaded
+#load-progress{
+
+	display: grid;
+	gap:var(--pad);
+	visibility: visible;
+
+	max-width: max-content;
+	margin:auto;
+
+	// position:sticky;
+	// top:50%;
+	// // left:50%;
+	// transform: translate(-50%,-50%);
+	
+	padding: calc(2 * var(--pad));// var(--pad)
+	padding-bottom: var(--pad);
+
+	border-radius:1.1rem;
+	// border-radius:min( 18px, calc( 999px * var(--progress,0) ) );
+
+	background-image:
+		linear-gradient(
+			rgba(255, 255, 255, 0.93), 
+			hsla(48, 63%, 97%, 0.96)
+		);
+
+	box-shadow:var(--shadow);
+
+	transition: opacity var(--ease-m) 0s,
+				transform var(--ease-m) 0s,
+				background-color var(--ease-m) 0s var(--ease-out-back),
+				border-radius var(--ease-m) 0s;
+	
+	position: relative;
+	z-index: 909;
+
+	label{
+		width: 100%;
+		grid-area: 1/1/-1/-1;
+		margin-top: 88%;
+		pointer-events: none;
+	}
+	progress{
+		// transform: translateY(12.5%);
+		grid-area: 1/1/-1/-1;
+	}
+	
+	&:has(progress[value="1"]){
+		border-radius:99px;
+		box-shadow:none;
+		background-image:none;
+		background-color: var(--shade-yellow);
+	}
+
+	
+	&[data-loaded="true"],
+	&[data-loaded=true]{
+		opacity: 0;
+		visibility: hidden;
+		display: none;
+	}
+
+	&[data-loaded=true]:hover{
+		opacity: 1;
+		visibility: visible;
+		display: block;
+	}
+}
+
+label[for="progress-bar"]{
+	// position: sticky;
+	// // left:var(--pad);
+	// // right:var(--pad);
+	width:calc(100% - 2 * var(--pad) ) ;
+	// bottom:10%;
+	margin:auto;// auto 4rem auto;
+	// set the label colour...
+	color: var(--shade-gray);
+	outline: none;
+	border:0;
+	padding: 0;
+	flex-grow:1;
+	font-size:77%;
+
+	display: flex;
+	flex-direction: column;
+	// align-items: center;
+	text-align: center;
+    justify-content: flex-end;
+
+	&:hover{
+		background-color: transparent;
+	}
+}
+
+// percentage 100%
+.load-percent{
+	font-size:758%;
+	position: absolute;
+	bottom:calc( 100% );// + var(--pad));
+	left:0;
+	right:0;
+	text-align: center;
+	color:var(--shade-dark);
+	line-height: 1;
+	opacity: 0.8;
+}
+
+// for performance we physically hide the progress in an unopened folder
+.folder-content{
+	progress:not([value]) {
+		display: none;
+	}
+}
+
+.folder-menu:is(:focus, :focus-within) .folder-content,
+.folder-content:is(:focus,:focus-within, :target),
+// .folder-content:target,
+// .folder-link:hover + .folder-content{
+.folder-link:is(:focus, :focus-visible, :active) + .folder-content
+{
+	progress:not([value]) {
+		display: inline-block;
+	}
+}
+
+
+progress{
+	transform-origin: center;
+    appearance: none;
+    box-sizing: border-box;
+	background: none;
+	border: none;
+}
+
+
+// indeterminate spinner rather than progress bar
+// that weirdly does a KITT
+progress:not(
+	[value],
+	.donut,
+	.progress-bar
+	) {
+
+	--size:clamp( 44px , 50vmin, 88px );
+	--stroke:4px;
+
+	width:var(--size);
+	height:var(--size);
+	
+	display: inline-block;
+	vertical-align: middle;
+
+	margin:auto;
+	color:inherit;
+	overflow: hidden;
+
+	cursor: progress;
+
+	border-radius: 999px;
+	border-top: var(--stroke) solid var(--shade-white, white);
+	border-right: var(--stroke) solid transparent;
+	
+	animation: Rotate 1s linear infinite;
+
+	&::-webkit-progress-bar {
+		background-color: rgba(0,0,0,0);
+	}
+
+	&::-webkit-progress-value{
+		background-color: rgba(0,0,0,0);
+	}
+}
+
+// progress[value="0.1"]
+
+// gets faster as we get shorter
+// 10deg +
+progress.donut{
+	
+	--range:176deg;
+	// bounces less and grows longer so that at 100%
+	//  it is a full smile none moving
+    --angle:calc( ( var(--progress,1) ) * var(--range,160deg) );
+    --size:clamp(202px, 50vmin, 250px);
+    
+	// we start at this size
+	--scale:1;
+	// and at the apex overscale
+	--overscale:calc( 0.01 + ( 1 - var(--progress)) * 0.91  );//1.5;//.5;
+	// --overscale:calc(0.1 + (var(--progress)) * 0.9 );//1.5;//.5;
+
+	--direction:-1;
+    --duration:2s;
+    --stroke:clamp(50px, 7vmin, 70px);
+    --saturation:calc(var(--progress,1) * 100% );
+    --luminosity:70%;
+
+    --ease:#{ease.$authenticMotion};//ease-in-out;
+	
+	--full-scale:calc( var(--scale,1) + var(--overscale,0.5)); 
+
+	margin:auto;
+	color:inherit;
+
+	cursor: progress;
+
+    appearance: none;
+    box-sizing: border-box;
+    display: grid;
+    border-radius:999px;
+    // transition: border 900ms linear;
+    width:var(--size);
+    height:var(--size);
+    position:relative;
+    //height:calc(var(--size) * 0.5);
+    overflow: hidden;
+
+    clip-path: inset(0 0 50% 0);	
+	// animation: LoaderColor calc(var(--duration)*7) linear var(--delay, 0s) infinite both;
+
+    //background-image: conic-gradient(from 90deg, red, yellow, green);
+    // background-image:   radial-gradient(var(--_eye-r) circle at calc( 50% + var(--_eye-r) ) var(--_nose-y), #E71D36 50%, transparent 51%),
+    //                     radial-gradient(var(--_eye-r) circle at calc( 50% - var(--_eye-r) )  var(--_nose-y), #E71D36 50%, transparent 51%);
+
+    // we also have to rotate the innards
+    //animation: Loader calc(var(--duration)*1) linear infinite alternate-reverse;
+
+   //transform: rotate(180deg);
+    transform-origin: center;
+
+    &::before,
+    &::after{
+		--delay:0s;
+        content:"";
+        display: block;
+        grid-area: 1/-1;
+        width:calc( var(--size) - var(--stroke,10px) * 2 );
+    	height:calc( var(--size) - var(--stroke,10px) * 2 );
+        border-radius:999px;
+        border: var(--stroke,10px) solid var(--shade-green);
+        transform-origin: center;
+        box-sizing: content-box;
+        // now we mask the circle so it is just the top half
+        clip-path: inset(0 0 50% 0);
+        overflow: hidden;
+        animation:  LoaderLine  calc(var(--duration)*1) var(--ease) infinite var(--delay) alternate both,
+					LoaderColor calc(var(--duration)*7) linear var(--delay) infinite both;
+			
+//		LoaderLine  calc(var(--duration)*1) var(--ease) infinite var(--delay) alternate both paused,
+		// animation-composition: add;
+
+		// // speeds up too!
+		// @supports (animation-composition: add) {
+			
+		// 	animation:  LoaderLine calc(var(--progress,1) * var(--duration)) var(--ease) infinite var(--delay) alternate both,
+		// 	LoaderColor calc(var(--progress,1) * var(--duration)*7) linear var(--delay) infinite both;
+		// }
+    }
+    
+	// this trails behind
+    &::before{
+		//content:calc( 100 * var(--progress,1) ) "";
+        opacity: 0.5;
+		// animation-delay: calc( -0.5 * var(--duration) );
+		// animation-play-state: paused;
+    }
+
+    &::after{
+        --delay:calc( var(--duration, 1s) * -0.03 );
+		
+        // animation:  LoaderLine var(--duration) var(--ease) var(--delay) infinite alternate both,
+        //             LoaderColor calc(var(--duration)*7) linear infinite both;
+		// animation:  LoaderLine var(--duration) var(--ease) var(--delay) infinite alternate both,
+		// 			LoaderColor calc(var(--duration)*7) linear 0s infinite both;
+
+    }
+
+	// run the animations twice!?
+	&:hover{
+		animation-play-state: running;
+	}
+}
+
+// @media screen and (prefers-reduced-motion: no-preference){
+	
+
+// Fifefox ONLY (no pseudo elements inside progress but there is a secret extra element!)
+progress::-moz-progress-bar {
+	//--angle:calc(( var(--progress,1) )* var(--range,160deg) );
+	--overscale:1;
+	--full-scale:calc( var(--scale,1) + var(--overscale,1)); 
+	--stroke:20px;
+
+	// firefox doesn't do pseudo elemenys inside
+	background: 
+		radial-gradient(white 55%, transparent 56%),
+		conic-gradient( #fdd477 0% 25%, #65AAFF 25% 60%, #FA8A8A 60% 100%);
+
+	// now we mask the circle so it is just the top half	
+	background: radial-gradient(circle, transparent calc(var(--stroke)),  var(--shade-green) calc(var(--stroke))); //conic-gradient(#9c27b0 65%, #ff9800 0);
+	
+	clip-path: inset(0 0 50% 0);
+	overflow: hidden;
+
+	transform-origin:center center;
+	transform: rotate( calc(( 1 - var(--progress,1) ) * var(--range,160deg) ));
+
+	animation:  LoaderLine2 calc(var(--duration)*1) var(--ease) infinite var(--delay, 0s) alternate both,
+				LoaderColor calc(var(--duration)*7) linear var(--delay, 0s) infinite both;
+}
+
+progress:indeterminate::-moz-progress-bar {
+	// width: 0;
+}
+
+// COMPLETE!
+progress[value="1"]{
+	--overscale:0;
+	--range:180deg;
+	clip-path: none;
+	border-radius: 0;
+    animation: LoaderComplete 0.2s var(--ease) 1 alternate both;
+	animation-timing-function: var(--ease-out-back);
+	animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	// background-image: conic-gradient(from 90deg, red, yellow, green);
+	
+	&::before,
+    &::after{
+		--size:250px;
+		--delay:0s;
+		--duration:0.5s;
+		--stroke:40px;
+		--scale:0.7;
+		--overscale:0;
+		--saturation:100%;
+		--luminosity:0%;
+		// animation: 	LoaderLineComplete var(--duration, 1s) 0s var(--ease, linear) 1 forwards,
+		// 			LoaderColor calc(var(--duration)*7) linear infinite both;
+		animation-play-state: paused;
+		transition:background 450ms linear;
+    }
+
+	&::after{
+		 
+		--_eye-r:calc( var(--size) * 0.2 );
+		--_nose-x:calc( var(--size) * 0.18 );
+		--_nose-y:66%;//calc( var(--size) * 0.5 );
+		--col-eye:hsl(360,var(--saturation,50%),var(--luminosity,50%));;
+
+		box-sizing: border-box;
+		clip-path: none;
+		width:100%;
+		height:100%;
+		padding: 0;
+		margin: 0;
+		transform:none;// scale( var(--scale) );
+		background-repeat: no-repeat;
+		animation: none;
+		border-color:transparent;
+		border-width:0;
+		//background-color: var(--shade-yellow);
+		//background-image:   radial-gradient( var(--_eye-r, 5px) circle at var(--nose-x) var(--_nose-y, 50%),var(--col-eye) 50%, transparent 51%);
+		background-image:   radial-gradient(var(--_eye-r, 5px) circle at calc( 50% + var(--_nose-x,0) ) var(--_nose-y, 50%), var(--col-eye) 50%, transparent 51%),
+							radial-gradient(var(--_eye-r, 5px ) circle at calc( 50% - var(--_nose-x,0) ) var(--_nose-y, 50% ), var(--col-eye) 50%, transparent 51%);
+
+						background-size:100% 100%;
+	}
+}
+
+progress[value="1"] + label{
+	display: none;
+}
+
+
+// on the player selection screen there is still
+// some background loading so we animate the smiler
+.player-selection #load-progress{
+
+	// top:-7px;//var(--pad);
+	// left:82px;
+	
+	position: fixed;
+	left: var(--pad);
+	top: var(--pad);
+
+	transform:none;
+	margin:0;
+	padding:0;
+	display: grid;
+	background-color: transparent;
+	background-image:none;
+	align-items: center;
+    justify-content: center;
+	flex-direction: row;
+	box-shadow: none;
+
+	pointer-events: none;
+
+	progress{
+		grid-area:1/-1;
+		margin:0;
+		--size:var(--loader-size-small, 59px); 
+		--stroke: 16px;
+		/* border: 1px solid red; */
+		// margin-top: 10px;
+		// make into mouth!
+		transform: rotate(0.5turn) scale(0.8);
+	}
+
+	progress[value="0.5"]{
+		opacity: 0;
+	}
+	progress[value="1"]{
+		opacity: 0;
+	}
+	
+	label[for="progress-bar"]{
+		grid-area:1/1/-1/-1;
+		font-size: 2px;
+		align-self:center;
+		// justify-self: flex-start;
+		justify-self: center;
+		margin:0;
+		color:transparent;
+		position: absolute;
+		top:auto;
+		left:0;
+		right:0;
+		z-index: -1;
+		display: block;
+		mix-blend-mode:hard-light;
+	}
+	.load-percent{
+		// margin: auto;
+		text-align: center;
+		font-size:20px;
+		// width: min-content;
+		// position: absolute;
+		color:var(--shade-brand);
+		// left:0;
+		// right:0;
+		// transform: translate(-50%, -50%);
+		// mix-blend-mode:hard-light;
+	}
+	&:has(progress[value="1"]){
+		background-color: transparent;
+	}
+}
+
+
+
+.loader.wheel{    
+    &::after{
+        --delay:calc( var(--duration, 0s) * -0.015 );
+		
+        animation:  LoaderLine var(--duration) var(--ease) var(--delay) infinite alternate both,
+                    LoaderColor calc(var(--duration)*7) linear infinite both;
+    }
+}
+
+// rotates the opposite way to it's innards
+@keyframes Loader{
+    // 0%{
+    //     transform: rotate(var(--angle) );
+    // }
+    // 100%{
+    //     transform: rotate( calc( var(--direction,-1) *  (1turn + var(--angle) ) * -1 ));
+    // }
+}
+
+@keyframes LoaderComplete{
+    to{
+        transform: rotate( -0.5turn ) scale(var(--scale,1));
+    }
+}
+
+
+@keyframes LoaderLine{
+    0%{
+        transform: rotate( calc( -0.5turn + var(--angle) ) ) scale(var(--scale,1));
+    }
+    5%{
+        transform: rotate( calc( -0.25turn + var(--angle) ) ) scale( var(--scale,1) );
+    }
+   	25%{
+        transform: rotate( calc( -0.5turn + var(--angle) ) ) scale( calc( (var(--scale,1) + var(--full-scale)) * 0.5));
+    }
+	50%{
+		transform: rotate( 0turn ) scale(var(--full-scale,1.5));
+	}
+    75%{
+        transform: rotate( calc( 0.25turn - var(--angle) ) ) scale( calc( (var(--scale,1) + var(--full-scale)) * 0.5));
+    }
+    95%{
+        transform: rotate( calc( 0.5turn - var(--angle) ) ) scale( var(--scale,1) );
+    }
+    100%{
+        transform: rotate( calc( 0.5turn - var(--angle) ) ) scale(var(--scale,1));
+    }
+}
+
+@keyframes LoaderLine2{
+    0%, 5%{
+        transform: rotate( calc( -0.5turn + var(--angle) ) ) scale(var(--scale,1));
+    }
+   50%{
+    	transform: rotate( 0turn ) scale(var(--full-scale,1.5));
+  	}
+    95%, 100%{
+        transform: rotate( calc( 0.5turn - var(--angle) ) ) scale(var(--scale,1));
+    }
+}
+
+// @keyframes LoaderLine2{
+//     0%{
+//         transform: rotate( calc( 0turn + var(--angle) ) ) scale(var(--scale,1));
+//     }
+//    50%{
+//     //    transform: rotate( 0.5turn ) scale(var(--full-scale,1.5));
+//   }
+//     100%{
+//         transform: rotate( calc( 1turn - var(--angle) ) ) scale(var(--scale,1));
+//     }
+// }
+
+@keyframes LoaderLineComplete{
+	to{
+        transform:  rotate( 0.5turn );
+    }
+}
+
+
+// change colour over a longer period
+@keyframes LoaderColor{
+    0%{
+		filter:hue-rotate(0);
+    }
+   
+    100%{
+        filter:hue-rotate(1turn);
+    }
+}
+
+
+
+
+// @keyframes LoaderColor{
+//     0%{
+//         border-color:hsl(0,var(--saturation,50%),var(--luminosity,50%));
+//     }
+//     50%{
+//         border-color:hsl(180,var(--saturation,50%),var(--luminosity,50%));
+//     }
+//     75%{
+//         border-color:hsl(270,var(--saturation,50%),var(--luminosity,50%));
+//     }
+//     100%{
+//         border-color:hsl(360,var(--saturation,50%),var(--luminosity,50%));
+//     }
+// }

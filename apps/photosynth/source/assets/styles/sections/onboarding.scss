@@ -1,0 +1,815 @@
+// Onboarding screen with setup options
+@use "../gadgets/_button.scss";
+@use "../_ease.scss";
+
+// we need this to visually look the same size as the video
+#onboard{
+
+	visibility:hidden;
+
+	border:var(--border-size, var(--border-radius, 9px )) double var(--shade-white, white);	
+    border-radius: 22px;
+
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-areas: 
+		"playerSelector"
+		"complexitySelector"
+		"automation"
+		"buttonStart"
+	;		
+	grid-template-columns:1fr; 
+	grid-template-rows: 
+		auto 
+		auto 
+		auto 
+		1fr
+	;	
+	align-items: center;
+    justify-items: stretch;
+
+	// border:var(--border-size, 9px) solid var(--shade-dark);
+	// background-image:linear-gradient(
+	// 	hsla(18, 21%, 12%, 0.7), 
+	// 	hsla(340, 5%, 11%, 0.7)
+	// );
+	
+	// backdrop-filter: grayscale(3) blur(3px);
+	padding: var(--pad);
+	margin:auto;
+
+
+	// do something in wider screens
+	max-width:calc( 100% - var(--side) );
+	
+	@media screen and (max-width:540px){
+		--side:0px;
+	}
+	@media screen and (max-height:620px){
+		margin-bottom: 0;
+	}
+
+	p{
+		animation-delay: 0s;
+		transition-delay: 0s;
+		color: inherit;
+	}
+	.alert-accept-requests{
+		visibility: hidden;
+		grid-area: 1 / 1 / -1 / -1;
+	}
+	
+	// animate out again?
+	&.completed{
+
+		button, label, input, fieldset, #button-start-label{
+			--yb:100%;
+			--opacity:0;
+			//animation-name: Shift, Fade;
+			//animation-direction: normal, reverse;
+			animation:
+				Fade 900ms linear reverse both 1 0s, 
+				Shift 900ms ease-out 0s 1 both;
+		}
+
+		.alert-accept-requests{
+			visibility: visible;
+		}
+	}
+}
+
+
+
+// STATE =============================================================
+// Choose players screen
+// This is the how many people are playing mode
+.player-selection{
+
+
+	// instructions do show periodically so we need to ensure that they
+	// NB. don't cover the buttons
+	#toast{
+		--footer-gap:var(--pad);
+		// we push the speech bubble to the right a little
+		--left:100px;
+		// bottom:auto;
+		// top:var(--pad);
+		// left:50%;
+		// transform: translateX(-50%);
+		// right:auto;
+		// max-width:calc( 100% - 4rem );
+		// prevent cramping
+		// margin:0 var(--pad);
+		// background-color: $col-dark;
+		// text-align:center;
+		// pointer-events: none;
+	}
+
+
+	// hide everything in the header except for the nav
+	// #intro > *:not(nav){
+	// 	visibility: hidden;
+	// 	overflow: hidden;
+	// 	height:0;
+	// }
+
+	// #intro > :is(.logo){
+	// 	visibility: hidden;
+	// 	overflow: hidden;
+	// 	height:0;
+	// }
+
+
+	// strapline... show yet?
+	#title{
+		position: absolute;
+		bottom:0;
+		visibility:hidden;
+	}
+	
+	// form > * {
+	// 	visibility: hidden;
+	// 	pointer-events: auto;
+	// }	
+	#onboard{
+		--side:clamp( var(--pad), 25%, 240px);
+		z-index:1;
+	}
+
+	// show this
+	#onboard,
+	#player-selector{
+		visibility: visible;
+	}
+
+	#player-selector{
+		input[type="radio" i]{	
+			--over:0%;
+			--y:0;
+			background-color: transparent;
+			display:block;
+			top:calc( -1 * var(--over));
+			left:calc( -1 * var(--over));
+			// right:calc( -1 * var(--over));
+			bottom:calc( -1 * var(--over));
+			width:calc( 2 * var(--over) + 100% );
+			height:auto;
+			border:0;
+			border-radius: 0;
+			position: absolute;
+			transition:transform var(--ease-s, 1s ) var(--ease-out-back);
+			transform:scaleX(0);
+			transform-origin: center;
+		}
+
+	}
+		
+	
+	// hide stuff not relevent
+	// Instrument selection panel
+	#control-panel{
+		display: none;
+	}
+
+	
+	.person,
+	#shared-controls{
+		visibility: hidden;
+	}
+
+	// NB: Warning - this MAY trigger a video element not found error
+	// as JS pointer no longer has DOM equivalent
+	#app-frame {
+		canvas,
+		video,
+		fieldset.person-controls{
+			display: none;
+		}
+	}
+	
+	#help .player-selection-help{
+		display: block;
+	}
+	
+	// #app-frame{
+	// 	height:auto;
+	// 	min-height:auto;
+	// 	max-height:none;
+	// 	//max-height:calc( 100% - var(--footer-gap, 44px) );
+	// }
+
+	// we invert as on black background
+	#foot{
+		color:var(--shade-white);
+	}
+}
+
+
+
+// Player selection screen
+#player-selector{
+	// size of the logo asnd help button
+	--top-gap:clamp(66px, 7vh, 15%);//clamp(1rem, 7vh, 5rem);
+	// prevents a button becoming an icon
+	--max-width-override:auto;
+	--border-radius:9px;
+    --border-size: clamp(3px, 20vmax, 4px);
+	
+	grid-area:playerSelector;
+	
+	text-align:center;
+	box-sizing: border-box;
+	visibility: hidden;
+	user-select: none;
+	width: 100%;
+	
+	// doesn't work anymore
+	// border-image: linear-gradient(
+	// 	var(--shade-grey, hsla(0, 0%, 100%, 0.3) ), 
+	// 	var(--shade-gray, hsla(0, 0%, 0%, 0.3) )
+	// );
+	
+	margin:0;
+	padding:calc(var(--pad)*1) calc(var(--pad) * 1);// var(--pad);
+	
+	display:grid;
+	align-items: center;
+	justify-content: stretch;
+
+	gap:var(--pad);
+	grid-template-areas:
+		"legend"
+		"p1" 
+		"p2"
+		"p3" 
+		"p4"
+	;
+
+	// grid-template-rows:auto 1fr 1fr;
+
+	// min-height:calc( 100% - var(--top-gap) * 2);
+	// max-height:100%;
+
+	legend{
+		grid-area:legend;
+	}
+	
+	// actual person selection buttons 
+	label[for*="button-"]{
+		--space:11px;
+		--button-radius:3px;
+		--opacity:0.66;
+	
+		--col-stroke:transparent;
+		--col-top:transparent;
+		--col-bottom:transparent;
+		--col-hover:var(--shade-white, white );
+		// --col-hover:var(--shade-active, var(--shade-white, black) );
+		--icon-size: clamp(22px, 9vmin, 44px);
+		--button-border-size:var(--border-size);
+
+		// this softens the border
+		//box-shadow: inset 0px 0px calc(var(--border-size)) $col-white;
+		
+		align-items: center;
+		overflow: hidden;
+		max-width: none;
+		border: var(--button-border-size, var(--stroke,2px)) solid var(--col-stroke, transparent); 
+		border-radius: var(--button-radius, var(--border-radius, 0));
+		overflow: hidden;
+		line-height: 1.2;
+
+		// text-shadow:none;
+
+		// cool covering effect
+		&:before{
+			box-sizing: border-box;
+			opacity:0;
+			border-radius: inherit;
+			border:0;
+			//border: var(--button-border-size, var(--stroke,2px)) solid var(--col-stroke, transparent); 
+		
+			// border-color:var(--col-hover);
+			
+			background:inherit;
+			background-color:var(--col-hover);
+
+			padding: inherit;
+			
+			position: absolute;
+			top:0;
+			left: 0;
+			bottom:0;
+			right:0;
+			z-index: -1;
+			// grid-area:1/1/-1/-1;
+
+			display: flex;
+			transform: scaleX(0);
+			transition: 
+				transform var(--ease-q, 150ms) ease-out, 
+				opacity var(--ease-q, 95ms) linear;
+		}
+		
+		// combine this selector with the one below
+		&:is( :hover, :focus, :focus-visible, :focus-within),
+		&:has( input:checked )
+		{  
+			// --col-stroke:var(--col-active);
+			&:before{
+				transition: transform 150ms ease-out, opacity 150ms linear;
+				transform:none;
+				opacity:var(--opacity, 0.3);
+			}
+		}
+	}
+		
+	input{
+		// opacity: 0;
+		z-index: -1;
+		position: relative;
+	}
+
+	input[role="switch" i]{
+		border:solid var(--stroke, 2px) var(--shade-white);
+	}
+
+	button, label{
+		--dir-override:column;
+		--pos-override: top calc(var(--pad) - var(--border-size)) center;
+		//--pos-override: top center;
+		font-size: clamp(15px, -0.5385rem + 2.2vmax, 14px);
+		// border-radius:24px;
+
+		text-indent: 0;
+		overflow: visible;
+		// color: $col-dark;
+		// background-color: $col-yellow;
+		justify-content: center;
+		max-height: unset;
+
+		// prevent growing the button 
+		// as this mis-aligns the icons
+		flex:0 1 100%;
+	}
+	
+	/*
+	.button{
+
+		// double channel if short and wide
+		@media screen and (min-width:640px), (max-height:640px){
+			--pos-override:50%;
+			
+			flex:0 1 calc(50% - 2px);
+			flex-direction: row;
+			input{
+				--bg:'';
+			}
+		}
+	}
+	*/
+	@media  screen and (min-width:480px) {
+		grid-template-areas:
+			"legend legend"
+			"p1 p2"
+			"p3 p4"
+			// "advanced-toggle advanced-toggle"
+			// "advanced-feedback advanced-feedback"
+			// "automation automation"
+		;
+	}
+}
+
+// 
+label[for="button-solo"],
+#button-solo{
+	grid-area:p1;
+}
+
+label[for="button-duet"],
+#button-duet{
+	grid-area:p2;
+}
+
+label[for="button-trio"],
+#button-trio{
+	grid-area:p3;
+}
+
+label[for="button-quartet"],
+#button-quartet{
+	grid-area:p4;
+}
+
+#complexity-selector{
+    --border-size: clamp(3px, 20vmax, 4px);
+	grid-area:complexitySelector;
+	display: grid;
+	gap: var(--pad);
+	grid-template-areas: 
+			"legend legend legend"
+			"label label label"
+			"output output output"
+		;
+
+	@media  screen and (min-width:480px) {
+		grid-template-areas: 
+			"legend legend legend"
+			"labelStart label labelEnd"
+			"output output output"
+		;
+
+		grid-template-columns:minmax(44px,0.5fr) 1fr minmax(44px,0.5fr);
+	}
+
+	
+	@media screen and (min-width:980px) {
+		
+		grid-template-areas: 
+			"legend legend legend legend legend"
+			"label label label gap output"
+			"labelStart labelMid labelEnd gap output"
+		;
+
+		grid-template-columns:auto 1fr auto var(--pad,0px) 1fr;
+	}
+}
+
+
+#toggle-advanced-mode{
+	grid-area: label;
+}
+
+#advanced-mode-feedback{
+	display: grid;
+	width: 100%;
+	grid-area:output;
+
+	p{
+		font-size: 60%;
+	}
+
+	
+	> * {
+		grid-area:1/-1;
+	}
+
+	> *[hidden] {
+		display: block !important;
+		visibility: hidden;
+	}
+}
+
+@media screen and (min-width:480px) {
+	// toggle in the middle!
+	#toggle-advanced-mode{
+		// grid-column-start: label;
+		// grid-column-end: label;
+		// grid-row-start: label;
+		// grid-row-end: label;
+		grid-area:label;
+		margin-left: var(--pad);
+		margin-right: var(--pad);
+		box-sizing: border-box;
+		width: calc(100% - 2 * var(--pad));
+	}
+	
+	#advanced-mode-feedback p{
+		font-size: 100%;
+	}
+}
+
+// composite grid layout with odd setup
+label[for="toggle-advanced-mode"]{
+
+	//color:$col-white;
+	padding:var(--pad) calc( 2 * var(--pad));
+	
+	// margin-bottom:var(--pad);	
+	// border-bottom:1px solid var(--shade-white);
+	grid-template-columns: inherit;
+	grid-template-areas: 
+		"label label"	
+		"off on"
+	;
+	grid-area:label; 
+	// align-self: center;
+	// vertical-align: middle;
+	display: grid;
+	align-items: center;
+	width: 100%;
+	flex-basis: 100%;
+	justify-content: stretch;
+	text-align: center;
+
+	// grid-template-rows:1fr;
+	gap: var(--pad);
+	margin:auto ;
+	max-width: none;
+
+	color:transparent;
+
+	&::before{
+		content:"";
+		// order:1;
+		// max-width: calc(33% - var(--pad));
+		grid-area:off;
+		opacity:0.5;
+		text-align: right;
+		animation: none;
+		color:var(--shade-white);
+	}
+
+	// DEFAULT SELECTION
+	&::after{
+		--opacity:0.8;
+		content:"";
+		// max-width: calc(33% - var(--pad));
+		grid-area:on;
+		z-index:1;
+		opacity:1;
+		background:transparent;
+		// order:2;
+		position: relative;
+		top:auto;
+		left: auto;
+		bottom:auto;
+		right:auto;
+		transform: none;
+		color:var(--shade-white);
+	}
+
+	@media screen and (min-width:480px) {
+
+		grid-area:auto; 
+		grid-column-start: labelStart;
+		grid-column-end: labelEnd;
+		grid-row-start: labelStart;
+		grid-row-end: labelEnd;
+		
+		// gives us 44px with text inside
+		padding: 9px;
+		padding-left: 0;
+		padding-right: 0;
+		grid-template-columns: inherit;
+		grid-template-areas: 
+			"off label on"
+		;
+
+		&::before{
+			content:"For Beginners";
+		}
+
+		&::after{
+			content:"For Experts";
+			text-align: left;
+		}
+
+		input{	
+			margin:auto var(--pad);
+		}
+	}
+
+	@media screen and (min-width:920px) {
+		grid-template-columns: 1fr var(--pad) 1fr;
+		color:transparent;
+		font-size:10%;
+		padding-top:0;
+
+		&::before{
+			text-align: left;
+			color:var(--shade-white);
+			font-size:900%;
+		}
+
+		&::after{
+			text-align: right;
+			color:var(--shade-white);
+			font-size:900%;
+		}
+	}
+}
+
+label[for="toggle-automation-mode"]{
+	color:var(--shade-dark);
+	grid-area:automation; 
+	background-color: var(--shade-white,white);
+	border-radius: 0px 0 var(--curve,24px) var(--curve,24px);
+	justify-self: center;
+	
+	padding:calc(var(--pad) * 1) calc(var(--pad) * 1);
+	margin-bottom:var(--pad,0);
+	font-size:60%;
+	
+	@media  screen and (min-width:320px) {
+		max-width: calc(100% - var(--pad) * 2);
+	}
+	@media  screen and (min-width:480px) {
+		max-width: 66%;
+		font-size:100%;
+		padding:calc(var(--pad) * 1) calc(var(--pad) * 3);
+	}
+}
+
+// START BUTTON ================================================================================
+
+// set this up as a background!
+#button-start{
+	
+	// --bg:inherit;
+	// --icon-size: 44px;
+	// // --inset:calc( var(--pad) * 0.5 );
+	// // position: absolute;
+	// // top:var(--inset);
+	// // right:var(--inset);
+	// // bottom:var(--inset);
+	// // left:var(--inset);
+	// color:transparent;
+	// // opacity: 0;
+	// // border-color: var(--shade-white);
+	// text-shadow: none;
+	// color:transparent;
+	opacity: 0;
+	grid-area:buttonStart;
+	z-index:-1;
+	padding:0;
+	margin: 0;
+	border: 0;
+	min-height: unset;
+}
+
+/////////////////////////////////////////////////////
+// CTA to begin the app...
+// Glows and entices a click!
+/////////////////////////////////////////////////////
+#button-start-label,
+#onboard label[for=button-start]{
+
+	// fake the button!
+	@include button.button-with-icon-and-border;
+
+	&{
+		// overwrite the var settings
+		--bg:url(/source/assets/icons/music_note-24px.svg);
+		--icon-size:3rem;
+		--space:0px;
+		--col-hover: var(--shade-blue);
+		--button-curve: calc(2* var(--pad));
+		
+		grid-area:buttonStart;
+		grid-template-columns: var(--_col-width) auto;
+
+		z-index:606;
+		max-width: none;
+		width: fit-content;
+		margin: auto;
+		height: 100%;
+		border-radius: 9px;
+		
+		animation: CTA 2s infinite;
+
+		/*
+
+		// --pos-override:left var(--pad) center;
+		--pos-override:left center;
+		
+
+		// animation: CTA 2s infinite;
+		// background-image:linear-gradient(var(--col-top, #ffffff4d), var(--col-bottom, #0000004d));
+		// background-repeat: repeat;
+		// background-size: contain;
+		display: grid;
+		grid-template-areas: "icon label";
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		gap:var(--pad);
+		margin-top:var(--pad);
+		
+		padding: calc(var(--pad)*2 ) calc(var(--pad)*2 );
+		
+		justify-self: center;
+
+		&::before{
+			content:'';
+			// convert to white
+			@extend %filter-icon;
+			opacity:0.9;
+			background-position: right;
+			display: inline-block;
+			width: var(--icon-size);
+			height:var(--icon-size);
+			background-image: var(--bg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			// padding-left:calc(var(--pad)*3.5);
+			// margin-left:calc(var(--pad));
+			grid-area: icon;
+			// move offset slightly to create depth effect
+			// transform: translateY( calc( var(--shadow-offset-y, 0) * -1px ) ); 
+		}
+
+		&::after{
+			// content:'';
+			// grid-area:1/1/-1/-1;
+			// position: absolute;
+			// left:0;
+			// top:0;
+			// bottom:0;
+			// width:10rem;
+			// gap before suffix
+			// margin-left:0.28rem;
+			// margin-right:calc(var(--pad)*2);
+		}
+
+		// Hide white icon to reveal background icon
+		&:hover,	
+		&:focus{
+			animation-duration: 0.7s;
+			text-shadow: none;
+			&::before{
+				opacity: 0;
+			}
+		}
+		*/
+
+		@media  screen and (min-width:480px) {
+			
+			--space:var(--pad, 4px);
+
+			padding: calc(var(--pad)*2 ) calc(var(--pad)*3 );
+			grid-template-areas: "icon label gap";
+			grid-template-columns: calc( var(--icon-size) + var(--space,0px))  1fr var(--icon-size); //var(--icon-size);
+		
+			// &::before{
+			// 	width:calc( var(--icon-size) + var(--space, 0) );
+			// }
+		}
+	}
+}
+
+// Selected states for the person amount buttons
+.solo #onboard label[for="button-solo"],
+.duet #onboard label[for="button-duet"],
+.trio #onboard label[for="button-trio"],
+.quartet #onboard label[for="button-quartet"]{
+	--col-stroke:var(--shade-white);
+	--col-top: var(--shade-active);
+	--col-bottom: var(--shade-active);
+	// --col-stroke:var(--shade-active);
+	// --col-top: var(--shade-blue);
+	// --col-bottom: var(--shade-blue);
+}
+
+// variations for the START button
+.solo #onboard label[for="button-start"]{
+	--col-stroke:var(--shade-active);
+	--bg:url(/source/assets/icons/person-24px.svg);
+	// &:before{
+	// 	content:'Solo ';
+	// }
+}
+
+.duet #onboard label[for="button-start"]{
+	--col-stroke:var(--shade-active);
+	--bg:url(/source/assets/icons/people-24px.svg);
+	// &:before{
+	// 	content:'Duet ';
+	// }
+}
+
+.trio #onboard label[for="button-start"]{
+	--col-stroke:var(--shade-active);
+	--bg:url(/source/assets/icons/groups-24px.svg);
+	// &:before{
+	// 	content:'Trio ';
+	// }
+}
+
+.quartet #onboard label[for="button-start"]{
+	--col-stroke:var(--shade-active);
+	--bg:url(/source/assets/icons/person_add-24px.svg);
+	// &:before{
+	// 	content:'Quartet ';
+	// }
+}
+
+// .beginner #onboard label[for="button-start"]{
+	// &:after{
+	// 	content:' in Simple Mode';
+	// }
+// }
+
+// Beginner state selected
+.beginner{
+
+	#onboard label[for="toggle-advanced-mode"]{
+		&::before{
+			opacity:1;
+			animation: Pulse var(--duration-l, 1s) 0s #{ease.$easeOutQuad} infinite both;
+		}
+		&::after{
+			opacity:0.5;
+			animation: none;
+		}
+	}
+}

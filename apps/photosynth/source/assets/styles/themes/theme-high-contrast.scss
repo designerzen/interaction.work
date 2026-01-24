@@ -1,0 +1,27 @@
+@use "../_palette.scss";
+
+.theme-high-contrast{
+	
+	:is(
+		button,
+		.button,
+		input[type=list],
+		.controls > *:not(div), 
+		.controls .folder-link
+	){
+		--range:0%;
+		--button-border-size:4px;
+
+		--hue: #{palette.$hue-red};
+		--hue-selected: #{palette.$hue-blue};
+		--hue-active: #{palette.$hue-yellow};
+	
+		--s:8%;
+		--s-selected:58%;
+		--s-active:58%;
+	
+		--l:8%;
+		--l-selected:58%;
+		--l-active:58%;
+	}
+}

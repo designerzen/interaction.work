@@ -1,0 +1,323 @@
+
+
+label[for="select-camera"],
+#select-camera{
+	--col-hover:var(--shade-green);
+}
+
+// we can force full width select using this
+// #select-theme:focus{
+#select-theme:focus-within{
+	position: fixed;
+	top:0;
+	right:var(--pad);
+	z-index: 909;
+	border: 0;
+}
+
+
+
+// form!
+#upload-midi-form{
+	position: fixed;
+	z-index:0;
+	top:0;
+	left: 0;
+	right:0;
+	bottom:0;
+	display: flex;
+	visibility: hidden;
+	flex-direction: column;
+	align-items: center;
+    justify-content: center;
+	
+	> *{
+		opacity: 0;	
+	}
+}
+
+#midi-upload-file{
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom: 0;
+}
+
+// generally hide the camera select button unless 
+// there are multiple cameras
+#camera{
+	display: none;
+}
+
+// Camera SELECTOR
+.multiple-cameras #camera{
+
+    // flex-direction: column-reverse;
+	//transition:width 40ms ease-out;
+	// display: grid;
+	display: grid;
+
+	// background-color:$col-blue;
+	// border-radius: 4px;
+	// &:focus-within,
+	// background-image:url(/source/assets/icons/switch_video-24px.svg);
+	--bg:url(/source/assets/icons/switch_video-24px.svg);
+	// overflow:hiddfooten;
+
+	&:before{
+		pointer-events: none;
+	}
+
+	&:hover,&:focus,&:target,
+	&:focus-visible{
+		// height:auto;
+		outline:none;
+		//width:calc(100% - 2 * var(--pad));
+	}
+	// label,select{
+	// 	grid-area:1/1/1/1;
+	// }
+	// label{
+	// 	// 
+	// 	pointer-events: none;
+	// 	white-space: pre;
+	// 	outline:none;
+	// 	opacity:0;
+	// 	transition:opacity 40ms ease-out;
+	// 	position: relative;
+	// }
+	// instead of the :before :)
+}
+
+// this holds nav to sections inc help and funding
+#nav-main{
+	--icon-size:var(--loader-size-small, 64px );
+
+	position:fixed;
+	top:0;
+	left:var(--pad);
+	right:var(--pad);
+	// 303 is the shared controls...
+	// 606 is the ?
+	z-index:808;
+	pointer-events: none;
+}
+
+nav ul{	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	list-style: none;
+	margin:0;
+	padding:0;
+
+	// prevent the whole thing stealing focus
+	pointer-events: none;
+	
+	// > * {
+	// 	opacity: 0.4;
+	// 	transition: opacity 95ms linear;
+	// }
+	// &:focus-within,
+	// &:hover{
+	// 	> * {
+	// 		opacity: 1;
+	// 	}
+	// }
+	
+	li a{
+		pointer-events: auto;
+		text-align: center;
+	}
+
+	// however i do want all hover and focus withins to activaste the fund animation
+	&:focus-within,
+	&:hover{
+		// a[href="#fund"]{
+
+		// 	animation:TagReveal 1s 1 0.1s both,
+		// 				TextColours 1s infinite 0s both;
+		// }
+	}
+}
+
+// This is an overlay button
+// so needs to look good on all backgrounds
+a[href="#help"]{
+
+	// naturally hidden
+	visibility: hidden;
+
+	//border:1px solid transparent;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap:calc( 0.5 * var(--pad) );
+	cursor: help;
+	
+	color:transparent;
+	transition:color 95ms linear;
+	// background-color:var(--shade-white);
+	border-radius: var(--button-curve);
+
+	&:hover{
+		color:var(--shade-yellow);
+		animation:TextColours 4s infinite 0s forwards reverse;
+	}
+
+	&::before{
+		content: '?';
+		// as the font is heavy
+		padding-top:4px;
+		font-size: calc( var(--icon-size) * 0.6 );
+		width:var(--icon-size);
+		height:var(--icon-size);
+		flex:0 0 auto;
+		display: flex;
+		justify-content: center;
+    	align-items: center;
+		box-sizing: border-box;
+
+		// aspect-ratio: 1;
+		// background-size: contain;
+		color:var(--shade-brand, var(--shade-red, red));
+		background-color: rgba(225,225,225,0.2);
+		border-radius: 99%;
+		border:var(--stroke, 4px) solid currentColor;
+	
+		//filter: invert(90%) sepia(10%) saturate(395%) hue-rotate(324deg) brightness(105%) contrast(81%) drop-shadow(0px 0px 6px rgba(0, 0, 0, var(--alpha-shadow,0.5)));
+		// margin-right:calc( 0.5 * var(--pad) );
+		// margin-bottom:calc( 0.5 * var(--pad) );
+	}
+
+	&:hover:before{
+		color:inherit;
+		//background-image:url(/source/assets/icons/help_black_24dp.svg);
+	}
+}
+
+.loaded{
+	visibility: visible;
+}
+
+// This is a litle face that changes style depending on the mode
+// the two eye animations are set in the 
+a[href="#fund"]{
+	line-height: 1;
+	line-height: 1lh;
+
+	display: grid;
+	align-items:center;
+	flex-direction: column-reverse;
+	
+	padding:0;// 6px;
+	margin-top:var(--pad);
+	position: relative;
+
+	// border:1px solid var(--shade-red, transparent);
+	border-radius: 999px;
+
+	// background-color: var(--shade-white, white);
+	background-color: rgba(0,0,0,0.2);
+		
+	// background:url(/source/assets/logos/interface_round-composite.svg) center no-repeat;
+	background-image:url(/source/assets/logos/interface_colour.svg);
+	background-position: bottom center;
+	background-size: 72%;
+	background-repeat: no-repeat;
+	
+	text-transform: uppercase;
+	text-decoration: none;
+	color:transparent;
+
+	width:var(--icon-size,10%);
+	height:var(--icon-size,10%);
+	display: block;
+
+	animation:TagHide 1s 1 0.1s both;
+	animation-timing-function: var(--ease-out-back);
+	
+	filter:drop-shadow(0.15rem 0.15rem 0.4rem rgba(0, 0, 0, 0.5));
+
+	// show a graphic but hide contents
+	&::before, &::after{
+		transition: var(--ease-s) linear opacity;
+		// opacity:0;
+		// grid-area: 1/1/-1/-1;
+		z-index:3;
+	}
+
+	// animation: Fade var(--ease-s) linear var(--delay) 1 normal both;
+		
+	// spacer
+	&:before{
+		content:'';
+		--opacity:0.8;
+		--delay:0s;
+		width:100%;
+		padding-bottom: 100%;
+		display: block;
+		
+		// flex-shrink:0;
+		// position: absolute;
+		// top:-7px;
+		// right:8px;
+		// content:'';//url(source//assets/logos/interface_colour.svg);
+		// content:url(/source//assets/logos/interface_current-color.svg);
+	}
+
+	// some animations to bring character!
+	&::after{
+		content:'';	
+		opacity: 0;
+		color:var(--shade-brand, var(--shade-red, red));
+		position: absolute;
+		top:15%;
+		left:0;
+		right:0;
+		text-align: center;
+	}
+}
+
+.loading{
+	a[href="#fund"]{
+		&::after{
+			content:'';	
+			animation:none;
+		}
+	}
+}
+
+.player-selection{
+	a[href="#fund"]{
+		&::after{
+			content:'O o';	
+			opacity: 1;
+			animation: EyesBlinking 2s ease-in-out 0s both infinite;
+		}
+	}
+}
+
+.loaded{
+	a[href="#fund"]{
+		&::after{
+			content:'O O';	
+			opacity: 1;
+			animation: EyesBlinking 2s ease-in-out 0s both infinite;
+		}
+	}
+}
+
+// show / hide tag at top right	
+// .loaded a[href="#fund"]{
+// 	animation:TagHide 1s 1 0.1s both;
+// 	animation-timing-function: var(--ease-out-back);
+// }
+
+a[href="#fund"]:is(:hover, :focus),
+.player-selection a[href="#fund"]{
+	border-color:currentColor;
+	animation:TagReveal 1s 1 0.1s both;
+}

@@ -1,0 +1,97 @@
+//- link(rel="stylesheet", href="/node_modules/reveal.js/dist/reveal.css")
+//- link(rel="stylesheet", href="/node_modules/reveal.js/dist/theme/black.css")
+//- link(rel="stylesheet" href="/node_modules/reveal.js/dist/theme/sky.css")
+
+.reveal .slides{
+
+	blockquote > *{
+		padding-left:var(--pad);
+		padding-right:var(--pad);
+	}
+
+	section > time{
+		position: absolute;
+		padding:var(--pad) calc( 2 * var(--pad) );
+		top:0;
+		left:0;
+		background-color: black;
+		border-radius: 2px;
+		// transform: translateY(-50%);
+	}
+
+	img{
+		margin-left:auto;
+		margin-right:auto;
+		height: auto;
+		width: auto;
+		object-fit: contain;
+		display: block;
+    	max-height: calc(96vh - 2lh)
+	}
+
+	figure{
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap:var(--pad, var(--r-block-margin));
+	}
+
+	figure.r-stretch{
+		img{
+			margin: 0 auto;
+		}
+	}
+
+	figure:not(.r-stretch){
+		img{
+			max-height:calc(100vh - 5lh);
+			max-width:100%;
+		}
+	
+		figcaption{
+			margin-top:var(--pad);
+		}
+	}
+
+	video{
+		margin:auto;
+		visibility:visible;
+	}
+
+	#timeline .history{
+		transition:transform 4s ease-in-out 0s infinite alternate-reverse;
+		transform: translateY(calc( -100% + 90vh));
+	}
+
+	blockquote p{
+		font-size:140%;
+	}
+
+	li::marker,
+	li p {
+		font-size:28px;
+	}
+
+	.split-width{
+		display: flex;
+		flex-direction: row;
+		gap:var(--gap, var(--pad));
+	}
+
+	.font-60{
+		font-size: 60%;
+	}
+	.font-80{
+		font-size: 80%;
+	}
+	.font-90{
+		font-size: 90%;
+	}
+}
+
+html.reveal-print .reveal {
+	min-height: fit-content !important;
+}
+
