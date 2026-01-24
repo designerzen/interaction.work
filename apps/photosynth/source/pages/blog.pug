@@ -1,0 +1,129 @@
+//-
+	a short blog from each of you on our website. 
+	Ideally the blog would be between 300-500 words, 
+	and it could include images and video. 
+	Any images will need to have alt text, and ideally 
+	any video would be captioned (we can assist with this if needed).
+
+extends _base.pug
+
+block headline 
+	| Photo<wbr>Synth 3
+	//- span.sr-only PhotoSynth 3
+	| #Inter<wbr>
+	strong FACE
+
+block tagline 
+	| Blog
+
+block main 
+	main#news
+
+		section
+			//- MIT
+			details 
+				summary MIT
+				include ../components/blog/blog-25-01-24-mit.pug
+			
+			//- DM Grant
+			details 
+				summary DMLab Funding
+				include ../components/blog/blog-24-10-29-dmgrant.pug
+		
+		include ../components/history.pug
+	
+		a.roadmap(href="roadmap.pug" target="_blank") Roadmap
+
+block scripts
+	script(type="text/javascript").
+		const YT_ID_DMLAB = "yt-dmlab"
+		const tag = document.createElement('script')
+		tag.id = YT_ID_DMLAB
+		tag.src = 'https://www.youtube.com/iframe_api'
+		const firstScriptTag = document.getElementsByTagName('script')[0]
+
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+
+		let player
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player(YT_ID_DMLAB, {
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			})
+		}
+
+		function onPlayerReady(event) {
+			document.getElementById(YT_ID_DMLAB).style.borderColor = '#FF6D00'
+		}
+
+		function changeBorderColor(playerStatus) {
+			let color
+			if (playerStatus == -1) {
+				color = "#37474F"; // unstarted = gray
+			} else if (playerStatus == 0) {
+				color = "#FFFF00"; // ended = yellow
+			} else if (playerStatus == 1) {
+				color = "#33691E"; // playing = green
+			} else if (playerStatus == 2) {
+				color = "#DD2C00"; // paused = red
+			} else if (playerStatus == 3) {
+				color = "#AA00FF"; // buffering = purple
+			} else if (playerStatus == 5) {
+				color = "#FF6DOO"; // video cued = orange
+			}
+			if (color) 
+			{
+				document.getElementById(YT_ID_DMLAB).style.borderColor = color
+			}
+		}
+
+		function onPlayerStateChange(event) {
+			changeBorderColor(event.data)
+		}
+
+block styles
+	style.
+		#intro{
+			color:var(--shade-dark, black);
+		}
+		#news{
+			width:100%;
+			color:var(--shade-dark, black);
+			max-width: var(--viewport-max-width, 1080px);
+		}
+		section{
+			width:100%;
+		}
+
+		@supports(animation-timeline:--page)
+		{
+
+			html {
+				scroll-timeline: --page-scroll block;
+			}
+
+			@keyframes grow-progress {
+				from { 
+					transform: scaleX(0); 
+				}
+				to { 
+					transform: scaleX(1); 
+				}
+			}
+
+			#progress {
+				position: fixed;
+				left: 0; 
+				bottom: 0;
+				width: 100%; 
+				height: 1em;
+				background: var(--shade-red, red);
+
+				transform-origin: 0 50%;
+				animation: grow-progress auto linear;
+				animation-timeline: --page-scroll;
+			}
+		}
+		

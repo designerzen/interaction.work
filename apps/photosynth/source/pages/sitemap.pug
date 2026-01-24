@@ -1,0 +1,90 @@
+extends _base.pug
+
+block title
+	+title('Sitemap')
+
+block nav
+
+block preload 
+
+block main
+	main
+		h3 Sitemap
+
+		section 
+			article
+				h4 Pages
+				
+					ul
+						li: a(href="/404") 404
+						li: a(href="/presets") Presets
+						li: a(href="/app") Application
+						li: a(href="/offline") Offline
+						li: a(href="/blog") Blog
+						li: a(href="./changelog.html") Changelog
+						li: a(href="./changes.html") Changes
+						li: a(href="/copyright") Copyright
+						li: a(href="/credits") Credits
+						li: a(href="/faq") Frequently Asked Questions
+						li: a(href="/help") Help
+						li: a(href="/") Index
+						li: a(href="/") InterFACE
+						li: a(href="/licenses") Licenses
+						li: a(href="/version") Version
+						li: a(href="/roadmap") Roadmap
+						li: a(href="/midi") MIDI
+						li: a(href="/presentation") Presentation
+						li: a(href="/talk") Talk
+						li: a(href="/updates") Updates
+						li: a(href="/version") Version
+		section 
+			article
+				h4 Locations
+				
+					ul
+						li: a(href="/locations") Site Locations
+						li: a(href="/scienceandindustrymuseum") scienceandindustrymuseum
+						li: a(href="/mit") MIT
+						li: a(href="/va") VA
+						li: a(href="/ieee") IEEE
+	
+		section
+			article
+				h4 Tests
+				
+					ul
+						li: a(href="/test.buttons") Buttons
+						li: a(href="/test.controls") Controls
+						
+						li: a(href="/test.dialogs") Dialogs
+						li: a(href="/test.tooltips") Tooltips
+						li: a(href="/test.sidebars") Sidebars
+						
+						li: a(href="/test.state") State
+						li: a(href="/test.displays") Displays
+						li: a(href="/test.hologram") Hologram
+
+						li: a(href="/test.timing") Timing
+
+						li: a(href="/test.scales") Scales
+						
+						li: a(href="/test.microphone") Microphone
+						
+						li: a(href="/test.notation") Notation
+						li: a(href="/test.instrument") Instrument
+						li: a(href="/test.drumkit") Drum Kit
+						
+						li: a(href="/test.qr") QR Code
+
+						li: a(href="/test.midi") MIDI
+						li: a(href="/test.wam") Web Audio Modules
+						
+						li: a(href="/test.xr-drum") Face Drum Sequencer
+					
+block scripts
+
+block styles 
+	style.
+		body{
+			background-image:none;
+		}

@@ -1,0 +1,26 @@
+extends index.pug
+
+//- custom options go here
+//- We strongly encourage the use of blues, purples, and yellows in your project
+block options
+	script.
+		globalThis._synth = { 
+			advancedMode:false, 
+			text:true, 
+			autoHide:true, 
+			backingTrack:false, 
+			photoSensitive:true,
+			automationMode:true,
+			referer:'mit',
+			theme:'theme-mit'
+		}
+
+block headline
+	| Reality Hack
+	| PhotoSynth #Inter
+	strong FACE
+
+block tagline
+	strong Collaborative XR Music Maker!
+block smallprint 
+	a(href="https://www.linkedin.com/in/designerzen/" target="_blank") by <strong>Zenon Olenski</strong>

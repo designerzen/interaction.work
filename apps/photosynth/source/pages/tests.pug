@@ -1,0 +1,95 @@
+extends _base.pug
+
+block title
+	+title('Tests')
+
+block nav
+
+block preload 
+
+block main
+	main(style="color:darkcyan;")
+		section 
+			article
+				h4 Tests
+				nav.internal-links
+					a(href="/test.avatar") Avatars
+					a(href="/test.buttons") Buttons
+					a(href="/test.controls") Controls
+					a(href="/test.gamepad") Gamepads
+					
+					a(href="/test.dialogs") Dialogs
+					a(href="/test.tooltips") Tooltips
+					a(href="/test.sidebars") Sidebars
+					a(href="/test.themes") Themes
+					
+					a(href="/test.state") State
+					a(href="/test.displays") Displays
+					a(href="/test.hologram") Hologram
+
+					a(href="/test.timing") Timing
+					a(href="/test.broadcast") Broadcast
+
+					a(href="/test.scales") Scales
+					
+					a(href="/test.microphone") Microphone
+					
+					a(href="/test.notation") Notation
+					a(href="/test.instrument") Instrument
+					a(href="/test.drumkit") Drum Kit
+					a(href="/test.reverb") Reverb
+					a(href="/test.sampler") Sampler Worklet
+
+					a(href="/test.qr") QR Code
+
+					a(href="/test.midi") MIDI
+					a(href="/test.wam") Web Audio Modules
+					
+					a(href="/test.hands") Hands Sequencer
+
+					a(href="/test.xr-drum") Face Drum Sequencer
+			
+
+		section 
+			article
+				h4 Pages
+				nav.internal-links
+					a(href="/404") 404
+					a(href="/app") Application
+					a(href="/offline") Offline
+					a(href="/blog") Blog
+					a(href="/change-log") Changes & Updates
+					a(href="/copyright") Copyright
+					a(href="/credits") Credits
+					a(href="/faq") Frequently Asked Questions
+					a(href="/help") Help
+					a(href="/licenses") Licenses
+					a(href="/version") Version
+					a(href="/roadmap") Roadmap
+					a(href="/presentation") Presentation
+					a(href="/version") Version
+					a(href="/midi") MIDI
+		section 
+			article
+				h4 Locations
+				nav.internal-links
+					a(href="/locations") Site Locations
+					a(href="/scienceandindustrymuseum") Science & Industry Museum
+					a(href="/ieee") IEEE
+					a(href="/i2c") I2C
+					a(href="/emf") EMF
+					a(href="/mit") MIT
+					a(href="/beyond") Beyond
+					a(href="/wac") Web Audio Conference
+						
+block scripts
+
+block styles 
+	style.
+		body{
+			background-image:none;
+		}
+		.internal-links{
+			display: flex;
+			flex-direction:column;
+		}

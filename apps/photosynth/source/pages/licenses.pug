@@ -1,0 +1,23 @@
+extends _base.pug
+
+block title
+	+title('Licences')
+
+block nav
+
+block preload 
+
+block main
+	main
+		section#licenses
+			article 
+				header
+					h3 Licenses
+					h4 Thanks
+					p(aria-role="Summary") This project could not have been made possible without the software with the following gracious licenses
+				//- include ../licenses.md
+			
+				include:markdown-it ./documentation/licenses.md
+
+block footer
+	a(href="#").back-to-top Jump back to the top

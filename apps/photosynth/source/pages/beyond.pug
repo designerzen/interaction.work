@@ -1,0 +1,31 @@
+extends interface.pug
+
+//- custom options go here
+block options
+	script.
+		globalThis._synth = { 
+			advancedMode:false, 
+			text:false, 
+			autoHide:true, 
+			backingTrack:false, 
+			photoSensitive:true,
+			automationMode:true,
+			instrumentPack:'OpenGM24'
+		}
+
+block headline
+	| Beyond 
+	span.sr-only PhotoSynth 4
+	| Inter 
+	strong FACE
+
+
+block tagline
+	em Smile 
+	| Powered Synthesizer
+	strong Instant Musical Superpowers!
+
+
+block attributions
+	blockquote
+		p.quote Zenon Olenski, PhotoSYNTH (2011-2024) Quartet Mode, has received a development commission by the MITIH Cultural Accelerator and produced by FutureEverything and MITIH, and funded by InnovateUK.
