@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /assets/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://interaction.works/sitemap.xml
