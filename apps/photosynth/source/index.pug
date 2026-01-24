@@ -1,0 +1,20 @@
+extends templates/_layout.pug
+
+block content
+	main.container
+		h1 🎵 PhotoSYNTH
+		p Instant Musical Superpowers
+		
+		.status
+		.status-item
+			span.badge DEV
+			strong Development Server Running
+		.status-item Port: localhost:909
+		.status-item Status: ✓ Ready
+		
+		p This is your test page. The app is loading and ready for development.
+		
+		.footer
+			p Instant Musical Instrument • Accessibility Focused
+		
+		script(type="module" src="./index.ts")
