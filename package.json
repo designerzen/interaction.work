@@ -4,7 +4,7 @@
 	"version": "0.40.2",
 	"time": 1768145296242,
 	"author": "designerzen <github@designerzen.com>",
-	"license": "GPL-2.0-only",
+	"license": "AGPL-3.0",
 	"scripts": {
 		"start": "pnpm run dev",
 		"upgrader": "npx npm-check-updates --interactive -u",
