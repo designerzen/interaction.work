@@ -49,6 +49,27 @@
 		-moz-text-size-adjust: none;
 		-webkit-text-size-adjust: none;
 		text-size-adjust: none;
+
+		&::before{
+			--size:16px;
+			content: '';
+			position: fixed;
+			top:0;
+			left:0;
+			width:100vw;
+			height:100vh;
+			height:100dvh;
+			z-index:99999;
+			pointer-events: none;
+			background: 
+				radial-gradient(circle at var(--size) var(--size), transparent var(--size), black var(--size)),
+				radial-gradient(circle at calc(100% - var(--size)) var(--size), transparent var(--size), black var(--size)),
+				radial-gradient(circle at var(--size) calc(100% - var(--size)), transparent var(--size), black var(--size)),
+				radial-gradient(circle at calc(100% - var(--size)) calc(100% - var(--size)), transparent var(--size), black var(--size));
+			background-repeat: no-repeat;
+			background-size: var(--size) var(--size);
+			background-position: 0 0, 100% 0, 0 100%, 100% 100%;
+		}
 	}
 
 	:where(body){ 

@@ -1,20 +1,66 @@
-extends templates/_base.pug
+extends pages/interface.pug
 
-block content
-	main.container
-		h1 🎵 PhotoSYNTH
-		p Instant Musical Superpowers
+block manifest
+	//- Imports the manifest to represent the web application. A web app must have a manifest to be a PWA. 
+	link(rel="manifest", href="/manifest.webmanifest")
 		
-		.status
-		.status-item
-			span.badge DEV
-			strong Development Server Running
-		.status-item Port: localhost:909
-		.status-item Status: ✓ Ready
+block preload 
+	//- tfhub-tfjs-modules/tensorflow/tfjs-model/blazeface/1/default/1/model.json
+	//- link(rel="preconnect" href="https://storage.googleapis.com/" crossorigin)
+	
+block header 
+	
+	a#hero(href="#app-frame") Jump straight to the app
+		include ./assets/diagrams/hero.svg 
+
+	#summary
+		p(aria-label="Summary")
+			| It can be hard work playing a musical instrument...<br>
+			| <em>So, how about letting the musical instrument play you instead?.</em><br>
+			//- details
+			//- 	summary Requirements
+			//- 	ul(role="list") 
+			//- 		li A face
+			//- 		li Web camera / phone camera 
+			//- 		li A cutting edge web-browser preferably <a href="https://www.google.com/chrome/">Chrome</a> / <a href="https://www.microsoft.com/en-us/edge/download">Edge</a> / <a href="https://www.apple.com/safari/">Safari</a>
+			//- 		li Relatively modern computer with <abbr title="Graphics Processing Unit">GPU</abbr>
+			//- 		li Speakers, headphones or a <abbr title="Musical Instrument Digital Interface">MIDI</abbr> instrument 
+
+		//- In Javascript we show this if the user already has this installed
+		p(aria-label="Summary" hidden).returning-client.
+			Welcome back old friend! It is so nice to see your face again! Continuing session.
+	
+		p The <strong>original</strong> face-controlled musical instrument! 
+			a.link-to-requirements(href="#requirements-test" onclick="document.getElementById('requirements-test').open = true") Show requirements.
+	
+	p.info-description
+		| This will grant musical superpowers to anybody nearby.
+		| Your head movements, facial expressions and mouth shape will control all aspects of sound to help you make beautiful music.  
+		| Press the screen or hold your eyes closed to change instruments, or select one by name from the side panels.<br>
+		small Improving human-machine relationships. Made with love by <a class="link-designerzen" href="https://designerzen.com" rel="noopener noreferrer" target="_blank">designer<wbr>zen</a>. 
 		
-		p This is your test page. The app is loading and ready for development.
+	p.warning 
+		strong Warning : 
+		| Please be 
+		em very careful
+		|  if you are photo<wbr>sensitive. 
+		| Contains flashing lights.
+
+	
+	//- each lower down warning hides the previous
+	p(hidden).warning.fatal.
+		You do not have all of the requirements to continue
+
+
+	nav#pwa
+		a.button.button-push.button-start.text-always#start(href="#button-start-label") Play!
+
+		label(for="install-pwa" hidden).text-always Install this app
+			button#install-pwa.button-install( hidden type="button" title="Install this application to your homescreen") Install
 		
-		.footer
-			p Instant Musical Instrument • Accessibility Focused
-		
-		script(type="module" src="./index.ts")
+		label(for="upgrade-pwa" hidden).text-always Upgrade to the latest version v.#{package.version}
+			button#upgrade-pwa.button-upgrade( type="button" hidden title="Upgrade this app to the latest version") Upgrade
+
+	details#requirements-test
+		summary Requirements
+		include ./components/compatibility.pug

@@ -1,0 +1,9 @@
+.updates-available{
+	#version{
+		text-decoration: underline;
+		text-decoration-style: wavy;
+		color:var(--shade-blue);
+		animation: Throb 1s both 0s infinite;
+		border:1px var(--shade-gray) solid dashed;
+	}
+}

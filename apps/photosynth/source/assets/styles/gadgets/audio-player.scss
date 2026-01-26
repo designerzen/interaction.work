@@ -92,9 +92,9 @@
 
 .button-play-pause{
 	--max-width:auto;
-	// --bg: url(/source/assets/icons/play_circle_black_24dp.svg);
-	// --bg: url(/source/assets/icons/not_started_black_24dp.svg);
-	--bg: url(/source/assets/icons/pause_circle_black_24dp.svg);
+	// --bg: url(/assets/icons/play_circle_black_24dp.svg);
+	// --bg: url(/assets/icons/not_started_black_24dp.svg);
+	--bg: url(/assets/icons/pause_circle_black_24dp.svg);
 	position: absolute;
 	padding:0;
 	left:0;
@@ -123,20 +123,20 @@
 }
 
 .paused .button-play-pause{
-	--bg: url(/source/assets/icons/play_circle_outline_black_24dp.svg);
+	--bg: url(/assets/icons/play_circle_outline_black_24dp.svg);
 }
 
 
 
 
 .button-download-mp3{
-    --bg: url(/source/assets/icons/download_for_offline_black_24dp.svg);
+    --bg: url(/assets/icons/download_for_offline_black_24dp.svg);
 }
 .button-download-ogg{
-    --bg: url(/source/assets/icons/download_for_offline_black_24dp.svg);
+    --bg: url(/assets/icons/download_for_offline_black_24dp.svg);
 }
 .button-download-wave{
-    --bg: url(/source/assets/icons/download_for_offline_black_24dp.svg);
+    --bg: url(/assets/icons/download_for_offline_black_24dp.svg);
 }
 
 .audio-progress{
@@ -163,7 +163,7 @@
 		--col-hover: var(--shade-green);
 		padding:0;
 		z-index:2;
-		--bg: url(/source/assets/icons/download_for_offline_black_24dp.svg);
+		--bg: url(/assets/icons/download_for_offline_black_24dp.svg);
 		background-position: top center;
 	}
 

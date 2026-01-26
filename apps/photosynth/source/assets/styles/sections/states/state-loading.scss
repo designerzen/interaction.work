@@ -1,0 +1,101 @@
+
+// Loading screen ------------------------------
+
+// funky text animations where the colour fades...
+// NB. EXPENSIVE, use sparingly
+.loading .logo,
+.loading strong,
+p strong{
+	animation:TextColours 4s linear infinite 0.05s both;
+}
+
+.loading {
+	
+	--delay:calc( 1s * var(--loader-duration) / 4 );
+
+	max-width:100vw;
+	max-height:100vh;
+
+	#help .load-issues {
+		display: block;
+	}
+
+	// sections
+	#intro{
+		//animation:TextColours 4s linear infinite 0s both;
+		
+		> *{
+			visibility:visible;
+			animation:Fade var(--ease-s) ease-in 1 0s both;
+		}	
+
+		$end:9;
+		@for $i from 1 to $end {
+
+			&:nth-child(#{$i}){
+				// delay is the amount of time to wait before reveal
+				animation-delay:calc( var(--offset) + #{$i - 1} * var(--overlap) * var(--duration) );
+			}
+		}
+		.load-percent{
+			animation:inherit;
+		}
+
+		.logo{
+			//@extend %image-replacement;
+			
+			// background-position: center;
+			// // z-index:-1;
+			// align-self: center;
+			// align-self: center;
+			// height:100%;
+			// order:1;
+
+			svg{
+				
+			}
+		}
+	}
+
+	main{
+		overflow:hidden;
+		position: relative;
+		pointer-events: none;
+	
+		> *:not(p){
+			visibility: hidden;
+			opacity:0;
+			display: none;
+		}
+	}
+	
+	// this is the camera accept popup
+	#feedback{
+		// dunno where best to overlay as will always cover something!
+		// but we want it pointing to the allow camera pop up dialog
+		top:calc( 1rem * var(--line-height) + var(--pad) );
+		left:var(--loader-size-small, 150px) + var(--pad);
+		bottom:auto;
+		z-index: 909;
+		filter:invert(100%);
+	}
+	
+	#toast{
+		pointer-events: none;
+	}
+
+	#shared-controls{
+		visibility: hidden;
+	}
+
+	footer{
+		z-index:909;
+	}
+}
+
+
+// during loading we show all in a line
+.interface.loading body{
+	//grid-template-rows: 1fr auto;
+	// overrides
+}

@@ -139,7 +139,7 @@
 		@include button.button-with-dual-icon-style;
 		
 		--icon-width:calc( var(--button-size) / 2 );
-		--icon: url(../../assets/icons/forward_black_24dp.svg);
+		--icon: url(/assets/icons/forward_black_24dp.svg);
 		--icon-size:22px;
 		--bg: var(--icon);
 
@@ -207,7 +207,7 @@
 	.person-c-toggle-controls{
 		// --turn:0;
 		// transform:rotate( 0turn );
-		//--bg:red;// url(/source/assets/icons/forward_black_24dp.svg);
+		//--bg:red;// url(/assets/icons/forward_black_24dp.svg);
 		border-radius: 0 99px 99px 0;	
 		border-left: none;
 		transform: translateX(-1px);
@@ -217,7 +217,7 @@
 	.person-b-toggle-controls,
 	.person-d-toggle-controls{
 		// TODO: get reverse
-		//--bg:none;// url(/source/assets/icons/forward_black_24dp.svg);
+		//--bg:none;// url(/assets/icons/forward_black_24dp.svg);
 		--turn:0.5turn;
 		// transform:rotate( 0.5turn );
 		border-radius: 99px 0 0 99px;	

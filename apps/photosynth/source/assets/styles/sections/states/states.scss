@@ -1,0 +1,27 @@
+@use './flags.scss';
+@use './state-app-inactive.scss';
+@use './state-debug.scss';
+@use './state-failure.scss';
+@use './state-first-run.scss';
+@use './state-game-over.scss';
+@use './state-installable.scss';
+@use './state-installed.scss';
+@use './state-loaded.scss';
+@use './state-loading.scss';
+@use './state-mode-simple.scss';
+@use './state-updates-available.scss';
+@use './state-user-active.scss';
+@use './state-user-dragging.scss';
+@use './state-user-inactive.scss';
+
+
+// only enable when loaded
+#button-share{
+	display: none;
+}
+
+.sharing-enabled{
+	#button-share{
+		display: inline-grid;
+	}
+}

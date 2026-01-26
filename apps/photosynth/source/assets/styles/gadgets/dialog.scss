@@ -49,7 +49,7 @@ dialog{
 		//default icon
 		&::before{
 			--size:calc( var(--s5) * 1.5rem );
-			--bg:url(/source/assets/icons/support_black_24dp.svg);
+			--bg:url(/assets/icons/support_black_24dp.svg);
 			content: '';
 			display: inline-block;
 			min-width:var(--size);
@@ -140,7 +140,7 @@ dialog{
 		z-index: -1;
 		pointer-events: auto;
 		// top right is a fake close icon...
-		background: url(/source/assets/icons/close-24px.svg) no-repeat;
+		background: url(/assets/icons/close-24px.svg) no-repeat;
 		background-position:top calc( 1 * var(--pad) ) right calc( 1 * var(--pad) );
 	}
 

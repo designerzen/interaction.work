@@ -1,0 +1,41 @@
+// User has dragged something over the window
+.dragging{
+	cursor:grabbing;
+	header{
+		pointer-events: none;
+		display: none;
+	}
+	#midi-file{
+		--color:var(--shade-blue, silver);
+		--bg:var(--shade-yellow);
+
+		z-index:999;
+		//pointer-events: none;
+		cursor:grabbing;
+		background-size: 100px 50px;
+		background-color:var(--color);
+		background-image:
+			radial-gradient(circle at 100% 150%, var(--color) 24%, var(--bg) 24%, var(--bg) 28%, var(--color) 28%, var(--color) 36%, var(--bg) 36%, var(--bg) 40%, transparent 40%, transparent),
+			radial-gradient(circle at 0    150%, var(--color) 24%, var(--bg) 24%, var(--bg) 28%, var(--color) 28%, var(--color) 36%, var(--bg) 36%, var(--bg) 40%, transparent 40%, transparent),
+			radial-gradient(circle at 50%  100%, var(--bg) 10%, var(--color) 10%, var(--color) 23%, var(--bg) 23%, var(--bg) 30%, var(--color) 30%, var(--color) 43%, var(--bg) 43%, var(--bg) 50%, var(--color) 50%, var(--color) 63%, var(--bg) 63%, var(--bg) 71%, transparent 71%, transparent),
+			radial-gradient(circle at 100% 50%, var(--bg) 5%, var(--color) 5%, var(--color) 15%, var(--bg) 15%, var(--bg) 20%, var(--color) 20%, var(--color) 29%, var(--bg) 29%, var(--bg) 34%, var(--color) 34%, var(--color) 44%, var(--bg) 44%, var(--bg) 49%, transparent 49%, transparent),
+			radial-gradient(circle at 0    50%, var(--bg) 5%, var(--color) 5%, var(--color) 15%, var(--bg) 15%, var(--bg) 20%, var(--color) 20%, var(--color) 29%, var(--bg) 29%, var(--bg) 34%, var(--color) 34%, var(--color) 44%, var(--bg) 44%, var(--bg) 49%, transparent 49%, transparent);
+		
+		&:before{
+			content: '';
+			position: absolute;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			display: block;
+			z-index: 9999999;
+			pointer-events: none;
+		}
+
+		> *{
+			z-index:9999999999;
+			opacity:1;
+		}
+	}
+}

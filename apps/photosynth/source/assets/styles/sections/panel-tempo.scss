@@ -46,12 +46,12 @@ label[for="tempo-input-text"]{
 }
 
 #tempo-increase-button{
-	--bg:url(../../assets/icons/up_arrow_black_24dp.svg);
+	--bg:url(/assets/icons/up_arrow_black_24dp.svg);
 	grid-area:up;
 }
 
 #tempo-decrease-button{
-	--bg:url(../../assets/icons/down_arrow_black_24dp.svg);
+	--bg:url(/assets/icons/down_arrow_black_24dp.svg);
 	grid-area:down;
 }
 
@@ -62,7 +62,7 @@ label[for="tempo-input-text"]{
 // this is round button
 #tempo-tap-button{
     --icon-size: 44px;
-	--bg:url(../../assets/icons/fingerprint-24px.svg);
+	--bg:url(/assets/icons/fingerprint-24px.svg);
 	grid-area:tap;
 }
 
@@ -177,13 +177,13 @@ label[for="tempo-input-text"]{
 }
 
 #tempo-increase-button{
-	--bg:url(../../assets/icons/up_arrow_black_24dp.svg);
+	--bg:url(/assets/icons/up_arrow_black_24dp.svg);
 	grid-area:up;
 
 }
 
 #tempo-decrease-button{
-	--bg:url(../../assets/icons/down_arrow_black_24dp.svg);
+	--bg:url(/assets/icons/down_arrow_black_24dp.svg);
 	grid-area:down;
 
 }
@@ -193,7 +193,7 @@ label[for="tempo-input-text"]{
 }
 
 #tempo-tap-button{
-	--bg:url(../../assets/icons/replay_black_24dp.svg);
+	--bg:url(/assets/icons/replay_black_24dp.svg);
 	grid-area:tap;
 }
 

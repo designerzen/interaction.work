@@ -650,7 +650,7 @@ label[for="toggle-automation-mode"]{
 
 	&{
 		// overwrite the var settings
-		--bg:url(/source/assets/icons/music_note-24px.svg);
+		--bg:url(/assets/icons/music_note-24px.svg);
 		--icon-size:3rem;
 		--space:0px;
 		--col-hover: var(--shade-blue);
@@ -763,7 +763,7 @@ label[for="toggle-automation-mode"]{
 // variations for the START button
 .solo #onboard label[for="button-start"]{
 	--col-stroke:var(--shade-active);
-	--bg:url(/source/assets/icons/person-24px.svg);
+	--bg:url(/assets/icons/person-24px.svg);
 	// &:before{
 	// 	content:'Solo ';
 	// }
@@ -771,7 +771,7 @@ label[for="toggle-automation-mode"]{
 
 .duet #onboard label[for="button-start"]{
 	--col-stroke:var(--shade-active);
-	--bg:url(/source/assets/icons/people-24px.svg);
+	--bg:url(/assets/icons/people-24px.svg);
 	// &:before{
 	// 	content:'Duet ';
 	// }
@@ -779,7 +779,7 @@ label[for="toggle-automation-mode"]{
 
 .trio #onboard label[for="button-start"]{
 	--col-stroke:var(--shade-active);
-	--bg:url(/source/assets/icons/groups-24px.svg);
+	--bg:url(/assets/icons/groups-24px.svg);
 	// &:before{
 	// 	content:'Trio ';
 	// }
@@ -787,7 +787,7 @@ label[for="toggle-automation-mode"]{
 
 .quartet #onboard label[for="button-start"]{
 	--col-stroke:var(--shade-active);
-	--bg:url(/source/assets/icons/person_add-24px.svg);
+	--bg:url(/assets/icons/person_add-24px.svg);
 	// &:before{
 	// 	content:'Quartet ';
 	// }

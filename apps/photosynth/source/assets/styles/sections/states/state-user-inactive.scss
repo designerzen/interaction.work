@@ -1,0 +1,45 @@
+
+
+// added when user gives up attention
+.user-inactive{
+
+	// hide cursor until user reacts
+	cursor: none;
+	*{
+		cursor: none !important; 
+	}
+
+	// , :focus
+	.instrument-panel:not(:hover, :focus-within, :focus-visible),
+	.controls:not(:hover, :focus-within,:focus-visible) {
+		visibility: hidden;
+		opacity:0;
+	}
+	
+	// .controls > *{
+	// 	animation-direction: normal, normal;
+	// }
+	#toast{
+		visibility: hidden;
+	}
+}
+
+// There are no faces looking at the screen
+// NB. wait 2 seconds before showing it!
+.no-faces{ 
+	#app-frame{
+		// opacity:0.9;
+
+		&::after{
+			--alpha:0.8;
+			--opacity:0.4;
+			--rotation:21deg;
+			display: block;
+			// how long to wait before showing it...
+			animation: 
+				Fade var(--ease-s) 1s 1 both,
+				Sway 8s calc(1s + var(--ease-s) ) infinite ease-in-out alternate-reverse,
+				Pulse 4s calc(2s + var(--ease-s)  ) infinite linear alternate-reverse;
+		}
+	}
+}

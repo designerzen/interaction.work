@@ -5,7 +5,7 @@
 	
 	// selector for the tempo
 	label[for="select-tempo"]{
-		--bg:url(/source/assets/icons/speed-24px.svg);
+		--bg:url(/assets/icons/speed-24px.svg);
 		--col-hover:var(--shade-blue);
 		--col-select:var(--shade-yellow);
 		anchor-name: --select-tempo;
@@ -17,32 +17,32 @@
 		grid-area:1/1;
 		--col-select:var(--shade-green);
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/settings-24px.svg);
+		--bg:url(/assets/icons/settings-24px.svg);
 		anchor-name: --button-settings;
 		&:has(input:checked),
 		&.checked{
 			// arrow down to show that the settings hide
-			--bg:url(/source/assets/icons/expand_more-24px.svg);
+			--bg:url(/assets/icons/expand_more-24px.svg);
 		}
 	}
 
 	label[for="button-quantise"]{
 		--col-select:var(--shade-blue);
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/grid_on-24px.svg);
+		--bg:url(/assets/icons/grid_on-24px.svg);
 		anchor-name: --button-quantise;
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/grid_off-24px.svg);
+			--bg:url(/assets/icons/grid_off-24px.svg);
 		}
 	}
 
 	label[for="button-metronome"]{
-		--bg:url(/source/assets/icons/hourglass_empty-24px.svg);
+		--bg:url(/assets/icons/hourglass_empty-24px.svg);
 		anchor-name: --button-metronome;
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/hourglass_disabled-24px.svg);
+			--bg:url(/assets/icons/hourglass_disabled-24px.svg);
 		}
 	}
 
@@ -53,56 +53,56 @@
 		--col-hover:var(--shade-blue);
 
 		// off, silent, low, high...
-		--bg:url(/source/assets/icons/volume_off-24px.svg);
-		--bg:url(/source/assets/icons/volume_mute-24px.svg);
-		--bg:url(/source/assets/icons/volume_down-24px.svg);
-		--bg:url(/source/assets/icons/volume_up-24px.svg);
+		--bg:url(/assets/icons/volume_off-24px.svg);
+		--bg:url(/assets/icons/volume_mute-24px.svg);
+		--bg:url(/assets/icons/volume_down-24px.svg);
+		--bg:url(/assets/icons/volume_up-24px.svg);
 		
 		anchor-name: --folder-volume;
 
 		&.checked{
-			--bg:url(/source/assets/icons/volume_off-24px.svg);
+			--bg:url(/assets/icons/volume_off-24px.svg);
 		}
 	}
 
 	.mute a.folder-link[href="#folder-volume"]{
 		
-		--bg:url(/source/assets/icons/volume_off-24px.svg);
-		--bg:url(/source/assets/icons/volume_mute-24px.svg);
+		--bg:url(/assets/icons/volume_off-24px.svg);
+		--bg:url(/assets/icons/volume_mute-24px.svg);
 	}
 
 	.lo a.folder-link[href="#folder-volume"]{
-		--bg:url(/source/assets/icons/volume_off-24px.svg);
-		--bg:url(/source/assets/icons/volume_down-24px.svg);
+		--bg:url(/assets/icons/volume_off-24px.svg);
+		--bg:url(/assets/icons/volume_down-24px.svg);
 	}
 
 	.high a.folder-link[href="#folder-volume"]{
-		--bg:url(/source/assets/icons/volume_off-24px.svg);
-		--bg:url(/source/assets/icons/volume_mute-24px.svg);
-		--bg:url(/source/assets/icons/volume_down-24px.svg);
-		--bg:url(/source/assets/icons/volume_up-24px.svg);
+		--bg:url(/assets/icons/volume_off-24px.svg);
+		--bg:url(/assets/icons/volume_mute-24px.svg);
+		--bg:url(/assets/icons/volume_down-24px.svg);
+		--bg:url(/assets/icons/volume_up-24px.svg);
 	}
 
 
 	label[for="button-mute"]{
 		--col-select:var(--shade-blue);
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/volume_mute-24px.svg);
+		--bg:url(/assets/icons/volume_mute-24px.svg);
 		anchor-name: --button-mute;
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/volume_off-24px.svg);
+			--bg:url(/assets/icons/volume_off-24px.svg);
 		}
 	}
 
 	label[for="button-disco"]{
 		--col-select:var(--shade-green);
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/blur_on-24px.svg);
+		--bg:url(/assets/icons/blur_on-24px.svg);
 		anchor-name: --button-disco;
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/blur_off-24px.svg);
+			--bg:url(/assets/icons/blur_off-24px.svg);
 		}
 	}
 
@@ -110,11 +110,11 @@
 	label[for="select-impulse"]{
 		--col-select:var(--shade-blue);
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/extension-24px.svg);
+		--bg:url(/assets/icons/extension-24px.svg);
 		anchor-name: --select-impulse;
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/extension_off-24px.svg);
+			--bg:url(/assets/icons/extension_off-24px.svg);
 		}
 	}
 
@@ -122,11 +122,11 @@
 	label[for="button-meshes"]{
 		--col-select:var(--shade-yellow);
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/face_retouching_off-24px.svg);
+		--bg:url(/assets/icons/face_retouching_off-24px.svg);
 		anchor-name: --button-meshes;
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/face_retouching_natural-24px.svg);
+			--bg:url(/assets/icons/face_retouching_natural-24px.svg);
 		}
 	}
 
@@ -135,10 +135,10 @@
 	label[for="select-eyes"]{
 		--col-select:var(--shade-green);
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/adjust-24px.svg);
+		--bg:url(/assets/icons/adjust-24px.svg);
 		&:has(input:checked),
 		&.checked{
-			//--bg:url(/source/assets/icons/extension_off-24px.svg);
+			//--bg:url(/assets/icons/extension_off-24px.svg);
 		}
 	}
 
@@ -150,11 +150,11 @@
 		
 	// Toggle show eyes or hide eyes
 	label[for="button-eyes"]{
-		--bg:url(/source/assets/icons/motion_photos_off-24px.svg);
+		--bg:url(/assets/icons/motion_photos_off-24px.svg);
 		anchor-name: --button-eyes;
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/motion_photos_on-24px.svg);
+			--bg:url(/assets/icons/motion_photos_on-24px.svg);
 		}
 	}
 
@@ -162,11 +162,11 @@
 	label[for="button-subtitles"]{
 		--col-select:var(--shade-green);
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/speaker_notes-24px.svg);
+		--bg:url(/assets/icons/speaker_notes-24px.svg);
 		anchor-name: --button-subtitles;
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/speaker_notes_off-24px.svg);
+			--bg:url(/assets/icons/speaker_notes_off-24px.svg);
 		}
 	}
 
@@ -174,11 +174,11 @@
 	label[for="select-palette"]{
 		--col-select:var(--shade-yellow);
 		--col-hover:var(--shade-green);
-		--bg:url(/source/assets/icons/color_lens-24px.svg);
+		--bg:url(/assets/icons/color_lens-24px.svg);
 		anchor-name: --select-palette;
 		&:has(input:checked),
 		&.checked{
-			//--bg:url(/source/assets/icons/extension_off-24px.svg);
+			//--bg:url(/assets/icons/extension_off-24px.svg);
 		}
 	}
 
@@ -186,25 +186,25 @@
 	label[for="select-display"]{
 		--col-select:var(--shade-yellow);
 		--col-hover:var(--shade-green);
-		--bg:url(/source/assets/icons/gradient-24px.svg);
-		// --bg:url(/source/assets/icons/settings_overscan_black_24dp.svg);
-		// --bg:url(/source/assets/icons/settings_brightness_black_24dp.svg);
+		--bg:url(/assets/icons/gradient-24px.svg);
+		// --bg:url(/assets/icons/settings_overscan_black_24dp.svg);
+		// --bg:url(/assets/icons/settings_brightness_black_24dp.svg);
 		anchor-name: --select-display;
 		&:has(input:checked),
 		&.checked{
-			//--bg:url(/source/assets/icons/extension_off-24px.svg);
+			//--bg:url(/assets/icons/extension_off-24px.svg);
 		}
 	}
 
 	// add beats
 	label[for="button-percussion"]{
-		--bg:url(/source/assets/icons/auto_fix_high-24px.svg);
+		--bg:url(/assets/icons/auto_fix_high-24px.svg);
 		--col-select:var(--shade-green);
 		--col-hover:var(--shade-yellow);
 		anchor-name: --button-percussion;
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/auto_fix_off-24px.svg);
+			--bg:url(/assets/icons/auto_fix_off-24px.svg);
 		}
 	}
 
@@ -213,10 +213,10 @@
 	a.folder-link[href="#folder-record"]{
 		--col-select:var(--shade-blue);
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/adjust-24px.svg);
+		--bg:url(/assets/icons/adjust-24px.svg);
 		anchor-name: --folder-record;
 		&.checked{
-			--bg:url(/source/assets/icons/adjust-24px.svg);
+			--bg:url(/assets/icons/adjust-24px.svg);
 		}
 	}
 
@@ -228,18 +228,18 @@
 		//--col-hover:transparent;
 
 		@extend %image-replacement;
-		--bg:url(/source/assets/icons/fullscreen-24px.svg);
+		--bg:url(/assets/icons/fullscreen-24px.svg);
 
 		anchor-name: --button-fullscreen;
 		
 		// toggled state
 		// &.checked{
-		// 	--bg:url(/source/assets/icons/fullscreen_exit-24px.svg);
+		// 	--bg:url(/assets/icons/fullscreen_exit-24px.svg);
 		// }
 		
 		// override if user has esc'ed
 		@media all and (display-mode: fullscreen) {
-			--bg:url(/source/assets/icons/fullscreen_exit-24px.svg) !important;
+			--bg:url(/assets/icons/fullscreen_exit-24px.svg) !important;
 		}
 	}
 
@@ -249,17 +249,17 @@
 		--col-select:var(--shade-blue);
 		// @extend %image-replacement;
 
-		// --bg:url(/source/assets/icons/image_not_supported-24px.svg);
-		--bg:url(/source/assets/icons/visibility-24px.svg);
+		// --bg:url(/assets/icons/image_not_supported-24px.svg);
+		--bg:url(/assets/icons/visibility-24px.svg);
 
 		anchor-name: --button-overlay;
 
 		&:has(input:checked),
 		&.checked{
-			// background-image:url(/source/assets/icons/music_off-24px.svg);
-			// --bg:url(/source/assets/icons/image-24px.svg);
-			--bg:url(/source/assets/icons/visibility_off-24px.svg);
-			// background-image:url(/source/assets/icons/music_note-24px-24px.svg);
+			// background-image:url(/assets/icons/music_off-24px.svg);
+			// --bg:url(/assets/icons/image-24px.svg);
+			--bg:url(/assets/icons/visibility_off-24px.svg);
+			// background-image:url(/assets/icons/music_note-24px-24px.svg);
 		}
 	}
 
@@ -267,21 +267,21 @@
 		// --col-hover:$col-dark;
 		--col-hover:var(--shade-green);
 		--col-select:var(--shade-orange);
-		--bg:url(/source/assets/icons/graphic_eq_black_24dp.svg);
+		--bg:url(/assets/icons/graphic_eq_black_24dp.svg);
 		anchor-name: --button-spectrogram;
 
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/graphic_eq_black_off_24dp.svg);
+			--bg:url(/assets/icons/graphic_eq_black_off_24dp.svg);
 		}
 	}
 	label[for="select-samples"]{
 		--col-hover:var(--shade-green);
 		--col-select:var(--shade-orange);
-		--bg:url(/source/assets/icons/audiotrack-24px.svg);
+		--bg:url(/assets/icons/audiotrack-24px.svg);
 		anchor-name: --select-samples;
 		// &.checked{
-		// 	--bg:url(/source/assets/icons/graphic_eq_black_24dp.svg);
+		// 	--bg:url(/assets/icons/graphic_eq_black_24dp.svg);
 		// }
 	}
 
@@ -289,10 +289,10 @@
 		--col-hover:var(--shade-green);	
 		--col-select:var(--shade-blue);
 
-		--bg:url(/source/assets/icons/color_lens-24px.svg);
+		--bg:url(/assets/icons/color_lens-24px.svg);
 		anchor-name: --select-theme;
 		// &.checked{
-		// 	--bg:url(/source/assets/icons/graphic_eq_black_24dp.svg);
+		// 	--bg:url(/assets/icons/graphic_eq_black_24dp.svg);
 		// }
 	}
 
@@ -300,9 +300,9 @@
 	// 	// --col-hover:$col-dark;
 	// 	--col-hover:var(--shade-green);
 	// 	--col-select:var(--shade-green);
-	// 	background-image:url(/source/assets/icons/piano-24px.svg);
+	// 	background-image:url(/assets/icons/piano-24px.svg);
 	// 	&.checked{
-	// 		background-image:url(/source/assets/icons/piano_off-24px.svg);
+	// 		background-image:url(/assets/icons/piano_off-24px.svg);
 	// 	}
 	// }
 
@@ -311,27 +311,27 @@
 		--col-hover:var(--shade-blue);
 		--col-select:var(--shade-yellow);
 
-		--bg:url(/source/assets/icons/videocam_off-24px.svg);
+		--bg:url(/assets/icons/videocam_off-24px.svg);
 		anchor-name: --button-clear;
 
 		&:has(input:checked),
 		&.checked{
-			--bg:url(/source/assets/icons/videocam-24px.svg);
+			--bg:url(/assets/icons/videocam-24px.svg);
 		}
 	}
 
 	label[for="button-speak"]{
 		--col-hover:var(--shade-blue);
 		--col-select:var(--shade-yellow);
-		// --bg:url(/source/assets/icons/mic_off-24px.svg);
-		--bg:url(/source/assets/icons/voice_over_off_black_24dp.svg);
+		// --bg:url(/assets/icons/mic_off-24px.svg);
+		--bg:url(/assets/icons/voice_over_off_black_24dp.svg);
 		anchor-name: --button-speak;
 
 		&:has(input:checked),
 		&.checked{
-			// background-image:url(/source/assets/icons/music_off-24px.svg);
-			--bg:url(/source/assets/icons/record_voice_over_black_24dp.svg);
-			// background-image:url(/source/assets/icons/music_note-24px-24px.svg);
+			// background-image:url(/assets/icons/music_off-24px.svg);
+			--bg:url(/assets/icons/record_voice_over_black_24dp.svg);
+			// background-image:url(/assets/icons/music_note-24px-24px.svg);
 		}
 	}
 
@@ -341,13 +341,13 @@
 		// --col-hover:$col-dark;
 		--col-hover:var(--shade-blue);
 		--col-select:var(--shade-yellow);
-		--bg:url(/source/assets/icons/web_asset_off-24px.svg);
+		--bg:url(/assets/icons/web_asset_off-24px.svg);
 		anchor-name: --button-sync-video;
 		&:has(input:checked),
 		&.checked{
-			// background-image:url(/source/assets/icons/music_off-24px.svg);
-			--bg:url(/source/assets/icons/web_asset-24px.svg);
-			// background-image:url(/source/assets/icons/music_note-24px-24px.svg);
+			// background-image:url(/assets/icons/music_off-24px.svg);
+			--bg:url(/assets/icons/web_asset-24px.svg);
+			// background-image:url(/assets/icons/music_note-24px-24px.svg);
 		}
 	}
 
@@ -357,19 +357,19 @@
 		// --col-hover:$col-dark;
 		--col-hover:var(--shade-blue);
 		--col-select:var(--shade-yellow);
-		--bg:url(/source/assets/icons/web_asset_off-24px.svg);
+		--bg:url(/assets/icons/web_asset_off-24px.svg);
 		anchor-name: --button-transparent;
 		&:has(input:checked),
 		&.checked{
-			// background-image:url(/source/assets/icons/music_off-24px.svg);
-			--bg:url(/source/assets/icons/web_asset-24px.svg);
-			// background-image:url(/source/assets/icons/music_note-24px-24px.svg);
+			// background-image:url(/assets/icons/music_off-24px.svg);
+			--bg:url(/assets/icons/web_asset-24px.svg);
+			// background-image:url(/assets/icons/music_note-24px-24px.svg);
 		}
 	}
 
 	// selector for the tempo
 	label[for="select-camera"]{
-		--bg:url(/source/assets/icons/camera_enhance-24px.svg);
+		--bg:url(/assets/icons/camera_enhance-24px.svg);
 		--col-hover:var(--shade-blue);
 		--col-select:var(--shade-yellow);
 		anchor-name: --select-camera;
@@ -377,7 +377,7 @@
 
 	// selector for the tempo
 	label[for="select-tempo"]{
-		--bg:url(/source/assets/icons/speed-24px.svg);
+		--bg:url(/assets/icons/speed-24px.svg);
 		--col-hover:var(--shade-blue);
 		--col-select:var(--shade-yellow);
 		anchor-name: --select-tempo;
@@ -386,13 +386,13 @@
 
 	a.folder-link[href="#folder-tempo"],
 	label[for="input-tempo"]{
-		--bg:url(/source/assets/icons/speed-24px.svg);
+		--bg:url(/assets/icons/speed-24px.svg);
 		--col-select:var(--shade-yellow);
 		anchor-name: --input-tempo;
 	}
 
 	label[for="button-record-audio"]{
-		--bg:url(/source/assets/icons/voicemail-24px.svg);
+		--bg:url(/assets/icons/voicemail-24px.svg);
 		--col-select:var(--shade-yellow);
 		anchor-name:--button-record-audio;
 		&.recording{
@@ -411,7 +411,7 @@
 
 
 	label[for="button-record-video"]{
-		--bg:url(/source/assets/icons/speed-24px.svg);
+		--bg:url(/assets/icons/speed-24px.svg);
 		--col-hover:var(--shade-blue);
 		--col-select:var(--shade-yellow);
 		anchor-name: --button-record-video;
@@ -429,7 +429,7 @@
 		//background-position: left 1px center;
 		// --icon-size:36px;
 		//background-color: $col-cream;
-		--bg:url(/source/assets/icons/midi-copyright-free.svg);
+		--bg:url(/assets/icons/midi-copyright-free.svg);
 		anchor-name: --folder-midi;
 		&:before{
 			// also make sure we have set the width for midi as is not square
@@ -451,13 +451,13 @@
 
 	button#button-photograph{
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/add_a_photo-24px.svg);
+		--bg:url(/assets/icons/add_a_photo-24px.svg);
 		anchor-name: --button-photograph;
 	}
 
 	button#button-reset{
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/report_problem_black_24dp.svg);
+		--bg:url(/assets/icons/report_problem_black_24dp.svg);
 		anchor-name: --button-reset;
 	}
 
@@ -466,14 +466,14 @@
 		// background-color:vae(--col-hover);
 		// background-color: $col-yellow;
 		--col-hover:var(--shade-blue);
-		--bg:url(/source/assets/icons/help_outline_black_24dp.svg);
+		--bg:url(/assets/icons/help_outline_black_24dp.svg);
 		cursor: help;
 		display: none;
 		anchor-name:--button-help;
 	}
 
 	button#button-share{
-		--bg:url(/source/assets/icons/share-24px.svg);
+		--bg:url(/assets/icons/share-24px.svg);
 		//margin-left: auto;
 		z-index:2;
 		// second from right
@@ -482,7 +482,7 @@
 	}
 
 	#button-reload{
-		--bg:url(/source/assets/icons/autorenew_black_24dp.svg);
+		--bg:url(/assets/icons/autorenew_black_24dp.svg);
 		width: 100%;
 		text-align: left;
 		justify-content: flex-start;
@@ -491,19 +491,19 @@
 	}
 
 	.button-email{
-		--bg:url(/source/assets/icons/drafts.svg);
-		// --bg:url(/source/assets/icons/email-24px.svg);
-		// --bg:url(/source/assets/icons/email_black_24dp.svg);
+		--bg:url(/assets/icons/drafts.svg);
+		// --bg:url(/assets/icons/email-24px.svg);
+		// --bg:url(/assets/icons/email_black_24dp.svg);
 	}
 
 	// This is the upload midi file button and action
 	button.midi-file{
-		--bg:url(/source/assets/icons/face_retouching_off-24px.svg);
+		--bg:url(/assets/icons/face_retouching_off-24px.svg);
 		anchor-name:--button-upload-midi;
 	}
 
 	#button-midi-upload{
-		--bg:url(/source/assets/icons/midi-copyright-free.svg);
+		--bg:url(/assets/icons/midi-copyright-free.svg);
 		gap:var(--pad);
 		width: 100%;
 		anchor-name: --button-midi-upload;
@@ -515,7 +515,7 @@
 		left: auto !important;
 		position: relative !important;
 		opacity: 1 !important;
-		--bg:url(/source/assets/icons/view_in_ar_black_24dp.svg);
+		--bg:url(/assets/icons/view_in_ar_black_24dp.svg);
 		anchor-name: --button-vr;
 	}
 // }

@@ -1,6 +1,6 @@
 
 // App specific
-.interface body{
+body{
 
 	color: var( --shade-brand, var(--shade-red, red));
 
@@ -55,14 +55,16 @@
 
 
 .link-to-requirements{
-	display: block;
+	display: inline-block;
 }
 
 // place items into grid
 #load-progress{
-	grid-area:app;
-	// position: sticky;
-	// bottom:0;
+	position: sticky;
+	top:50%;
+	bottom:50%;
+	transform: translateY(-50%);
+	z-index: 202;
 	// margin:clamp( var(--pad), 25%, 25vmin ); //max-width:440px;	
 	align-self: center;
 	justify-self: center;
@@ -71,7 +73,9 @@
 #intro{
 	grid-area:hero;
 	// position: sticky;
-	// top:var(--pad);		
+	// top:var(--pad);	
+	position: relative;	
+	z-index: 909;
 }
 
 #contact{
@@ -251,7 +255,6 @@
 	}
 }
 
-
 #hero,
 .hero-bumper{
 	height:100%;
@@ -268,9 +271,6 @@
 	grid-area:app;
 }
 
-
-
-
 #foot{
 	grid-area: footer;
 }
@@ -278,13 +278,6 @@
 .interface .back-to-top{
 	visibility: hidden;
 	position: absolute;
-}
-
-// during loading we show all in a line
-.interface.loading body{
-	//grid-template-rows: 1fr auto;
-	// overrides
-	
 }
 
 #share-code{
@@ -312,57 +305,6 @@
 		width:inherit;
 		height:inherit;
 	}
-}
-
-// once loaded we hide the #intro
-.interface.loaded{ 
-	background-color: black;
-
-	// prevent iOS from accidently scrolling the page
-	touch-action: none;
-	body{
-		grid-template-rows: 1fr auto;
-		// grid-template-rows:
-		// 	calc(100vh - var(--footer-gap) - var(--pad) * 2);
-		// grid-template-rows:
-		// 	calc(100dvh - var(--footer-gap) - var(--pad) * 2);
-		grid-template-rows:1fr;
-
-		// mmake this big to give adequate room to breathe
-		grid-template-areas: "app";
-
-		// grid-template-areas:  
-		// 	"app"
-		// 	"footer";
-		overflow: hidden;
-	}
-
-	#intro{
-		grid-area:app;
-		pointer-events: none;
-		box-sizing: border-box;
-		max-width: 100%;
-		max-height: 100%;
-
-		background: none;
-		display: none;
-	}
-
-	#contact{
-		display: none;
-	}
-
-	// load bar
-	#load-progress{
-		display: none;
-	}
-	#foot{
-		grid-area:app;
-	}
-}
-
-.interface #app{
-	
 }
 
 // ELECTRON App
@@ -478,7 +420,7 @@
 		fill:currentColor;
 	}
 
-	// background:url(/source/assets/logos/interface.svg) no-repeat left;
+	// background:url(/assets/logos/interface.svg) no-repeat left;
 	// background-size: contain;
 	// background-position: left;
 }
@@ -502,12 +444,6 @@ main.img{
 	}
 }
 
-//
-main.active{
-	button{
-		display: block;
-	}
-}
 
 .warning strong{
 	animation:TextThrob 4s linear infinite 0.05s both;
@@ -551,7 +487,7 @@ main.active{
 		left:var(--pad);
 		right:var(--pad);
 		bottom:var(--pad);
-		background:url(assets/icons/child_care-24px.svg) no-repeat center center;
+		background:url(/assets/icons/child_care-24px.svg) no-repeat center center;
 		background-size: contain;
 		opacity:0;
 		//transform:translateZ(100px);
@@ -796,7 +732,7 @@ main.active{
 }
 
 .brand{
-	//background:url(/source/assets/logos/designerzen_current-color.svg) no-repeat left 2px center;
+	//background:url(/assets/logos/designerzen_current-color.svg) no-repeat left 2px center;
 	//background-size: contain;
 	//padding-left:1.3rem;
 	display: inline-flex;
@@ -1036,7 +972,7 @@ svg.hero-bumper{
 		display: inline-block;
 		width: var(--icon-size);
 		height:var(--icon-size);
-		background-image: url(/source/assets/logos/designerzen.svg);
+		background-image: url(/assets/logos/designerzen.svg);
 		background-repeat: no-repeat;
 		background-size: contain;
 		// padding-left:calc(var(--pad)*3.5);

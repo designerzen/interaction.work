@@ -2,7 +2,7 @@
 // Custom start button
 .button-start{
 	// leftmost gap to behind the icon
-	--bg:url(/source/assets/icons/play_circle_outline_black_24dp.svg);
+	--bg:url(/assets/icons/play_circle_outline_black_24dp.svg);
 	--space: calc(var(--pad)* 2.5px);
 	padding: calc(var(--pad)* 1);
 	border-radius:999px;
@@ -32,14 +32,14 @@ label[for="toggle-automation-mode"]{
 
 label[for="button-solo"],
 button#button-solo{
-	--bg:url(/source/assets/icons/person-24px.svg);
+	--bg:url(/assets/icons/person-24px.svg);
 	--y:100%;
 	anchor-name:--button-solo;
 }
 
 label[for="button-duet"],
 button#button-duet{
-	--bg:url(/source/assets/icons/people-24px.svg);
+	--bg:url(/assets/icons/people-24px.svg);
 	--y:-100%;
 	anchor-name:--button-duet;
 }
@@ -47,13 +47,13 @@ button#button-duet{
 // These need overrides for size
 label[for="button-trio"],
 button#button-trio{
-	--bg:url(/source/assets/icons/groups-24px.svg);//display: none;
+	--bg:url(/assets/icons/groups-24px.svg);//display: none;
 	anchor-name:--button-trio;
 }
 
 label[for="button-quartet"],
 button#button-quartet{
-	--bg:url(/source/assets/icons/person_add-24px.svg);
+	--bg:url(/assets/icons/person_add-24px.svg);
 	anchor-name:--button-quartet;
 }
 
@@ -227,28 +227,28 @@ button.person,
 
 // variations
 button.error {
-	--bg:url(/source/assets/icons/person-24px.svg);
+	--bg:url(/assets/icons/person-24px.svg);
 	--col-hover:var(--shade-brand,var(--shade-red)); 
 	anchor-name:--button-error;
 } 
 
 button.wait {
 	border-color: Highlight;
-	--bg:url(/source/assets/icons/person-24px.svg);
+	--bg:url(/assets/icons/person-24px.svg);
 	--col-fg:HighlightText;
 	--col-hover:var(--shade-brand,var(--shade-red)); 
 	anchor-name:--button-wait;
 } 
 
 button.light {
-	--bg:url(/source/assets/icons/person-24px.svg);
+	--bg:url(/assets/icons/person-24px.svg);
 	--col-fg:var(--shade-dark);
 	--col-hover:var(--shade-white);
 	--hue:60;
 } 
 
 button.dark {
-	--bg:url(/source/assets/icons/person-24px.svg);
+	--bg:url(/assets/icons/person-24px.svg);
 	--hue:20;
 	--col-fg:var(--shade-white);
 	--col-hover:var(--shade-dark);

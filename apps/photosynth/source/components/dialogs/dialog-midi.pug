@@ -1,0 +1,8 @@
+dialog#select-midi
+	form(method="dialog")
+		h5 Select your MIDI device
+		label(for="select-midi-output") <span class="hide-text">Connect to </span>MIDI
+		div#select-midi-output
+			input.midi-output(type="checkbox" aria-label="Select MIDI Device to play")
+
+		button.close(autofocus onclick="this.closest('dialog').close('close')" type="submit" title="Close dialog") Return

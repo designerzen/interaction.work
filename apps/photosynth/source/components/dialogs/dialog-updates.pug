@@ -1,0 +1,8 @@
+dialog#pwa-updates
+	//-iframe#changelog(src="./changes.html" title="Changes")
+	form(method="dialog")
+		h5 Updates available!
+		#changelog
+
+		button.button-push.text-always#button-update(autofocus type="button" title="Upgrade to the latest version") Upgrade 
+		button.button-push.text-always.close(onclick="this.closest('dialog').close('close')" type="submit" title="Close dialog") Continue without update

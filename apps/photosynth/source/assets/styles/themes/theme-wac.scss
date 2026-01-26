@@ -3,7 +3,7 @@
 .interface.loaded .theme-wac{
 	#link-about{
 		background-color: transparent;
-		background-image:url(../../assets/logos/massig.svg);
+		background-image:url(/assets/logos/massig.svg);
 		filter: invert(1);
 		&::after{
 			visibility: hidden;

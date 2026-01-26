@@ -1,0 +1,17 @@
+dialog#errors 
+	form(method="dialog")
+		h5 Oh no! An error has occurred!
+		p#error-message Hopefully this is a one time problem
+		p#error-solution Click the button to reload and try again
+		
+		details 
+			summary More information 
+			p#error-details
+
+		audio(src="../../assets/audio/lemmings.wav" controls=false)
+
+		menu
+			button.button.button-push.text-always.reload-app(autofocus onclick="window.location.reload();" type="button") Reload 
+			button.button.button-push.text-always.reset-app(autofocus onclick="history.replaceState( null, null, '?' ); window.location.reload();" type="button") Reset 
+	
+		button.close.if-recoverable(autofocus onclick="this.closest('dialog').close('close')" type="submit" title="Close dialog") Return

@@ -42,6 +42,9 @@
 	--shade-active:hsl( var(--hue-active, #{palette.$hue-red}), var( --s-active, 58%), var( --l-active, 35%) );
 	--shade-selected:hsl( var(--hue-selected, #{palette.$hue-orange}), var( --s-selected, 58%), var( --l-selected, 35%) );
 		
+	--color-bg:light-dark(var(--shade-white), var(--shade-dark));
+	--color-text:light-dark(var(--shade-dark), var(--shade-white));
+
 	// universal text drop shadow...
 	// needs to be set via the themes too
 	// --text-shadow: 	rgba($col-white,0.6) 0 0px 1px,

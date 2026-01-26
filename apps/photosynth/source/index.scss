@@ -20,7 +20,6 @@
 @use "./assets/styles/gadgets/transport.scss";
 
 
-@use "./assets/styles/states.scss";
 @use "./assets/styles/presentation.scss";
 @use "./assets/styles/domains.scss";
 
@@ -30,11 +29,8 @@
 // custom wallpapers depending on page
 @use "./assets/styles/wallpapers.scss";
 
-// alerts
-@use "./assets/styles/feedback.scss";
-
-
-// elements and sections
+// ui
+@use "./assets/styles/gadgets/feedback.scss";
 @use "./assets/styles/gadgets/warnings.scss";
 @use "./assets/styles/gadgets/audio-player.scss";
 @use "./assets/styles/gadgets/toast.scss";
@@ -64,7 +60,6 @@
 @use "./assets/styles/sections/recordings.scss";
 @use "./assets/styles/sections/timeline.scss";
 @use "./assets/styles/sections/tutorial.scss";
-@use "./assets/styles/sections/loading.scss";
 @use "./assets/styles/sections/midi.scss";
 @use "./assets/styles/sections/dialog-fund.scss";
 @use "./assets/styles/sections/footer.scss";
@@ -72,6 +67,9 @@
 @use "./assets/styles/sections/intro.scss";
 @use "./assets/styles/sections/onboarding.scss";	// <- has button mixin 
 
+// States of the above
+@use "./assets/styles/sections/states/states.scss";
+@use "./assets/styles/sections/states/state-loading.scss";
 
 // Panels
 @use "./assets/styles/sections/panel-controls.scss";

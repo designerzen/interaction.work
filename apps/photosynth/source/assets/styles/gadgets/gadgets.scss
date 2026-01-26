@@ -61,8 +61,8 @@ label[for="select-camera"],
 	// background-color:$col-blue;
 	// border-radius: 4px;
 	// &:focus-within,
-	// background-image:url(/source/assets/icons/switch_video-24px.svg);
-	--bg:url(/source/assets/icons/switch_video-24px.svg);
+	// background-image:url(/assets/icons/switch_video-24px.svg);
+	--bg:url(/assets/icons/switch_video-24px.svg);
 	// overflow:hiddfooten;
 
 	&:before{
@@ -194,7 +194,7 @@ a[href="#help"]{
 
 	&:hover:before{
 		color:inherit;
-		//background-image:url(/source/assets/icons/help_black_24dp.svg);
+		//background-image:url(/assets/icons/help_black_24dp.svg);
 	}
 }
 
@@ -222,8 +222,8 @@ a[href="#fund"]{
 	// background-color: var(--shade-white, white);
 	background-color: rgba(0,0,0,0.2);
 		
-	// background:url(/source/assets/logos/interface_round-composite.svg) center no-repeat;
-	background-image:url(/source/assets/logos/interface_colour.svg);
+	// background:url(/assets/logos/interface_round-composite.svg) center no-repeat;
+	background-image:url(/assets/logos/interface_colour.svg);
 	background-position: bottom center;
 	background-size: 72%;
 	background-repeat: no-repeat;

@@ -1,0 +1,48 @@
+//- TODO:
+dialog#fund
+	form(method="dialog")
+		h5 Realtime face controlled musical instrument! 
+		p.
+			Install it to your device
+
+		label(for="install-pwa" hidden) Install this app
+		//- button.button-install( hidden type="button" aria-label="Install this application to your homescreen") Install
+		
+		aside
+			h6 Help support this project! 
+			p.
+				If you enjoy this software and want to help it continue to grow, please consider donating some money via Patreon or Paypal!
+
+			ul.fund.icon-list
+				li: a.paypal(href="https://www.paypal.com/donate/?hosted_button_id=RHGJDTPJQ77F4/" rel="noopener noreferrer" target="_blank") Donate via Paypal
+				li: a.patreon(href="https://www.patreon.com/designerzen" rel="noopener noreferrer" target="_blank") Fund this project on Patreon
+				li: a.designerzen(href="https://www.designerzen.com/" rel="noopener noreferrer" target="_blank") Contact Developer Zen
+				//- li
+					form(action="https://www.paypal.com/donate" method="post" target="_top")
+						input(type="hidden" name="hosted_button_id" value="RHGJDTPJQ77F4")
+						input(type="image" src="../../assets/logos/paypal.svg" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button")
+						//- input(type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button")
+						<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1" />
+					
+
+		//- ul.associates.icon-list
+		//- 	li: a.drakemusic(href="https://www.drakemusic.org/technology/dmlab-community/" rel="noopener noreferrer" target="_blank") Drake Music
+		//- 	li: a.aotf(href="https://audienceofthefuture.live/interface/" rel="noopener noreferrer" target="_blank") Audience of the Future
+		//- 	li: a.tensorflow(href="https://www.tensorflow.com/" rel="noopener noreferrer" target="_blank") TensorFlow	
+		//- 	
+			
+		//- ul.supporters.icon-list
+		//- 	li: a.sxsw(href="https://www.sxsw.com/" rel="noopener noreferrer" target="_blank") SXSW
+		//- 	li: a.mmf(href="https://www.makermusicfestival.com/" rel="noopener noreferrer" target="_blank") Maker Music Festival
+		
+		ul.links
+			li: a.link-copyright(href="/copyright" target="_blank") Copyright
+			li: a(href="/credits" target="_blank") Credits
+			li: a.link-licenses(href="/licenses" target="_blank") Licenses
+			li: a.github(href="https://github.com/designerzen/interface" target="_blank") Sources
+			li: a(href="/roadmap" target="_blank") Roadmap
+			li: a.contact(href="https://designerzen.com" target="_blank") Contact Creator
+			
+			//- li(hidden): a.tests(href="tests.pug" target="_blank") Tests
+		
+		button.close(autofocus onclick="this.closest('dialog').close('close')" type="submit" title="Close Dialog") Close Dialog

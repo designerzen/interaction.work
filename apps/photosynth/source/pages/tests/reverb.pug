@@ -1,0 +1,39 @@
+extends ../_base.pug
+
+block title
+	+title('Test:Reverb')
+
+block nav
+	a(href="../tests") All Tests
+
+block preload 
+
+block above 
+
+block main
+	main#test-reverb
+		canvas#reverb-canvas( width=320 height=240 )
+		button#button-test-reverb(type="button") Play note
+		button#button-download-reverb(type="button") Download Impulse Filter
+
+block styles 
+	style.
+		#control-panel{
+			z-index:909;
+		}
+		#button-test-reverb{
+			z-index:1080;
+
+		}
+
+block scripts
+	script(type="module" src="./reverb.js")
+
+		
+
+
+
+
+
+
+

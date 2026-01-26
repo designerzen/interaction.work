@@ -1,0 +1,18 @@
+
+// added when the user engages with the app
+.user-active{
+	#shared-controls {
+		visibility: visible;
+	}
+	// .controls > *{
+	// 	animation-direction: reverse, reverse;
+	// }
+}
+
+
+//
+main.active{
+	button{
+		display: block;
+	}
+}

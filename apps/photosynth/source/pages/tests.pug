@@ -1,4 +1,4 @@
-extends _base.pug
+extends ./_base.pug
 
 block title
 	+title('Tests')
@@ -8,46 +8,46 @@ block nav
 block preload 
 
 block main
-	main(style="color:darkcyan;")
+	main
 		section 
 			article
 				h4 Tests
 				nav.internal-links
-					a(href="/test.avatar") Avatars
-					a(href="/test.buttons") Buttons
-					a(href="/test.controls") Controls
-					a(href="/test.gamepad") Gamepads
+					a(href="/tests/avatar") Avatars
+					a(href="/tests/buttons") Buttons
+					a(href="/tests/controls") Controls
+					a(href="/tests/gamepad") Gamepads
 					
-					a(href="/test.dialogs") Dialogs
-					a(href="/test.tooltips") Tooltips
-					a(href="/test.sidebars") Sidebars
-					a(href="/test.themes") Themes
+					a(href="/tests/dialogs") Dialogs
+					a(href="/tests/tooltips") Tooltips
+					a(href="/tests/sidebars") Sidebars
+					a(href="/tests/themes") Themes
 					
-					a(href="/test.state") State
-					a(href="/test.displays") Displays
-					a(href="/test.hologram") Hologram
+					a(href="/tests/state") State
+					a(href="/tests/displays") Displays
+					a(href="/tests/hologram") Hologram
 
-					a(href="/test.timing") Timing
-					a(href="/test.broadcast") Broadcast
+					a(href="/tests/timing") Timing
+					a(href="/tests/broadcast") Broadcast
 
-					a(href="/test.scales") Scales
+					a(href="/tests/scales") Scales
 					
-					a(href="/test.microphone") Microphone
+					a(href="/tests/microphone") Microphone
 					
-					a(href="/test.notation") Notation
-					a(href="/test.instrument") Instrument
-					a(href="/test.drumkit") Drum Kit
-					a(href="/test.reverb") Reverb
-					a(href="/test.sampler") Sampler Worklet
+					a(href="/tests/notation") Notation
+					a(href="/tests/instrument") Instrument
+					a(href="/tests/drumkit") Drum Kit
+					a(href="/tests/reverb") Reverb
+					a(href="/tests/sampler") Sampler Worklet
 
-					a(href="/test.qr") QR Code
+					a(href="/tests/qr") QR Code
 
-					a(href="/test.midi") MIDI
-					a(href="/test.wam") Web Audio Modules
+					a(href="/tests/midi") MIDI
+					a(href="/tests/wam") Web Audio Modules
 					
-					a(href="/test.hands") Hands Sequencer
+					a(href="/tests/hands") Hands Sequencer
 
-					a(href="/test.xr-drum") Face Drum Sequencer
+					a(href="/tests/xr-drum") Face Drum Sequencer
 			
 
 		section 
@@ -88,6 +88,9 @@ block styles
 	style.
 		body{
 			background-image:none;
+		}
+		main{
+			color:darkcyan;
 		}
 		.internal-links{
 			display: flex;

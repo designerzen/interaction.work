@@ -1,0 +1,88 @@
+
+// ---------------- FLAGS ---------------
+
+// Show secret buttons#??
+.flag-showSettings {
+	#toast{
+		--footer-gap:calc( 2 * 4rem + var(--pad) );
+	}
+}
+
+// show settings panel
+.flag-showSettings #settings,
+#settings:focus,
+#settings:focus-visible,
+#settings:focus-within{
+	--y:100%;
+	display: flex;
+	visibility: visible;
+	transform: translateY( 0 );
+	// animation:TranslateY var(--ease-q, 40ms) ease-out 0s both;
+}
+
+#feedback{
+	display: none;
+}
+
+.flag-text #feedback{
+	display: block;
+}
+
+// Options set by clicking buttons set these flags as classes
+.flag-clear {
+	// FIXME:
+	// #shared-controls label[for="button-sync-video"]{
+	// 	display: flex;
+	// }
+	// #shared-controls label[for="button-overlay"]{
+	// 	display: none;
+	// }
+}
+
+// We want to copy the video frame so we do not 
+// need to also show it
+.flag-clear,
+.flag-synch{
+	#webcam{
+		display: none;
+	}
+}
+
+// this hides the video when in synch mode
+// main:not(.flag-clear.flag-transparent){
+// 	// hide videp as drawing to canvas direct
+// 	#app-frame video{
+// 		display: none;
+// 	}
+// }
+
+// this hides the video when in synch mode
+// main:not(.flag-clear.flag-transparent){
+// 	// hide videp as drawing to canvas direct
+// 	#app-frame video{
+// 		display: none;
+// 	}
+// }
+
+
+.flag-eyes label[for="select-eyes"]{
+	
+}
+
+// if we are showing the flag-overlay we are showing all 
+// XR overlays
+.flag-overlays{
+	
+}
+
+// If we are not showing overlays, what use is there in the
+// eyes, mask buttons?
+main:not(.flag-overlays){
+	label[for="button-meshes"],
+	label[for="button-eyes"],
+	label[for="select-eyes"],
+	label[for="select-palette"],
+	label[for="button-subtitles"]{
+		visibility: hidden;
+	}
+}
