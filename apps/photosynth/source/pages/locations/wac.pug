@@ -1,20 +1,21 @@
-extends interface.pug
+extends ../index.pug
 
 //- custom options go here
 block options
 	script.
 		globalThis._synth = { 
-			advancedMode:false, 
-			text:false, 
+			advancedMode:true, 
+			text:true, 
 			autoHide:true, 
 			backingTrack:false, 
-			photoSensitive:true,
+			photoSensitive:false,
 			automationMode:true,
-			instrumentPack:'OpenGM24'
+			referer:'wac',
+			theme:'theme-wac'
 		}
 
 block headline
-	| Electromagnetic Fields 
+	| Web Audio Conference
 	span.sr-only PhotoSynth 4
 	| Inter 
 	strong FACE

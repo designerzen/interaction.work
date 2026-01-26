@@ -1,21 +1,20 @@
-extends index.pug
+extends ../index.pug
 
 //- custom options go here
 block options
 	script.
 		globalThis._synth = { 
-			advancedMode:true, 
-			text:true, 
+			advancedMode:false, 
+			text:false, 
 			autoHide:true, 
 			backingTrack:false, 
-			photoSensitive:false,
+			photoSensitive:true,
 			automationMode:true,
-			referer:'wac',
-			theme:'theme-wac'
+			instrumentPack:'OpenGM24'
 		}
 
 block headline
-	| Web Audio Conference
+	| Internet of Sounds  
 	span.sr-only PhotoSynth 4
 	| Inter 
 	strong FACE

@@ -14,11 +14,11 @@ block nav
 block preload 
 	block options
 	script document.documentElement.classList.add("loading","app")
-	link(rel="preload" href="index.js" as="script") 
+	//- link(rel="preload" href="index.js" as="script") 
 	
 
 block scripts
-	script(type="module" src="index.js")
+	//- script(type="module" src="index.js")
 
 block main
 	main#app(aria-describedby="progress-bar")
