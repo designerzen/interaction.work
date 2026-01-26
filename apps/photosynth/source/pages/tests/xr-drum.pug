@@ -1,4 +1,4 @@
-extends ../_base.pug
+extends _test.pug
 
 block above 
 	#load-progress
@@ -6,6 +6,7 @@ block above
 		label(for="progress-bar") Please wait <br>loading may take a very long time
 
 block nav
+	a(href="/tests") All Tests
 	ul
 		li: a#link-about(href="#fund" aria-label="Learn more about this project" onclick="window.fund.showModal()") About<span class="hide-text"> this project and how to help fund it<span>
 		li: a(href="#help" aria-label="Show some helpfull information" onclick="window.help.showModal()") Help!

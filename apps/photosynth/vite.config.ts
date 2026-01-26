@@ -35,7 +35,7 @@ export default defineConfig({
 		port: 909,
 		strictPort: true,
 		watch: {
-			ignored: ["**/source-tauri/**"]
+			ignored: ["**/source-tauri/**", "**/source-electron/**"]
 		}
 	}
 })

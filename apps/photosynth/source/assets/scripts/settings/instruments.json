@@ -1,0 +1,71 @@
+[
+	{
+		"name":"OpenGM24",
+		"type":"SoundFontInstrument",
+		"title":"Open General MIDI 2024 Soundfont",
+		"description":"Open Source General MIDI SoundFont 2",
+		"descriptor":"/assets/audio/OpenGM24.json",
+		"formats":{
+			"mp3":"./assets/audio/OpenGM24/"
+		}
+	},
+
+	{
+		"name":"Oscillator",
+		"type":"OscillatorInstrument",
+		"title":"Simple Synthesizer",
+		"description":"Single Oscillator Synthesizer",
+		"descriptor":"/assets/audio/oscillator.json",
+		"formats":{}
+	},
+	{
+		"name":"Dual Oscillator",
+		"type":"DualOscillatorInstrument",
+		"title":"Dual Oscillator",
+		"description":"Dual Oscillator Synthesizer",
+		"descriptor":"/assets/audio/oscillator.json",
+		"formats":{}
+	},
+	{
+		"name":"Triple Oscillator",
+		"type":"TripleOscillatorInstrument",
+		"title":"Triple Oscillator",
+		"description":"Triple Oscillator Synthesizer",
+		"descriptor":"/assets/audio/oscillator.json",
+		"formats":{}
+	},
+	{
+		"name":"Monotron",
+		"type":"MonotronInstrument",
+		"title":"Monotron",
+		"description":"Monotron Style Synthesizer",
+		"descriptor":"/assets/audio/monotron.json",
+		"formats":{}
+	},
+	{
+		"name":"Moog",
+		"type":"MoogInstrument",
+		"title":"Moog",
+		"description":"Moog Style VCO",
+		"descriptor":"/assets/audio/moog.json",
+		"formats":{}
+	},
+
+	{
+		"name":"Synth101",
+		"type":"WAM2Instrument",
+		"title":"",
+		"description":"",
+		"descriptor":"/wam2/synth101/src/descriptor.json",
+		"formats":{}
+	},
+
+	{
+		"name":"Chord",
+		"type":"ChordInstrument",
+		"title":"",
+		"description":"Play multiple other instruments together",
+		"descriptor":"/wam2/synth101/src/descriptor.json",
+		"formats":{}
+	}
+]

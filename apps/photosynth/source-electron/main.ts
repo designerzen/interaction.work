@@ -20,7 +20,7 @@ const createWindow = () => {
 		width: 1920,
 		height: 1080,
 		webPreferences: {
-			preload: path.join(__dirname, 'preload.ts'),
+			preload: path.join(__dirname, '../preload/index.js'),
 			contextIsolation: true,
 			enableRemoteModule: false,
 			nodeIntegration: false,

@@ -1,10 +1,7 @@
-extends ../_base.pug
+extends _test.pug
 
 block title
 	+title('Test:Dialogs')
-
-block nav
-	a(href="../tests") All Tests
 
 block preload 
 
@@ -12,7 +9,6 @@ block above
 	
 block main
 	main#test-dialogs
-
 		menu
 			button.light(onclick="help.showModal()") Help!
 			button(onclick="document.getElementById('dialog-share').showModal()") Share

@@ -1,9 +1,7 @@
-extends ../_base.pug
+extends _test.pug
 
 block title
 	+title('WAM2 Test bed')
-
-block nav
 
 block preload 
 
@@ -19,7 +17,7 @@ block main
 		
 		audio#player(
 			crossorigin="anonymous"
-			src="./assets/audio/tracks/coin.wav"
+			src="../../assets/audio/tracks/coin.wav"
 			controls
 			loop
 		)
