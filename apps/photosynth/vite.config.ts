@@ -2,7 +2,6 @@ import { defineConfig } from "vite"
 import { viteConvertPugInHtml } from '@mish.dev/vite-convert-pug-in-html'
 import { resolve } from 'path'
 import packageJSON from './package.json'
-import markdownPlugin from './vite-plugin-markdown'
 
 const instruments:string[] = []
 
@@ -13,7 +12,6 @@ const instruments:string[] = []
 export default defineConfig({
 	clearScreen: false,
 	plugins: [
-		markdownPlugin(),
 		viteConvertPugInHtml({
 			locals: {
 				CURRENT_YEAR: new Date().getFullYear(),
@@ -24,7 +22,7 @@ export default defineConfig({
 		})
 	],
 	root: "source",
-	publicDir: "../public",
+	publicDir: "./public",
 	resolve: {
 		alias: {
 			'@': resolve(__dirname, 'source'),
