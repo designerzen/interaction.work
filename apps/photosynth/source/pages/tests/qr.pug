@@ -32,13 +32,13 @@ block styles
 block scripts
 	script(type="module").
 		// 			
-		import { createQRCode } from './utils/barcodes.js'
+		import { createQRCode } from '../../assets/scripts/utils/barcodes.js'
 		
-		import { getDomainDefaults, getFactoryDefaults } from './settings/options.js'
-		import { getReferer, getRefererHostname, forceSecure, getEditionFromURL } from './utils/location-handler'
-		import State, { EVENT_STATE_CHANGE, loadState, getState, setState, refreshState } from './utils/state'
+		import { getDomainDefaults, getFactoryDefaults } from '../../assets/scripts/settings/options.js'
+		import { getReferer, getRefererHostname, forceSecure, getEditionFromURL } from '../../assets/scripts/utils/location-handler.js'
+		import State, { EVENT_STATE_CHANGE, loadState, getState, setState, refreshState } from '../../assets/scripts/utils/state.js'
 
-		import IMAGE from './assets/logos/appstore.png'
+		import IMAGE from '../../assets/logos/appstore.png'
 		const start = async () => {
 			const main = document.querySelector("main")
 			const userInput = main.querySelector("#qr-destination")

@@ -71,15 +71,15 @@ block scripts
 	script(type="module").
 
 		//- 
-		import { setupThemeControls} from './theme/theme.js'
-		import { createRadialMenu} from './dom/radial-menu.js'
-		import { addToolTips, showTooltip, setToolTipPosition, setToolTipCoordinates } from './dom/tooltips.js'		
-		import { setupVolumeInterface } from './dom/ui.volume.js'
-		import { setupTempoInterface } from './dom/ui.tempo.js'
-		import { setupInterface} from './dom/ui.js'
-		import State, { EVENT_STATE_CHANGE, loadState, getState, setState, refreshState, createStateFromHost } from './utils/state'
+		import { setupThemeControls} from '../../assets/scripts/theme/theme.js'
+		import { createRadialMenu} from '../../assets/scripts/dom/radial-menu.js'
+		import { addToolTips, showTooltip, setToolTipPosition, setToolTipCoordinates } from '../../assets/scripts/dom/tooltips.js'		
+		import { setupVolumeInterface } from '../../assets/scripts/dom/ui.volume.js'
+		import { setupTempoInterface } from '../../assets/scripts/dom/ui.tempo.js'
+		import { setupInterface} from '../../assets/scripts/dom/ui.js'
+		import State, { EVENT_STATE_CHANGE, loadState, getState, setState, refreshState, createStateFromHost } from '../../assets/scripts/utils/state.js'
 
-		import Person from './person.js'
+		import Person from '../../assets/scripts/person.js'
 
 		const start = async () => {
 			console.info("Now looking for tooltips")

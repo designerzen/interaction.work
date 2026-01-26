@@ -28,18 +28,18 @@ block main
 block scripts
 	script(type="module").
 		// 
-		import { active, playing, setupAudio } from './audio/audio'
-		import {DEFAULT_KICK_OPTIONS} from './audio/synthesizers/kick.js'
-		import {DEFAULT_SNARE_OPTIONS} from './audio/synthesizers/snare.js'
-		import {DEFAULT_OPEN_HIHAT, DEFAULT_CLOSED_HIHAT} from './audio/synthesizers/hihat.js'
-		import {DEFAULT_CLAP_OPTIONS} from './audio/synthesizers/clap.js'
-		import {DEFAULT_COWBELL_OPTIONS} from './audio/synthesizers/cowbell.js'
-		import { createDrumkit } from './audio/drum-kit.js'
-		import { playNextPart, getKitSequence } from './timing/patterns.js'
-		import GamePad from './hardware/gamepad.js'
-		import AudioTimer from './timing/timer.audio.js' 
+		import { active, playing, setupAudio } from '../../assets/scripts/audio/audio.js'
+		import {DEFAULT_KICK_OPTIONS} from '../../assets/scripts/audio/synthesizers/kick.js'
+		import {DEFAULT_SNARE_OPTIONS} from '../../assets/scripts/audio/synthesizers/snare.js'
+		import {DEFAULT_OPEN_HIHAT, DEFAULT_CLOSED_HIHAT} from '../../assets/scripts/audio/synthesizers/hihat.js'
+		import {DEFAULT_CLAP_OPTIONS} from '../../assets/scripts/audio/synthesizers/clap.js'
+		import {DEFAULT_COWBELL_OPTIONS} from '../../assets/scripts/audio/synthesizers/cowbell.js'
+		import { createDrumkit } from '../../assets/scripts/audio/drum-kit.js'
+		import { playNextPart, getKitSequence } from '../../assets/scripts/timing/patterns.js'
+		import GamePad from '../../assets/scripts/hardware/gamepad.js'
+		import AudioTimer from '../../assets/scripts/timing/timer.audio.js' 
 		import {Pane} from 'tweakpane'
-		import {addToolTips} from './dom/tooltips.js'		
+		import {addToolTips} from '../../assets/scripts/dom/tooltips.js'		
 		
 
 		const CLAP_PARAMS = Object.assign({}, DEFAULT_CLAP_OPTIONS)

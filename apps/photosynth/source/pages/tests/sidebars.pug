@@ -37,21 +37,21 @@ block styles
 block scripts
 	script(type="module").
 			
-		import { getDomainDefaults, getFactoryDefaults } from './settings/options.js'
-		import { getReferer, getRefererHostname, forceSecure, getEditionFromURL } from './utils/location-handler'
-		import State, { EVENT_STATE_CHANGE, loadState, getState, setState, refreshState, createStateFromHost } from './utils/state'
+		import { getDomainDefaults, getFactoryDefaults } from '../../assets/scripts/settings/options.js'
+		import { getReferer, getRefererHostname, forceSecure, getEditionFromURL } from '../../assets/scripts/utils/location-handler.js'
+		import State, { EVENT_STATE_CHANGE, loadState, getState, setState, refreshState, createStateFromHost } from '../../assets/scripts/utils/state.js'
 
-		import {getNoteSound} from './audio/tuning/notes.js'
-		import {setupThemeControls} from './theme/theme.js'
-		import {createRadialMenu} from './dom/radial-menu.js'
-		import {addToolTips} from './dom/tooltips.js'		
+		import {getNoteSound} from '../../assets/scripts/audio/tuning/notes.js'
+		import {setupThemeControls} from '../../assets/scripts/theme/theme.js'
+		import {createRadialMenu} from '../../assets/scripts/dom/radial-menu.js'
+		import {addToolTips} from '../../assets/scripts/dom/tooltips.js'		
 			
-		import { setupVolumeInterface } from './dom/ui.volume.js'
-		import { setupTempoInterface } from './dom/ui.tempo.js'
-		import AudioTimer from './timing/timer.audio.js' 
+		import { setupVolumeInterface } from '../../assets/scripts/dom/ui.volume.js'
+		import { setupTempoInterface } from '../../assets/scripts/dom/ui.tempo.js'
+		import AudioTimer from '../../assets/scripts/timing/timer.audio.js' 
 	
-		import {setupInterface} from './dom/ui.js'
-		import Person from './person.js'
+		import {setupInterface} from '../../assets/scripts/dom/ui.js'
+		import Person from '../../assets/scripts/person.js'
 		import { 
 			getRecordableOutputNode,
 			active, playing, 
@@ -59,11 +59,11 @@ block scripts
 			getVolume, setVolume, getPercussionNode,
 			audioContext,
 			getMasterMixdown
-		} from './audio/audio.js'
+		} from '../../assets/scripts/audio/audio.js'
 	
-		import MIDIConnectionManager from './audio/midi/midi-connection-manager.js'
-		import WebMIDIClass from './audio/midi/midi-connection-webmidi.js'
-		import MIDIInstrument from './audio/instruments/instrument.midi.js'
+		import MIDIConnectionManager from '../../assets/scripts/audio/midi/midi-connection-manager.js'
+		import WebMIDIClass from '../../assets/scripts/audio/midi/midi-connection-webmidi.js'
+		import MIDIInstrument from '../../assets/scripts/audio/instruments/instrument.midi.js'
 		
 		const start = async () => {
 

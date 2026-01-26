@@ -41,20 +41,20 @@ block scripts
 	script(type="module").
 
 		// get the timing scripts
-		import { setupTempoInterface } from './dom/ui.tempo.js'
-		import AudioTimer from './timing/timer.audio.js' 
+		import { setupTempoInterface } from '../../assets/scripts/dom/ui.tempo.js'
+		import AudioTimer from '../../assets/scripts/timing/timer.audio.js' 
 		
-		import Microphone, {detectMicrophones, BUFFER_SIZE} from './hardware/microphone.js'
+		import Microphone, {detectMicrophones, BUFFER_SIZE} from '../../assets/scripts/hardware/microphone.js'
 
-		import MIDIConnectionManager from './audio/midi/midi-connection-manager.js'
-		import WebMIDIClass from './audio/midi/midi-connection-webmidi.js'
-		import MIDIInstrument from './audio/instruments/instrument.midi.js'
-		import SoundFontInstrument from './audio/instruments/instrument.soundfont.js'
-		import InstrumentFactory from './audio/instrument-factory.js'
-		import  { INSTRUMENT_TYPE_SOUNDFONT,INSTRUMENT_TYPE_OSCILLATOR, INSTRUMENT_TYPE_MIDI }  from './audio/instrument-list.js'
-		import InstrumentManager from './audio/instrument-manager.js'
+		import MIDIConnectionManager from '../../assets/scripts/audio/midi/midi-connection-manager.js'
+		import WebMIDIClass from '../../assets/scripts/audio/midi/midi-connection-webmidi.js'
+		import MIDIInstrument from '../../assets/scripts/audio/instruments/instrument.midi.js'
+		import SoundFontInstrument from '../../assets/scripts/audio/instruments/instrument.soundfont.js'
+		import InstrumentFactory from '../../assets/scripts/audio/instrument-factory.js'
+		import  { INSTRUMENT_TYPE_SOUNDFONT,INSTRUMENT_TYPE_OSCILLATOR, INSTRUMENT_TYPE_MIDI }  from '../../assets/scripts/audio/instrument-list.js'
+		import InstrumentManager from '../../assets/scripts/audio/instrument-manager.js'
 
-		import INSTRUMENT_LIST from './assets/audio/instrument-list.json'
+		import INSTRUMENT_LIST from '../../assets/scripts/assets/audio/instrument-list.json'
 
 		const metronomeOutput = document.getElementById("metronome-output")
 		const microphoneOutput = document.getElementById("microphone-output")

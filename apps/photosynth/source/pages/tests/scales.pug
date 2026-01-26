@@ -51,24 +51,24 @@ block styles
 block scripts
 	script(type="module").
 
-		import {setupThemeControls} from '../../theme/theme.js'
-		import {createRadialMenu} from '../../dom/radial-menu.js'
-		import {addToolTips} from '../../dom/tooltips.js'		
+		import {setupThemeControls} from '../../assets/scripts/theme/theme.js'
+		import {createRadialMenu} from '../../assets/scripts/dom/radial-menu.js'
+		import {addToolTips} from '../../assets/scripts/dom/tooltips.js'		
 			
-		import { setupVolumeInterface } from '../../dom/ui.volume.js'
-		import { setupTempoInterface } from '../../dom/ui.tempo.js'
-		import AudioTimer from '../../timing/timer.audio.js' 
-		import MIDIConnectionManager from '../../audio/midi/midi-connection-manager.js'
-		import WebMIDIClass from '../../audio/midi/midi-connection-webmidi.js'
-		import MIDIInstrument from '../../audio/instruments/instrument.midi.js'
-		import {setupInterface} from '../../dom/ui.js'
+		import { setupVolumeInterface } from '../../assets/scripts/dom/ui.volume.js'
+		import { setupTempoInterface } from '../../assets/scripts/dom/ui.tempo.js'
+		import AudioTimer from '../../assets/scripts/timing/timer.audio.js' 
+		import MIDIConnectionManager from '../../assets/scripts/audio/midi/midi-connection-manager.js'
+		import WebMIDIClass from '../../assets/scripts/audio/midi/midi-connection-webmidi.js'
+		import MIDIInstrument from '../../assets/scripts/audio/instruments/instrument.midi.js'
+		import {setupInterface} from '../../assets/scripts/dom/ui.js'
 			
 		import { 
 			getRecordableOutputNode,
 			active, playing, 
 			setupAudio,	audioContext,
 			getVolume, setVolume, getPercussionNode 
-		} from '../../audio/audio.js'
+		} from '../../assets/scripts/audio/audio.js'
 
 		const start = async () => {
 

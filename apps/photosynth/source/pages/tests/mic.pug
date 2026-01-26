@@ -35,9 +35,9 @@ block scripts
 		// by loading the wasm back-end.
 		// here, `EssentiaModule` is an emscripten module object imported to the global namespace
 		//- let essentia = new Essentia(EssentiaWASM)	
-		import PITCH_PROCESSOR from "worklet:./audio/processors/pitchyinprob-processor.js"
-		import { convertMIDINoteNumberToName } from './audio/tuning/notes.js'
-		import Microphone, {detectMicrophones} from './hardware/microphone.js'
+		import PITCH_PROCESSOR from "worklet:../../assets/scripts/audio/processors/pitchyinprob-processor.js"
+		import { convertMIDINoteNumberToName } from '../../assets/scripts/audio/tuning/notes.js'
+		import Microphone, {detectMicrophones} from '../../assets/scripts/hardware/microphone.js'
 
 		const microphoneOutput = document.getElementById("microphone-output")
 		const micToggle = document.getElementById("microphone-toggle")
