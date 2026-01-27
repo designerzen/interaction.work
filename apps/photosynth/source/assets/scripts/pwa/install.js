@@ -2,7 +2,7 @@ import { setToast } from '../dom/tooltips'
 import { createInstallButton } from '../dom/button'
 import { VERSION } from '../version'
 import {isSupportingBrowser} from './installation.js'
-import manifestPath from "../manifest.webmanifest?url"
+import manifestPath from "../../../manifest.webmanifest?url"
 
 const body = document.documentElement
 

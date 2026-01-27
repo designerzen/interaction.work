@@ -2,33 +2,33 @@
 // ARKit blendshape facial models
 // import CYBORG_FACE from "url:../assets/actors/FaceCapLiveModeAvatar/FaceCapLiveModeAvatar.fbx"
 // import OLIVIER_WILDE from "url:../assets/actors/Olivia Wilde - 3D Model.fbx"
-import BRUNETTE from "../assets/actors/brunette.glb?url"
-// import CYBORG_FACE from "../assets/actors/blender_sushi_virtual_journal_16th_april_2020.glb?url"
-// import CYBORG_FACE from "../assets/actors/cyborg.glb?url"
+import BRUNETTE from "../../actors/brunette.glb?url"
+// import CYBORG_FACE from "../../actors/blender_sushi_virtual_journal_16th_april_2020.glb?url"
+// import CYBORG_FACE from "../../actors/cyborg.glb?url"
 
-// import SUSHI_FACE_MESH from '../assets/actors/blender_sushi_virtual_journal_16th_april_2020.glb?url'
+// import SUSHI_FACE_MESH from '../../actors/blender_sushi_virtual_journal_16th_april_2020.glb?url'
 
 // https://github.com/hinzka/52blendshapes-for-VRoid-face
-// import AL_FACE_MESH from '../assets/actors/AL_Standard.fbx?url'
-import ALBERT_FACE_MESH from '../assets/actors/albert_e_two_face_with_blendshapes.glb?url'
-// import ALBERT_FACE_MESH from '../assets/actors/Albert 2 model.fbx?url'
-// import SIMPLE_MALE_FACE_MESH from '../assets/actors/simple-male.glb?url'
-// import SIMPLE_FEMALE_FACE_MESH from '../assets/actors/AnimationLibrary_Godot_Standard.glb?url'
-// import NEUTRAL_FACE_MESH from '../assets/actors/generic_neutral_mesh.obj?url'
-// import IRIS_FACE_MESH from '../assets/actors/face_model_with_iris.obj?url'
-import SAMANTHA_FACE_MESH from '../assets/actors/Beautiful 3D Model Head - Samantha.fbx?url'
+// import AL_FACE_MESH from '../../actors/AL_Standard.fbx?url'
+import ALBERT_FACE_MESH from '../../actors/albert_e_two_face_with_blendshapes.glb?url'
+// import ALBERT_FACE_MESH from '../../actors/Albert 2 model.fbx?url'
+// import SIMPLE_MALE_FACE_MESH from '../../actors/simple-male.glb?url'
+// import SIMPLE_FEMALE_FACE_MESH from '../../actors/AnimationLibrary_Godot_Standard.glb?url'
+// import NEUTRAL_FACE_MESH from '../../actors/generic_neutral_mesh.obj?url'
+// import IRIS_FACE_MESH from '../../actors/face_model_with_iris.obj?url'
+import SAMANTHA_FACE_MESH from '../../actors/Beautiful 3D Model Head - Samantha.fbx?url'
 
 // VRMs
-// import ANIME_MALE_FACE_MESH from 'url:../assets/actors/VRoid_V110_Male_v1.1.3.vrm'
-// import ANIME_FEMALE_FACE_MESH from 'url:../assets/actors/VRoid_V110_Female_v1.1.3.vrm'
-// import ANIME_SAVI_FACE_MESH from 'url:../assets/actors/savi.vrm'
+// import ANIME_MALE_FACE_MESH from 'url:../../actors/VRoid_V110_Male_v1.1.3.vrm'
+// import ANIME_FEMALE_FACE_MESH from 'url:../../actors/VRoid_V110_Female_v1.1.3.vrm'
+// import ANIME_SAVI_FACE_MESH from 'url:../../actors/savi.vrm'
 
-// import CANONICAL_FACE from "url:../assets/actors/canonical_face_model.fbx"
-// import CANONICAL_FACE from "url:../assets/actors/canonical_face_model.obj"
-import RACOON_FACE_MESH from 'url:../assets/actors/raccoon_head.glb'
-// import TWIST_FACE_MESH from 'url:../assets/actors/VRM1_Constraint_Twist_Sample.vrm'
-// import VRDROID_FACE_MESH from 'url:../assets/actors/vrdroid.vrm'
-// import ALIEN_FACE_MESH from 'url:../assets/actors/Female Blue Alien Face/Female Blue Alien Face model.fbx'
+// import CANONICAL_FACE from "url:../../actors/canonical_face_model.fbx"
+// import CANONICAL_FACE from "url:../../actors/canonical_face_model.obj"
+import RACOON_FACE_MESH from '../../actors/raccoon_head.glb?url'
+// import TWIST_FACE_MESH from 'url:../../actors/VRM1_Constraint_Twist_Sample.vrm'
+// import VRDROID_FACE_MESH from 'url:../../actors/vrdroid.vrm'
+// import ALIEN_FACE_MESH from 'url:../../actors/Female Blue Alien Face/Female Blue Alien Face model.fbx'
 
 
 export const AVATAR_DATA = {

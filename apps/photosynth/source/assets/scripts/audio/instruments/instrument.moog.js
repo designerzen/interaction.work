@@ -1,6 +1,6 @@
 import ProcessorInstrument from './instrument.processor.js'
 import { convertMIDINoteNumberToFrequency, convertMIDINoteNumberToName, convertNoteNameToMIDINoteNumber} from '../tuning/notes.js'
-import MOOG_PROCESSOR_URI from "worklet:../processors/moogff-processor.js"
+import MOOG_PROCESSOR_URI from "../processors/moogff-processor.js?url"
 
 const DEFAUT_OPTIONS = {
     id: "moog-processor",

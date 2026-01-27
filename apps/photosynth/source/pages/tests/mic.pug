@@ -32,7 +32,7 @@ block scripts
 		// by loading the wasm back-end.
 		// here, `EssentiaModule` is an emscripten module object imported to the global namespace
 		//- let essentia = new Essentia(EssentiaWASM)	
-		import PITCH_PROCESSOR from "worklet:../../assets/scripts/audio/processors/pitchyinprob-processor.js"
+		import PITCH_PROCESSOR from "../../assets/scripts/audio/processors/pitchyinprob-processor.js?url"
 		import { convertMIDINoteNumberToName } from '../../assets/scripts/audio/tuning/notes.js'
 		import Microphone, {detectMicrophones} from '../../assets/scripts/hardware/microphone.js'
 

@@ -510,14 +510,14 @@ export class GamePadManager {
 		})
 
 		window.addEventListener("gamepaddisconnected", e =>{
-			const gamePad = this.controllers.get(e.gamepad.connectionIndex)
+			let gamePad = this.controllers.get(e.gamepad.connectionIndex)
 			gamePad.disconnect()
 			this.controllers.delete(e.gamepad.connectionIndex)
 			gamePad = null
 			quantity--
 			this.dispatchEvent( GAME_PAD_DISCONNECTED, gamePad )
 			console.info("Gamepad disconnected", {gamePad, e}, this.controllers )
-	 	} )
+		} )
 
 		// start jloop for an existing pre-connected gamepads
 		eventLoop()

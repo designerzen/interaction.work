@@ -8,7 +8,7 @@
 //     processorOptions?: any;
 // }
 
-import WORKLET_LOCATION from 'worklet:../../processors/sample-processor.js'
+import WORKLET_LOCATION from '../../processors/sample-processor.js?url'
 
 export const WORKLET_ID_SAMPLER = "sampler-processor"
 

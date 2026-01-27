@@ -335,7 +335,7 @@ export const loadWaveTableFromArchive = (waveTableArchiveURI, onProgress) => new
         
         // TODO: multiple streams?
         fileNames.forEach( (fileName, index) => {
-            if (fileName !== "manifest.json")
+            if (fileName !== "index.json")
             {
                 // Conversion to string and then JSON
                 const progress = index / fileNames.length

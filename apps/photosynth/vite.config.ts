@@ -31,6 +31,9 @@ export default defineConfig({
 	build: {
 		outDir: "../dist/"
 	},
+	worker: {
+		format: 'es'
+	},
 	server: {
 		port: 909,
 		strictPort: true,

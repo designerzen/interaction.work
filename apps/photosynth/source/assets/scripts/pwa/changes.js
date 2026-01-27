@@ -1,9 +1,10 @@
-import changesPath from "../changes.html?url"
-import MANIFEST_PATH from "../manifest.webmanifest?url"
+// import changesPath from "../changes.html?url"
+import MANIFEST_PATH from "../../../manifest.webmanifest?url"
 
 export const fetchChangesAsText = async () => {
-    const response = await fetch(changesPath)
-    return await response.text()
+    // const response = await fetch(changesPath)
+    // return await response.text()
+    return ""
 }
 
 export const injectChangeLog = async (contentDiv) => {

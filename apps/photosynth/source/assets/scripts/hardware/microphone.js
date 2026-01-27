@@ -5,7 +5,7 @@
 // by loading the wasm back-end.
 // here, `EssentiaModule` is an emscripten module object imported to the global namespace
 //- let essentia = new Essentia(EssentiaWASM)	
-import PITCH_PROCESSOR from "worklet:../audio/processors/pitchyinprob-processor.js"
+import PITCH_PROCESSOR from "../audio/processors/pitchyinprob-processor.js?url"
 import { convertMIDINoteNumberToName } from "../audio/tuning/notes.js"
 
 export const BUFFER_SIZE = 8192

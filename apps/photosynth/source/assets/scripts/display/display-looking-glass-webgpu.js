@@ -14,7 +14,7 @@
  * - `inlineView` - Display mode (quilt, centered, or matrix)
  */
 
-import { LookingGlassWebXRPolyfill, LookingGlassConfig } from "@lookingglass/webxr/dist/bundle/webxr.js"
+import { LookingGlassWebXRPolyfill, LookingGlassConfig } from "@lookingglass/webxr"
 
 import {
 	Scene,

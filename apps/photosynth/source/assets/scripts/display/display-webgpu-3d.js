@@ -66,8 +66,8 @@ import { SelectiveUnrealBloomPass } from '@visualsource/selective-unrealbloompas
 // import PARTICLE_URI from '../assets/particles/particle.png'
 // import PARTICLE_URI from '../assets/particles/voxel.png'
 //import PARTICLE_URI from '../assets/particles/soft-inverted.png'
-import PARTICLE_URI from '../assets/particles/particle.png?url'
-import FONT from 'raw:../assets/fonts/oxanium/Oxanium.ttf'
+import PARTICLE_URI from '../../particles/particle.png?url'
+import FONT from '../../fonts/oxanium/Oxanium.ttf?raw'
 
 
 let data = FACE_LANDMARKS_DATA["0"]

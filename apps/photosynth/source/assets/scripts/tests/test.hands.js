@@ -6,7 +6,7 @@ import HAND_LANDMARK_TASK from "../models/tasks/hand_landmarker.task?url"
 import GESTURE_RECOGNIZER_TASK from "../models/tasks/gesture_recognizer.task?url"
 
 // Workers
-import WORKER_URI from "worklet:./test.hands-worker.js"
+import WORKER_URI from "./test.hands-worker.js?url"
 
 // Local data
 const TASKS_VISION_WASM = "./@mediapipe/tasks-vision/wasm"

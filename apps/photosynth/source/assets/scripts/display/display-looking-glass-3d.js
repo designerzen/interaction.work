@@ -22,7 +22,7 @@
 // import { FaceLandmarker } from "@mediapipe/tasks-vision"
 // import { LookingGlassWebXRPolyfill, LookingGlassConfig } from "/node_modules/@lookingglass/webxr/dist/@lookingglass/webxr.mjs"
 // import { LookingGlassWebXRPolyfill, LookingGlassConfig } from "@lookingglass/webxr"
-import { LookingGlassWebXRPolyfill, LookingGlassConfig } from "@lookingglass/webxr/dist/bundle/webxr.js"
+import { LookingGlassWebXRPolyfill, LookingGlassConfig } from "@lookingglass/webxr"
 
 import * as THREE from "three"
 import { VRButton } from "three/examples/jsm/webxr/VRButton.js"
