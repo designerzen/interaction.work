@@ -1,0 +1,146 @@
+{
+	"name": "interaction.works",
+	"display": "standalone",
+	"id": "works.interaction",
+	"dir": "ltr",
+	"lang": "en",
+	"display_override": [
+	  "fullscreen",
+	  "standalone",
+	  "window-controls-overlay"
+	],
+	"start_url": "./index.html",
+	"short_name": "InteractionWorks",
+	"theme_color": "#8d3525",
+	"description": "Interesting ways to control machines",
+	"orientation": "any",
+	"background_color": "#e4dede",
+	"scope":"/",
+	"related_applications": [
+		{
+			"platform": "webapp",
+			"url": "https://interaction.works",
+			"id": "interaction.works"
+		}
+	],
+	"prefer_related_applications": false,
+	"file_handlers":[
+		{
+			"action":"/open-midi-file",
+			"accept": {"audio/mid":[".mid",".midi"]},
+			"icons":[
+				{
+					"src":"assets/icons/midi-copyright-free.svg",
+					"sizes":"256x256",
+					"type":"image/svg+xml"
+				}
+			],
+			"launch_type":"single-client"
+		},
+		{
+			"action":"/open-sample-pack",
+			"accept": {"text/json":[".json"]},
+			"icons":[
+				{
+					"src":"assets/icons/music_note-24px.svg",
+					"sizes":"256x256",
+					"type":"image/svg+xml"
+				}
+			],
+			"launch_type":"single-client"
+		}
+	],
+	"protocol_handlers": [
+		{
+		  "protocol": "web+pwinter",
+		  "url": "index.html?colors=%s"
+		}
+	],
+	"launch_handler": {
+		"client_mode": ["focus-existing", "navigate-existing", "auto"]
+	},
+	"icons": [
+	  {
+		"src": "assets/icons/android-chrome-512x512.png",
+		"sizes": "512x512",
+		"type": "image/png",
+		"purpose": "any"
+	  },
+	  {
+		"src": "assets/icons/android-chrome-192x192.png",
+		"sizes": "192x192",
+		"type": "image/png",
+		"purpose": "any"
+	  },
+	  {
+		"src": "assets/icons/android-chrome-48x48.png",
+		"sizes": "48x48",
+		"type": "image/png",
+		"purpose": "any"
+	  },
+	  {
+		"src": "assets/icons/android-chrome-24x24.png",
+		"sizes": "24x24",
+		"type": "image/png",
+		"purpose": "maskable"
+	  },
+	  {
+		"src": "assets/icons/android-chrome-512x512.png",
+		"sizes": "512x512",
+		"type": "image/png",
+		"purpose": "maskable"
+	  },
+	  {
+		"src": "assets/icons/android-chrome-192x192.png",
+		"sizes": "192x192",
+		"type": "image/png",
+		"purpose": "maskable"
+	  },
+	  {
+		"src": "assets/icons/android-chrome-48x48.png",
+		"sizes": "48x48",
+		"type": "image/png",
+		"purpose": "maskable"
+	  },
+	  {
+		"src": "assets/icons/android-chrome-24x24.png",
+		"sizes": "24x24",
+		"type": "image/png",
+		"purpose": "maskable"
+	  }
+	],
+	"screenshots": [
+		{
+			"src": "assets/screenshots/screen1.png",
+			"sizes": "640x480",
+			"type": "image/png"
+		},  {
+			"src": "assets/screenshots/screen2.png",
+			"sizes": "1680x1050",
+			"type": "image/png"
+		},  {
+			"src": "assets/screenshots/screen3.png",
+			"sizes": "2456x1171",
+			"type": "image/png"
+		}
+	],
+
+	
+	"categories": [
+	  	"audio","AR","music", "midi","technology", "accessibility"
+	],
+
+	"shortcuts":[
+		
+		{
+			"name": "Updates",
+			"url": "./changes.html",
+			"description": "Check out all the new features and changes."
+		},
+		{
+			"name": "Fund",
+			"url": "./funding.html",
+			"description": "Show your support for this project."
+		}
+	]
+  }
