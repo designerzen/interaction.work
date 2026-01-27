@@ -47,7 +47,7 @@ jobs:
             #   run: ls ./
 
             - name: List the build folder contents...
-              run: ls ./release/web
+              run: ls ./dist
 
             - name: Upload artifact
               id: deployment
@@ -55,7 +55,7 @@ jobs:
               uses: actions/upload-pages-artifact@v3
               with:
                 name: github-pages
-                path: ./release/web
+                path: ./dist
 
     deploy:
     
