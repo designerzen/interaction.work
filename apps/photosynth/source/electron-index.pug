@@ -1,0 +1,11 @@
+extends ./index.pug
+
+block head
+	meta(http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss: blob:; media-src 'self' blob: data: https:; worker-src 'self' blob:;")
+
+block preload
+	script document.documentElement.classList.add("loading","app")
+	link(rel="preload" href="/index.js" as="script") 
+
+block scripts
+	script(type="module" src="/index.ts")

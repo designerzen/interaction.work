@@ -29,7 +29,7 @@ const createWindow = () => {
 
 	const startUrl = isDev()
 		? 'http://localhost:909'
-		: `file://${path.join(__dirname, '../dist/index.html')}`
+		: `file://${path.join(__dirname, '../../dist/index.html')}`
 
 	mainWindow.loadURL(startUrl)
 
