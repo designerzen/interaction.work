@@ -2,6 +2,7 @@ appId: com.designerzen.photosynth
 productName: PhotoSYNTH
 directories:
   buildResources: build/icons
+  output: dist-apps
 files:
   - dist-electron
   - dist

@@ -75,7 +75,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: photosynth-linux
-          path: apps/photosynth/dist/*.AppImage
+          path: apps/photosynth/dist-apps/*.AppImage
           retention-days: 30
 
       - name: Upload artifacts (macOS)
@@ -84,8 +84,8 @@ jobs:
         with:
           name: photosynth-macos
           path: |
-            apps/photosynth/dist/*.dmg
-            apps/photosynth/dist/*.zip
+            apps/photosynth/dist-apps/*.dmg
+            apps/photosynth/dist-apps/*.zip
           retention-days: 30
 
       - name: Upload artifacts (Windows)
@@ -94,12 +94,13 @@ jobs:
         with:
           name: photosynth-windows
           path: |
-            apps/photosynth/dist/*.exe
-            apps/photosynth/dist/*.zip
+            apps/photosynth/dist-apps/*.exe
+            apps/photosynth/dist-apps/*.msi
+            apps/photosynth/dist-apps/*.zip
           retention-days: 30
 
       - name: List build output
-        run: ls -la apps/photosynth/dist/
+        run: ls -la apps/photosynth/dist-apps/
         shell: bash
         if: always()
 
