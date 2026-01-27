@@ -1,7 +1,7 @@
 appId: com.designerzen.photosynth
 productName: PhotoSYNTH
 directories:
-  buildResources: public
+  buildResources: build/icons
 files:
   - dist-electron
   - dist
@@ -13,6 +13,7 @@ win:
     - nsis
     - portable
     - msi
+  icon: build/icons/win/icon.ico
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
@@ -29,7 +30,9 @@ mac:
   target:
     - dmg
     - zip
+  icon: build/icons/mac/icon.icns
 dmg:
+  icon: build/icons/mac/icon.icns
   contents:
     - x: 410
       y: 150
@@ -43,3 +46,4 @@ linux:
     - AppImage
     - deb
   category: Multimedia
+  icon: build/icons/png/512x512.png
