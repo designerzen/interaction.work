@@ -1,19 +1,22 @@
-import { easeInQuint, easeOutQuint, easeOutSine } from '../maths/easing'
+import { easeInQuint, easeOutQuint, easeOutSine } from '../maths/easing.js'
 import {
 	clamp, 
 	hypoteneuse2D,hypoteneuse3D,
 	distanceBetween2Points,distanceBetween3Points,
 	determineAngle, twist, 
 	TAU,HALF_PI
-} from '../maths/maths'
+} from '../maths/maths.js'
 
 
 import {
-	FACE_CONTOURS,
 	FACE_CONTOURS_LIPS,
 	FACE_CONTOURS_OUTER_TOP_LIP,
 	LIP_PATH_OUTER,
 	LIP_PATH_INNER,
+} from './face-landmark-constants.js'
+
+import {
+	FACE_CONTOURS,
 	MOUTH_SHAPE_CLOSED,
 	MOUTH_SHAPE_O,
 	MOUTH_SHAPE_E,
@@ -22,7 +25,7 @@ import {
 	RATIO_OF_MOUTH_TO_FACE,
 	EYE_CLOSED_AT,
 	PITCH_SCALE
-} from './face-model-constants'
+} from './face-model-constants.js'
 
 /*
 const drawingUtils = new DrawingUtils(canvasCtx);

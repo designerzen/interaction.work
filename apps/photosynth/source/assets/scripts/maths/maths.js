@@ -39,8 +39,7 @@ export const determineAngle = ( pointA, pointB ) => {
 	// process?
 	return angleInRadians
 }
-// ** === ^
-/*
+
 // distance between a & b via right angled triangle
 export const distanceBetween2Points = (pointA, pointB) => sqrt(
     ( pointA[ 0 ] - pointB[ 0 ] ) ** 2 + 
@@ -51,7 +50,6 @@ export const distanceBetween3Points = (pointA, pointB) => sqrt(
     ( pointA[ 1 ] - pointB[ 1 ] ) ** 2 +
     ( pointA[ 2 ] - pointB[ 2 ] ) ** 2
 )
-*/
 export const distance3D = (aX,bX,  aY,bY, aZ,bZ ) => sqrt(
     (aX - bX) ** 2 + 
     (aY - bY) ** 2 + 

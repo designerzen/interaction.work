@@ -10,7 +10,7 @@ import {
 	GENERAL_MIDI_FAMILIES
 } from "./midi/general-midi.constants.js"
 
-import { CMD_DECODE, CMD_FETCH_SOUNDFONT_PART, CMD_LOAD_SOUNDFONT_PART, EVENT_DECODED } from "./fetch.audio.worker"
+import { CMD_DECODE, CMD_FETCH_SOUNDFONT_PART, CMD_LOAD_SOUNDFONT_PART, EVENT_DECODED } from "./fetch.audio.worker.js"
 // import { convertArrayToBuffer } from "./audio"
 import audioDecoder from 'audio-decode'
 import { convertArrayToBuffer } from "./audio.js"

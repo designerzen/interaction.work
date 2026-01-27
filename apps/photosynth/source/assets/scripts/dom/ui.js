@@ -1,8 +1,8 @@
-import {canFullscreen, exitFullscreen,goFullscreen,setFullScreenButtonState,toggleFullScreen} from './full-screen'
+import {canFullscreen, exitFullscreen,goFullscreen,setFullScreenButtonState,toggleFullScreen} from './full-screen.js'
 
-import {formattedDate} from '../models/info'
-import {setToggle} from './toggle'
-import { connectSelect } from './select'
+import {formattedDate} from '../models/info.js'
+import {setToggle} from './toggle.js'
+import { connectSelect } from './select.js'
 
 const doc = document
 

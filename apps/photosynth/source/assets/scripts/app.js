@@ -6,7 +6,6 @@
  */
 
 import { VERSION } from './version.js'
-// import { Capacitor } from '@capacitor/core'
 import { setLoadProgress } from './dom/load-progress.js'
 import { getBrowserLocales } from './locales/i18n.js'
 import { getDomainDefaults, INSTRUMENT_OPTIONS } from './settings/options.js'
@@ -77,11 +76,12 @@ import { setToast, toggleTooltips, updateTooltipPositions } from './dom/tooltips
 import { setupRecordings } from './dom/ui.recording.js'
 import { connectSelect, connectReverbControls, connectReverbSelector } from './dom/select.js'
 import { setToggle, setPressureToggle } from './dom/toggle.js'
-import { setButton, setPressureButton, setupMIDIButton } from './dom/button.js'
+import { setButton, setPressureButton } from './dom/button.js'
+import { setupMIDIButton } from './dom/ui.midi.js'
 import { appendPhotographElement } from './dom/photographs.js'
 import { appendAudioElement} from './dom/audio-element.js'
 import { connectDropZone } from './dom/drop-zone.js'
-import { drawMousePressure } from './dom/mouse-pressure'
+import { drawMousePressure } from './dom/mouse-pressure.js'
 import { setupVolumeInterface } from './dom/ui.volume.js'
 import { setMIDIControls, createMIDIButton } from './dom/ui.midi.js'
 import { setupTempoInterface } from './dom/ui.tempo.js'
@@ -95,7 +95,7 @@ import { createQRCode, createSVGQRCodeFromURL } from './utils/barcodes.js'
 
 // STATE
 import { EVENT_STATE_CHANGE, createStateFromHost, createStateOptionsFromHost, setElementCheckState } from './utils/state.js'
-import StateWithIO from './utils/state-io'
+import StateWithIO from './utils/state-io.js'
 
 // MODELS
 import { TAU } from "./maths/maths.js"
@@ -120,7 +120,7 @@ import Person, {
 
 
 // TIMING
-import {midiLikeEvents} from './timing/rhythm'
+import {midiLikeEvents} from './timing/rhythm.js'
 import { playNextPart, getKitSequence } from './timing/patterns.js'
 
 // FADFDFDSFSFDSFSFDssdsvv
@@ -131,7 +131,7 @@ import {
 	EVENT_READY, EVENT_STARTING, EVENT_STOPPING, EVENT_TICK
 } from './timing/timing.events.js'
 
-import AUDIOCONTEXT_WORKER_URI from 'url:./timing/timing.audiocontext.worker.js'
+import AUDIOCONTEXT_WORKER_URI from './timing/timing.audiocontext.worker.js?url'
 // import AUDIOCONTEXT_WORKER_URI from './timing/timing.audiocontext.worker.js?worker&url'
 // import AUDIOTIMER_WORKLET_URI from './timing/timing.audioworklet.js?worker&url'
 // import AUDIOTIMER_PROCESSOR_URI from './timing/timing.audioworklet-processor.js?worker&url'
@@ -185,7 +185,7 @@ import { fetchBrandColor } from './settings/palette.js'
 // CONTROLS
 import { updateInstrumentWithPerson } from './audio/instrumentMediators/mediator.person-instrument.js'
 import { getActiveMIDINotesForPerson, updateWebMIDIWithPerson } from './audio/instrumentMediators/mediator.person-webmidi.js'
-import { setupReporting, track, trackError, trackExit } from './reporting'
+import { setupReporting, track, trackError, trackExit } from './reporting.js'
 import { getMusicalDetailsFromEmoji } from './models/emoji-to-music.js'
 import { FIFTHS_SCALE_KEYS, JAZZ_MINOR_SCALE_KEYS, MAJOR_SCALE_KEYS, MINOR_SCALE_KEYS } from './audio/tuning/keys.js'
 import { NOTES_BLACK, NOTES_WHITE } from './audio/tuning/notes.js'

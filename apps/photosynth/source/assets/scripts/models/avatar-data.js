@@ -2,21 +2,21 @@
 // ARKit blendshape facial models
 // import CYBORG_FACE from "url:../assets/actors/FaceCapLiveModeAvatar/FaceCapLiveModeAvatar.fbx"
 // import OLIVIER_WILDE from "url:../assets/actors/Olivia Wilde - 3D Model.fbx"
-import BRUNETTE from "url:../assets/actors/brunette.glb"
-// import CYBORG_FACE from "url:../assets/actors/blender_sushi_virtual_journal_16th_april_2020.glb"
-// import CYBORG_FACE from "url:../assets/actors/cyborg.glb"
+import BRUNETTE from "../assets/actors/brunette.glb?url"
+// import CYBORG_FACE from "../assets/actors/blender_sushi_virtual_journal_16th_april_2020.glb?url"
+// import CYBORG_FACE from "../assets/actors/cyborg.glb?url"
 
-// import SUSHI_FACE_MESH from 'url:../assets/actors/blender_sushi_virtual_journal_16th_april_2020.glb'
+// import SUSHI_FACE_MESH from '../assets/actors/blender_sushi_virtual_journal_16th_april_2020.glb?url'
 
 // https://github.com/hinzka/52blendshapes-for-VRoid-face
-// import AL_FACE_MESH from 'url:../assets/actors/AL_Standard.fbx'
-import ALBERT_FACE_MESH from 'url:../assets/actors/albert_e_two_face_with_blendshapes.glb'
-// import ALBERT_FACE_MESH from 'url:../assets/actors/Albert 2 model.fbx'
-// import SIMPLE_MALE_FACE_MESH from 'url:../assets/actors/simple-male.glb'
-// import SIMPLE_FEMALE_FACE_MESH from 'url:../assets/actors/AnimationLibrary_Godot_Standard.glb'
-// import NEUTRAL_FACE_MESH from 'url:../assets/actors/generic_neutral_mesh.obj'
-// import IRIS_FACE_MESH from 'url:../assets/actors/face_model_with_iris.obj'
-import SAMANTHA_FACE_MESH from 'url:../assets/actors/Beautiful 3D Model Head - Samantha.fbx'
+// import AL_FACE_MESH from '../assets/actors/AL_Standard.fbx?url'
+import ALBERT_FACE_MESH from '../assets/actors/albert_e_two_face_with_blendshapes.glb?url'
+// import ALBERT_FACE_MESH from '../assets/actors/Albert 2 model.fbx?url'
+// import SIMPLE_MALE_FACE_MESH from '../assets/actors/simple-male.glb?url'
+// import SIMPLE_FEMALE_FACE_MESH from '../assets/actors/AnimationLibrary_Godot_Standard.glb?url'
+// import NEUTRAL_FACE_MESH from '../assets/actors/generic_neutral_mesh.obj?url'
+// import IRIS_FACE_MESH from '../assets/actors/face_model_with_iris.obj?url'
+import SAMANTHA_FACE_MESH from '../assets/actors/Beautiful 3D Model Head - Samantha.fbx?url'
 
 // VRMs
 // import ANIME_MALE_FACE_MESH from 'url:../assets/actors/VRoid_V110_Male_v1.1.3.vrm'

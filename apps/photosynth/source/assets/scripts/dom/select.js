@@ -1,4 +1,4 @@
-import {updateTempo} from './ui'
+import {updateTempo} from './ui.js'
 
 export const connectSelect = async (element,callback) => {
 	const select = typeof element === "string" ? document.getElementById(element) : element
@@ -31,9 +31,7 @@ export const connectTempoControls = (callback) => {
 }
 
 
-import {loadImpulseJSON, DIRS, REVERB_PATHS} from '../audio/effects/reverb'
-
-const path = './assets/audio/acoustics/'	
+import {loadImpulseJSON, DIRS } from '../audio/effects/reverb'
 
 // Connect the options comand to the JSON files
 export const connectReverbControls = (callback) => {

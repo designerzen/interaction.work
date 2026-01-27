@@ -25,7 +25,7 @@ import {
 	GENERAL_MIDI_FAMILY_DICTIONARY 
 } from './midi/general-midi.constants'
 
-import { loadInstrumentFromSoundFont } from "./audio"
+import { loadInstrumentFromSoundFont } from "./audio.js"
 
 const DEFAULT_SOUNDFONT_OPTIONS = {
 	location:"./assets/audio/"

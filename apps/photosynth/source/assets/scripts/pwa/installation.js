@@ -4,9 +4,9 @@
 // Fix some issues with early browsers
 import './servicewaiting.polyfill'
 import { VERSION } from '../version'
-import { isInWebAppiOS, isIOS, isTWAAndroid, isMicrosoftStore, isFirefox } from './platform'
+import { isInWebAppiOS, isIOS, isTWAAndroid, isMicrosoftStore, isFirefox } from './platform.js'
 
-import serviceWorkerPath from "url:../service-worker.js"
+const serviceWorkerPath = new URL('../service-worker.js', import.meta.url).href
 
 // console.error({serviceWorkerPath, manifestPath})
 

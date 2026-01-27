@@ -4,7 +4,7 @@ import {
 	distanceBetween2Points,distanceBetween3Points,
 	determineAngle, twist, 
 	TAU,HALF_PI
-} from '../maths/maths'
+} from '../maths/maths.js'
 
 
 import {
@@ -21,7 +21,7 @@ import {
 	RATIO_OF_MOUTH_TO_FACE,
 	EYE_CLOSED_AT,
 	PITCH_SCALE
-} from './face-landmark-constants'
+} from './face-landmark-constants.js'
 
 
 // ** === ^ == Math.pow in ECMA22

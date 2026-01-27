@@ -22,7 +22,7 @@ import MIDIInstrument from "./instruments/instrument.midi.js"
 // import WaveGuideInstrument from "./instruments/instrument.waveguide.js"
 // import YoshimiInstrument from "./instruments/instrument.yoshimi.js"
 
-import WAVE_ARCHIVE_GENERAL_MIDI from "url:../assets/audio/wave-tables/general-midi.zip" 
+// import WAVE_ARCHIVE_GENERAL_MIDI from "url:../assets/audio/wave-tables/general-midi.zip" 
 import { loadWaveTableFromArchive, loadWaveTableFromManifest } from "./wave-tables.js"
 
 const instrumentsImported = new Map()

@@ -1,8 +1,8 @@
 /**
  * Single gateway to Webworker versions of all the MIDI file stuff
  */
-import { fetchMIDIFileData, fetchMIDIFileThroughClient, loadRawFile } from "./midi-file-load"
-import MidiTrack from "./midi-track"
+import { fetchMIDIFileData, fetchMIDIFileThroughClient, loadRawFile } from "./midi-file-load.js"
+import MidiTrack from "./midi-track.js"
 import MIDI_FILE_WORKER_URI from './midi-file-load.worker.js'
 
 const createWorker = () => new Worker(

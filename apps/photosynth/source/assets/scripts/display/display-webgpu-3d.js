@@ -66,7 +66,7 @@ import { SelectiveUnrealBloomPass } from '@visualsource/selective-unrealbloompas
 // import PARTICLE_URI from '../assets/particles/particle.png'
 // import PARTICLE_URI from '../assets/particles/voxel.png'
 //import PARTICLE_URI from '../assets/particles/soft-inverted.png'
-import PARTICLE_URI from 'url:../assets/particles/particle.png'
+import PARTICLE_URI from '../assets/particles/particle.png?url'
 import FONT from 'raw:../assets/fonts/oxanium/Oxanium.ttf'
 
 

@@ -1,6 +1,6 @@
 import { noteNumberToFrequency } from "../tuning/frequencies"
-import Instrument from "./instrument"
-import OscillatorInstrument, { OSCILLATOR_TYPES, shapeName } from "./instrument.oscillator"
+import Instrument from "./instrument.js"
+import OscillatorInstrument, { OSCILLATOR_TYPES, shapeName } from "./instrument.oscillator.js"
 import {PRESETS, PRESETS_NAMES} from "./presets/presets-oscillator.js"
 
 export const INSTRUMENT_TYPE_TRIPLE_OSCILLATOR = "TripleOscillatorInstrument"

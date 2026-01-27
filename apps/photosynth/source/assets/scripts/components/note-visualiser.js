@@ -1,7 +1,7 @@
 /**
  * Scrolling note on / off visualisation
  */
-import NOTE_VISUALISER_CANVAS_WORKER from "url:./note-visualiser-worker.js"
+import NOTE_VISUALISER_CANVAS_WORKER from "./note-visualiser-worker.js?worker"
 import { AbstractResizeable } from "./abstract-resizeable-canvas.js"
 
 export default class NoteVisualiser extends AbstractResizeable{

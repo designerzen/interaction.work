@@ -1,7 +1,7 @@
 // import Zlib from 'zlibjs'
-import { deflate, unzip } from './zlib'
+import { deflate, unzip } from './zlib.js'
 
-import ZIP_WORKER_URI from 'url:./zip.worker.js'
+import ZIP_WORKER_URI from './zip.worker.js?worker'
 
 export const extractZip = (data, useWorker=false ) => new Promise( (resolve, reject) => {
 	

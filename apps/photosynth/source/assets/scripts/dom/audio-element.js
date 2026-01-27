@@ -1,7 +1,7 @@
 import { now } from '../timing/timing.js'
 import { addTooltip, removeTooltip } from './tooltips.js'
 import { audioContext, getMasterMixdown } from '../audio/audio.js'
-import {createButton} from './button'
+import {createButton} from './button.js'
 
 const createCanvasProgressBar = (width, height) => {
 	const canvas = document.createElement("canvas")

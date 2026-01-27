@@ -5,16 +5,16 @@
  * before showing a UI from those external libs
  * http://localhost:909/?advancedMode=false&showSettings=false&showPiano=false&metronome=false&backingTrack=false&clear=false&synch=true&disco=false&overlays=true&masks=true&eyes=true&quantise=true&text=true&spectrogram=true&speak=true&debug=true&muted=false&duet=false&stereo=true&stereoPan=true&midiChannel=all&bpm=200&autoHide=false&loadMIDIPerformance=false&useGamePad=true&model=face&instrumentPack=FatBoy&instrumentPacks=FatBoy%2CFluidR3_GM%2CMusyngKite&photoSensitive=false&automationMode=false
  */
-import { VERSION } from './version'
-import { getReferer, getRefererHostname, forceSecure, getEditionFromURL } from './utils/location-handler'
+import { VERSION } from './version.js'
+import { getReferer, getRefererHostname, forceSecure, getEditionFromURL } from './utils/location-handler.js'
 import { setLoadProgress } from './dom/load-progress.js'
 import { getBrowserLocales } from './locales/i18n.js'
 import { getDomainDefaults, INSTRUMENT_OPTIONS } from './settings/options'
 import { showChangelog, installOrUpdate, uninstall } from './pwa/installation.js'
 import { showError } from './dom/errors'
 import { addToolTips, setToast } from './dom/tooltips'
-import { MOUSE_HELD, MOUSE_TAP, addMouseTapAndHoldEvents } from './hardware/mouse'
-import Capabilities from './capabilities'
+import { MOUSE_HELD, MOUSE_TAP, addMouseTapAndHoldEvents } from './hardware/mouse.js'
+import Capabilities from './capabilities.js'
 import { updateCapabalitiesTable } from './dom/compatability.js'
 import { APPLICATION_EVENTS, createInterface } from './interface.js'
 

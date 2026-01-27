@@ -8,10 +8,12 @@ import { isProductionBuild } from '../utils/is-production'
 import { INSTRUMENT_PACK_OPEN_SF } from './options.instruments.js'
 import { TUNING_MODE_IONIAN, TUNING_MODE_NAMES } from '../audio/tuning/scales.js'
 import { INSTRUMENT_TYPE_OSCILLATOR, INSTRUMENT_TYPE_SOUNDFONT } from '../audio/instrument-list.js'
-import INSTRUMENTS_LIST_LOCATION from "raw:./instruments.json"
+import INSTRUMENTS_LIST_LOCATION from "./instruments.json"
 import { DISPLAY_MEDIA_VISION_2D } from '../display/display-types.js'
 
 const isDevelopmentMode = !isProductionBuild()
+
+export const PATH_REVERB_IMPULSE_FILTERS = './audio/acoustics/'
 
 export const MAX_CANVAS_WIDTH = 1080
 

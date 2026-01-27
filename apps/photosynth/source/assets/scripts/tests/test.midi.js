@@ -2,7 +2,7 @@
 
 // watch for MIDI connections -> link with timer and show stuff onscreen
 
-import AUDIO from "url:../assets/audio/metronome.wav"
+import AUDIO from "../assets/audio/metronome.wav?url"
 import { 
 	getElapsed, getBarProgress,
 	getBPM, getBars, getBar, getTimePerBar, getTimeBetween,
@@ -17,9 +17,9 @@ import AudioTimer from '../timing/timer.audio.js'
 import MIDIConnectionManager from '../audio/midi/midi-connection-manager.js'
 import WebMIDIClass from '../audio/midi/midi-connection-webmidi.js'
 
-import ROLLING_WORKER_URI from 'url:../timing/timing.rolling.worker.js'
-import SETINERVAL_WORKER_URI from 'url:../timing/timing.setinterval.worker.js'
-import SETTIMEOUT_WORKER_URI from 'url:../timing/timing.settimeout.worker.js'
+import ROLLING_WORKER_URI from '../timing/timing.rolling.worker.js?worker'
+import SETINERVAL_WORKER_URI from '../timing/timing.setinterval.worker.js?worker'
+import SETTIMEOUT_WORKER_URI from '../timing/timing.settimeout.worker.js?worker'
 
 import {addToolTips} from '../dom/tooltips.js'		
 import {setupThemeControls} from '../theme/theme.js'

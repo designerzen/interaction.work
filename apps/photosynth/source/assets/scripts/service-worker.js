@@ -1,4 +1,4 @@
-import { VERSION } from './version'
+import { VERSION } from './version.js'
 
 // is there a way to save and cache this locally?
 // When offline it freaks out and tries to connec to the internet?
@@ -10,10 +10,10 @@ import {
   CacheFirst,
 } from 'workbox-strategies'
 
-import {
-	setConfig,
-	setCacheNameDetails
-} from 'workbox-core'
+// import {
+// 	setConfig,
+// 	setCacheNameDetails
+// } from 'workbox-core'
 
 import{
   pageCache,
@@ -64,12 +64,12 @@ const uninstall = () => {
 		})
 }
 
-setCacheNameDetails({
-    prefix: APP_CACHE_PREFIX,
-    suffix: APP_CACHE_SUFFIX,
-    precache: 'installtime',
-    runtime: 'runtime',
-})
+// setCacheNameDetails({
+//     prefix: APP_CACHE_PREFIX,
+//     suffix: APP_CACHE_SUFFIX,
+//     precache: 'installtime',
+//     runtime: 'runtime',
+// })
 
 // console.log(`>>> Workbox`,REVISION, {WORKBOX_DEBUG_LOGGING});
 
@@ -102,7 +102,7 @@ self.addEventListener('message', (event) => {
 
 // Include offline.html in the manifest__WB_MANIFEST
 // precacheAndRoute(self.origin);
-precacheAndRoute([ {url: 'index.html', revision:REVISION }])
+precacheAndRoute([ {url: '/index.html', revision:REVISION }])
 
 pageCache()
 

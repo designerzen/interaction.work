@@ -1,5 +1,5 @@
 import { convertMIDINoteNumberToName } from "../tuning/notes"
-import SampleAudioWorkletProcessor, { AudioSample } from "./sample-processor"
+import SampleAudioWorkletProcessor, { AudioSample } from "./sample-processor.js"
 
 const WORKLET_ID_SOUNDFONT = "soundfont-processor"
 

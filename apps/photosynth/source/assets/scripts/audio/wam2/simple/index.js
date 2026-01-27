@@ -5,8 +5,8 @@ import ParamMgrFactory from '@webaudiomodules/sdk-parammgr/src/ParamMgrFactory.j
 // import { ParamMgrFactory } from '@webaudiomodules/sdk-parammgr/src/index.js'
 
 import { createSimpleEngine } from './simple.wam.js'
-import descriptorJSONURL from 'url:./template.html'
-// import descriptorJSONURL from 'url:./descriptor.json'
+import descriptorJSONURL from './template.html?url'
+// import descriptorJSONURL from './descriptor.json?url'
 
 // _baseUrl = getBaseUrl(new URL('./descriptor.json', import.meta.url));
 

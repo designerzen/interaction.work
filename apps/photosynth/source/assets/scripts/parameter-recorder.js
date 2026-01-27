@@ -1,6 +1,6 @@
 // Ok, here's a fun one...
 
-import { now } from "./timing/timing"
+import { now } from "./timing/timing.js"
 
 // RECORD Vars just save it and it will record the time
 export class ParamaterRecorder{

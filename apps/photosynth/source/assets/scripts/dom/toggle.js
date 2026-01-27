@@ -1,4 +1,4 @@
-import {setButton, setPressureButton} from './button'
+import {setButton, setPressureButton} from './button.js'
 
 /**
  * this allows checkbox use to determine when the variable is changed

@@ -9,10 +9,9 @@ import {
 	EVENT_READY, EVENT_STARTING, EVENT_STOPPING, EVENT_TICK
 } from './timing.events.js'
 
-import AUDIOCONTEXT_WORKER_URI from 'url:./timing.audiocontext.worker.js?worker&url'
-// import AUDIOCONTEXT_WORKER_URI from './timing.audiocontext.worker.js?worker&url'
-// import AUDIOTIMER_WORKLET_URI from './timing.audioworklet.js?worker&url'
-// import AUDIOTIMER_PROCESSOR_URI from './timing.audioworklet-processor.js?worker&url'
+import AUDIOCONTEXT_WORKER_URI from './timing.audiocontext.worker.js?worker'
+// import AUDIOTIMER_WORKLET_URI from './timing.audioworklet.js?worker'
+// import AUDIOTIMER_PROCESSOR_URI from './timing.audioworklet-processor.js?worker'
 // import { createTimingProcessor } from './timing.audioworklet.js'
 
 export const MAX_BARS_ALLOWED = 32

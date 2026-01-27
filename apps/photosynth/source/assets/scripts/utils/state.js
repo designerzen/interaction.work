@@ -4,7 +4,7 @@
  */
 
 import { getDomainDefaults, getFactoryDefaults } from '../settings/options'
-import { addToHistory, getLocationSettings, getRefererHostname } from './location-handler'
+import { addToHistory, getLocationSettings, getRefererHostname } from './location-handler.js'
 
 
 

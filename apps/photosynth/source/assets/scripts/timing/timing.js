@@ -18,19 +18,14 @@ import {
 	EVENT_READY, EVENT_STARTING, EVENT_STOPPING, EVENT_TICK
 } from './timing.events.js'
 
-// Parcel style
-import ROLLING_WORKER_URI from 'url:./timing.rolling.worker.js?worker&url'
-import SETINERVAL_WORKER_URI from 'url:./timing.setinterval.worker.js?worker&url'
-import SETTIMEOUT_WORKER_URI from 'url:./timing.settimeout.worker.js?worker&url'
-// import AUDIOTIMER_WORKLET_URI from 'url:./timing.audiocontext.worker.js?worker&url'
-import AUDIOTIMER_PROCESSOR_URI from 'url:./timing.audioworklet-processor.js?worker&url'
+// Vite style
+import ROLLING_WORKER_URI from './timing.rolling.worker.js?worker'
+import SETINERVAL_WORKER_URI from './timing.setinterval.worker.js?worker'
+import SETTIMEOUT_WORKER_URI from './timing.settimeout.worker.js?worker'
+// import AUDIOTIMER_WORKLET_URI from './timing.audiocontext.worker.js?worker'
+import AUDIOTIMER_PROCESSOR_URI from './timing.audioworklet-processor.js?worker'
 
 import { createTimingProcessor } from './timing.audioworklet.js'
-
-// Vite style
-// import ROLLING_WORKER_URI from './timing.rolling.worker.js?worker'
-// import SETINERVAL_WORKER_URI from './timing.setinterval.worker.js?worker'
-// import SETTIMEOUT_WORKER_URI from './timing.settimeout.worker.js?worker'
 
 
 export const MAX_BARS_ALLOWED = 32

@@ -6,7 +6,7 @@
 
 import { createMIDICommandFactory } from '../midi/midi-command-factory'
 import MidiTrack from '../midi/midi-track'
-import Instrument from './instrument'
+import Instrument from './instrument.js'
 
 export default class RecordInstrument extends Instrument{
 

@@ -131,18 +131,18 @@ export const NOTE_NAMES_POPULAR_FIRST = [...NOTE_NAMES]
 
 
 
-// export const getNoteText = noteName => {
-// 	const note = noteName.charAt(0)
-// 	let octave
-// 	// if we have 3 figures we swap out the 2nd one for a 
-// 	if (noteName.length === 3)
-// 	{
-// 		octave = parseInt( noteName.charAt(2) ) + 1
-// 		return `${note}#${octave}`
-// 	}
-// 	octave = parseInt( noteName.charAt(1) ) + 1
-// 	return `${note}${octave}`
-// }
+export const getNoteText = noteName => {
+	const note = noteName.charAt(0)
+	let octave
+	// if we have 3 figures we swap out the 2nd one for a 
+	if (noteName.length === 3)
+	{
+		octave = parseInt( noteName.charAt(2) ) + 1
+		return `${note}#${octave}`
+	}
+	octave = parseInt( noteName.charAt(1) ) + 1
+	return `${note}${octave}`
+}
 
 
 /**

@@ -1,8 +1,8 @@
 import { GestureRecognizer, FilesetResolver, DrawingUtils } from "@mediapipe/tasks-vision"
 
 // Models
-import HAND_LANDMARK_TASK from "url:./tasks/hand_landmarker.task"
-import GESTURE_RECOGNIZER_TASK from "url:./tasks/gesture_recognizer.task"
+import HAND_LANDMARK_TASK from "./tasks/hand_landmarker.task?url"
+import GESTURE_RECOGNIZER_TASK from "./tasks/gesture_recognizer.task?url"
 
 // Workers
 // import WORKER_URI from "worklet:./test.hands-worker.js"

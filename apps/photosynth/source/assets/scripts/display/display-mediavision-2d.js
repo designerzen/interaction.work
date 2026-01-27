@@ -23,7 +23,7 @@ import { drawLip } from "../visual/2d.mouth.js"
 import { drawBars } from "../visual/spectrograms.js"
 import { drawFace } from "../visual/2d.face.js"
 
-import MEDIAVISION_WORKER_URI from 'url:./display-mediavision-2d.worker.js'
+import MEDIAVISION_WORKER_URI from './display-mediavision-2d.worker.js?worker'
 import { DISPLAY_MEDIA_VISION_2D } from "./display-types.js"
 import { UPDATE_FACE_BUTTON_AFTER_FRAMES } from "../settings/options.displays.js"
 

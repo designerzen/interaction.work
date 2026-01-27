@@ -8,7 +8,7 @@
  */
 
 
-import MIDIConnection from './midi-connection'
+import MIDIConnection from './midi-connection.js'
 
 import {
 	DeviceConnector,

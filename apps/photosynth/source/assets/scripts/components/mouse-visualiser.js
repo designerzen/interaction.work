@@ -1,4 +1,4 @@
-import MOUSE_VISUALISER_CANVAS_WORKER from "url:./mouse-visualiser-worker.js"
+import MOUSE_VISUALISER_CANVAS_WORKER from "./mouse-visualiser-worker.js?worker"
 import { AbstractResizeable } from "./abstract-resizeable-canvas.js"
 
 export class MouseVisualiser extends AbstractResizeable{

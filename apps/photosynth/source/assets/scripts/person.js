@@ -105,6 +105,14 @@ import {
 	PERSON_TYPE_SYMPATHETIC_SYNTH_CIRCLE_OF_FIFTHS 
 } from "./person.presets.js"
 
+// Re-export constants for convenience
+export { 
+	PERSON_TYPE_ARPEGGIO, 
+	PERSON_TYPE_ARPEGGIO_CIRCLE_OF_FIFTHS, 
+	PERSON_TYPE_CHROMATIC, 
+	PERSON_TYPE_SYMPATHETIC_SYNTH_CIRCLE_OF_FIFTHS 
+}
+
 // States for the audio controlled by the face
 export const STATE_INSTRUMENT_SILENT = "instrument-not-playing"
 export const STATE_INSTRUMENT_ATTACK = "instrument-attack"

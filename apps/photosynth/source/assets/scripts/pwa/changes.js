@@ -1,5 +1,5 @@
-import changesPath from "url:../changes.html"
-import MANIFEST_PATH from "url:../manifest.webmanifest"
+import changesPath from "../changes.html?url"
+import MANIFEST_PATH from "../manifest.webmanifest?url"
 
 export const fetchChangesAsText = async () => {
     const response = await fetch(changesPath)

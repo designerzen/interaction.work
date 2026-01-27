@@ -1,6 +1,6 @@
-import MEDIAPIPE_FACE_MESH_KEYPOINTS_BY_CONTOUR from './face-landmark-constants'
+import { MESH_ANNOTATIONS } from './face-landmark-constants.js'
 
-export const FACE_CONTOURS = MEDIAPIPE_FACE_MESH_KEYPOINTS_BY_CONTOUR
+export const FACE_CONTOURS = MESH_ANNOTATIONS
 
 export const MOUTH_SHAPE_CLOSED = "-"
 export const MOUTH_SHAPE_O = "o"

@@ -58,7 +58,7 @@ import { unzip } from '../utils/zlib.js'
 import { extractZip } from '../utils/zip.js'
 import { GENERAL_MIDI_FAMILIES, GENERAL_MIDI_FAMILY_DICTIONARY, GENERAL_MIDI_INSTRUMENT_FAMILIES, GENERAL_MIDI_INSTRUMENTS, GENERAL_MIDI_INSTRUMENT_FAMILY_IDS } from '../audio/midi/general-midi.constants.js'
 
-import MIDI_FILE from "url:../assets/audio/midi_midi-sans-frontieres.mid"
+import MIDI_FILE from "../assets/audio/midi_midi-sans-frontieres.mid?url"
 import { convertMIDITrackToNotation } from '../audio/midi/midi-to-notation.js'
 
 import { testLoadPresets } from './test.load-presets.js'

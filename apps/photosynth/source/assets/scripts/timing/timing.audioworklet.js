@@ -82,7 +82,7 @@ export default class TimingAudioWorkletNode extends AudioWorkletNode {
 	}
 }
 
-import AUDIOTIMER_PROCESSOR_URI from 'url:./timing.audioworklet-processor.js'
+import AUDIOTIMER_PROCESSOR_URI from './timing.audioworklet-processor.js?url'
 
 /**
  * Wrap the above in a single call

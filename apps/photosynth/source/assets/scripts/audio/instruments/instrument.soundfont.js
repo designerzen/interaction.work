@@ -3,7 +3,7 @@
  * and if not available we can fall back to other packs located in other
  * origins
  */
-import SampleInstrument from "./instrument.sample"
+import SampleInstrument from "./instrument.sample.js"
 
 import {
 	INSTRUMENT_DATA_PACKS, 

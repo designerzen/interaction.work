@@ -19,11 +19,12 @@ import { setToast, toggleTooltips, updateTooltipPositions } from './dom/tooltips
 import { setupRecordings } from './dom/ui.recording.js'
 import { connectSelect, connectReverbControls, connectReverbSelector } from './dom/select.js'
 import { setToggle, setPressureToggle } from './dom/toggle.js'
-import { setButton, setPressureButton, setupMIDIButton } from './dom/button.js'
+import { setButton, setPressureButton } from './dom/button.js'
+import { setupMIDIButton } from './dom/ui.midi.js'
 import { appendPhotographElement } from './dom/photographs.js'
 import { appendAudioElement} from './dom/audio-element.js'
 import { connectDropZone } from './dom/drop-zone.js'
-import { drawMousePressure } from './dom/mouse-pressure'
+import { drawMousePressure } from './dom/mouse-pressure.js'
 import { setupVolumeInterface } from './dom/ui.volume.js'
 import { setMIDIControls, createMIDIButton } from './dom/ui.midi.js'
 import { setupTempoInterface } from './dom/ui.tempo.js'
@@ -37,7 +38,7 @@ import { createQRCode, createSVGQRCodeFromURL } from './utils/barcodes.js'
 
 // STATE
 import { EVENT_STATE_CHANGE, createStateFromHost, createStateOptionsFromHost, setElementCheckState } from './utils/state.js'
-import StateWithIO from './utils/state-io'
+import StateWithIO from './utils/state-io.js'
 
 
 // MODELS
@@ -157,7 +158,7 @@ import { setNodeCount } from './visual/2d.js'
 import { convertOptionToObject } from './utils/utils.js'
 */
 
-import { setupReporting, track, trackError, trackExit } from './reporting'
+import { setupReporting, track, trackError, trackExit } from './reporting.js'
 import { getMusicalDetailsFromEmoji } from './models/emoji-to-music.js'
 import { showError } from './dom/errors.js'
 import { FIFTHS_SCALE_KEYS, JAZZ_MINOR_SCALE_KEYS, MAJOR_SCALE_KEYS, MINOR_SCALE_KEYS } from './audio/tuning/keys.js'
@@ -167,7 +168,6 @@ import { tapTempo } from './timing/tap-tempo.js'
 import { Timeout } from './timing/timeout.js'
 import { observeOrientationChange } from './display/display-abstract.js'
 import { formatTimeStampFromSeconds } from './timing/timer.js'
-import { count } from 'console'
 import { configurePersonByIndex, configurePersonByOperatingMode } from './person.presets.js'
 import { setupAccessibilityControls } from './accessibility/accessibility-panel.js'
 
