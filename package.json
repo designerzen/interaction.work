@@ -13,6 +13,8 @@
 		"view-report": "turbo run view-report",
 		"build": "turbo run build",
 		"clean": "turbo run clean",
+		"electron:dev": "turbo run electron:dev",
+		"electron:build": "turbo run electron:build",
 		"dev": "turbo run dev",
 		"lint": "turbo run lint",
 		"test": "turbo run test",

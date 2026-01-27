@@ -33,6 +33,14 @@
 			"cache": false,
 			"persistent": true
 		},
+		"electron:dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"electron:build": {
+			"cache": false,
+			"persistent": true
+		},
 		"test": {
 			"inputs": [
 				"$TURBO_DEFAULT$",

@@ -46,8 +46,16 @@ export default defineConfig({
 				'@': resolve(__dirname, 'source'),
 			},
 		},
+		worker: {
+			format: 'es',
+		},
 		build: {
 			outDir: 'dist',
+			rollupOptions: {
+				input: {
+					index: resolve(__dirname, 'source-electron/index.html'),
+				},
+			},
 		},
 		server: {
 			port: 909,
