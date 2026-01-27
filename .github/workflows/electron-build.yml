@@ -72,7 +72,7 @@ jobs:
 
       - name: Upload artifacts (Linux)
         if: runner.os == 'Linux'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: photosynth-linux
           path: apps/photosynth/dist/*.AppImage
@@ -80,7 +80,7 @@ jobs:
 
       - name: Upload artifacts (macOS)
         if: runner.os == 'macOS'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: photosynth-macos
           path: |
@@ -90,7 +90,7 @@ jobs:
 
       - name: Upload artifacts (Windows)
         if: runner.os == 'Windows'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: photosynth-windows
           path: |
@@ -110,7 +110,7 @@ jobs:
 
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
