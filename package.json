@@ -2,7 +2,6 @@
 	"name": "interaction.works",
 	"description": "Instant Musical Superpowers! Body controllable accessible musical instrument",
 	"version": "0.40.2",
-	"time": 1768145296242,
 	"author": "designerzen <github@designerzen.com>",
 	"license": "AGPL-3.0",
 	"scripts": {
@@ -19,7 +18,10 @@
 		"lint": "turbo run lint",
 		"test": "turbo run test",
 		"check-types": "turbo run check-types",
-		"license": "turbo run license"
+		"license": "turbo run license",
+		"release:patch": "pnpm --filter photosynth release:patch",
+		"release:minor": "pnpm --filter photosynth release:minor",
+		"release:major": "pnpm --filter photosynth release:major"
 	},
 	"devDependencies": {
 		"turbo": "^2.7.3",
