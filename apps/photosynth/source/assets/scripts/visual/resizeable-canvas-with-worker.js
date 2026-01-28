@@ -15,14 +15,36 @@ export default class ResizeableCanvasWithWorker{
         this.optional = optional        
         this.onResize = this.onResize.bind(this) 
      
+        // Validate worker URI
+        if (!workerURI) {
+            console.error("ResizeableCanvasWithWorker: workerURI is undefined or null. Check that the worker file path is properly imported.");
+            return;
+        }
+
         const canvasWorker = canvas.transferControlToOffscreen()
         const payload = { canvas:canvasWorker, ...this.optional }
-        this.worker = new Worker(workerURI)
+        
+        console.log("Creating Worker with URI:", workerURI)
+        
+        // Handle both ?worker imports (which return a function) and URL objects
+        if (typeof workerURI === 'function') {
+            this.worker = workerURI()
+        } else {
+            this.worker = new Worker(workerURI, {type: 'module'})
+        }
+        
 		this.worker.postMessage(payload, [canvasWorker])
         
         // Add error listeners for the worker
         this.worker.onerror = (error) => {
-            console.error("Worker Error:", error.message, error.filename, error.lineno, error);
+            console.error("Worker Error:", {
+                workerURI: workerURI,
+                message: error.message,
+                filename: error.filename,
+                lineno: error.lineno,
+                error: error.error,
+                event: error
+            });
             // You might want to add logic here to try and recover or display a message
         }
 
