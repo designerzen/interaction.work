@@ -44,6 +44,7 @@ yarn-error.log*
 coverage.json
 
 # Public deps that are copied from node_modules
-public/@*
+apps/photosynth/public/@*
+*public/@*
 
 ---*
