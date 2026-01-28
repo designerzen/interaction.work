@@ -19,6 +19,7 @@
 	"main": "./dist-electron/main/index.js",
 	"type": "module",
 	"scripts": {
+		"postinstall": "electron-builder install-app-deps",
 		"start": "pnpm run dev",
 		"dev": "pnpm run copy && vite",
 		"dev:electron": "concurrently \"vite\" \"wait-on http://localhost:909 && electron .\"",
