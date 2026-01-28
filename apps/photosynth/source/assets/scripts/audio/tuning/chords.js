@@ -353,7 +353,7 @@ export const createAllChordsInScalesWithModes = () => {
 	{
 		const chordVariations = createAllChordsForNoteNumber(noteNumber)
 		output[noteNumber] = chordVariations
-		console.info(noteNumber, "Creating chordVariations for note", chordVariations )
+		//console.info(noteNumber, "Creating chordVariations for note", chordVariations )
 	}
 	return output
 }
