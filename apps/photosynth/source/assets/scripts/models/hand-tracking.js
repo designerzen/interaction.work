@@ -5,7 +5,7 @@ import HAND_LANDMARK_TASK from "./tasks/hand_landmarker.task?url"
 import GESTURE_RECOGNIZER_TASK from "./tasks/gesture_recognizer.task?url"
 
 // Workers
-// import WORKER_URI from "worklet:./test.hands-worker.js"
+import HAND_TRACKING_WORKER from "./hand-tracking-worker.js?worker"
 
 // Local data
 const TASKS_VISION_WASM = "./@mediapipe/tasks-vision/wasm"
@@ -123,7 +123,7 @@ const start = async () => {
 	gestureOutput = document.getElementById("gesture-output")
 	video = document.getElementById("webcam")
 	canvasElement = document.getElementById("canvas-main")
-	canvasProxy = new ResizeableCanvasWithWorker( canvasElement, WORKER_URI )
+	canvasProxy = new ResizeableCanvasWithWorker( canvasElement, HAND_TRACKING_WORKER )
 	
 	// canvasProxy = new ResizeableCanvasWithWorker( canvasElement, WORKER_URI, {onmessage:(e)=>{
 	// 	console.log("Message from worker", e)
