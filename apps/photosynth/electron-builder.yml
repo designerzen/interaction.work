@@ -23,10 +23,9 @@ nsis:
 portable:
   artifactName: ${productName}-${version}.${ext}
 msi:
-  certificateFile: null
-  certificatePassword: null
-  signingHashAlgorithms:
-    - sha256
+  oneClick: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
 mac:
   target:
     - dmg

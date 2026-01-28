@@ -59,15 +59,33 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Electron app (Unix)
-        if: runner.os != 'Windows'
-        run: cd apps/photosynth && pnpm electron:build
+      - name: Build and package (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          cd apps/photosynth
+          echo "Starting Linux build..."
+          pnpm dist:linux
+          echo "Linux build completed"
+          ls -la dist-apps/ || echo "dist-apps directory not found"
 
-      - name: Build Electron app (Windows)
+      - name: Build and package (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          cd apps/photosynth
+          echo "Starting macOS build..."
+          pnpm dist:mac
+          echo "macOS build completed"
+          ls -la dist-apps/ || echo "dist-apps directory not found"
+
+      - name: Build and package (Windows)
         if: runner.os == 'Windows'
         run: |
           cd apps/photosynth
-          pnpm electron:build
+          Write-Host "Starting Windows build..."
+          pnpm dist:win
+          Write-Host "Windows build completed"
+          Get-Item dist-apps -ErrorAction SilentlyContinue | Get-ChildItem | ForEach-Object { $_.FullName }
+          if (-not (Test-Path dist-apps)) { Write-Host "dist-apps directory not found" }
         shell: pwsh
 
       - name: Upload artifacts (Linux)
@@ -100,7 +118,21 @@ jobs:
           retention-days: 30
 
       - name: List build output
-        run: ls -la apps/photosynth/dist-apps/
+        run: |
+          echo "Checking for dist-electron:"
+          ls -la apps/photosynth/dist-electron/ || echo "dist-electron not found"
+          echo ""
+          echo "Checking for dist:"
+          ls -la apps/photosynth/dist/ | head -20 || echo "dist not found"
+          echo ""
+          echo "Checking for dist-apps (expected location):"
+          ls -la apps/photosynth/dist-apps/ || echo "dist-apps not found"
+          echo ""
+          echo "Searching for any .AppImage, .dmg, or .exe files in the workspace:"
+          find . -maxdepth 5 \( -name "*.AppImage" -o -name "*.dmg" -o -name "*.exe" -o -name "*.msi" \) 2>/dev/null | head -20
+          echo ""
+          echo "Checking home directory for build output:"
+          find ~/ -maxdepth 3 \( -name "*.AppImage" -o -name "*.dmg" -o -name "*.exe" \) 2>/dev/null | grep -i photosynth | head -10
         shell: bash
         if: always()
 
