@@ -17,6 +17,7 @@ import {
 import { showPlayerSelector } from './dom/ui.player-selection.js'
 import { setToast, toggleTooltips, updateTooltipPositions } from './dom/tooltips.js'
 import { setupRecordings } from './dom/ui.recording.js'
+import { createDisplayOptions } from './dom/ui.display.js'
 import { connectSelect, connectReverbControls, connectReverbSelector } from './dom/select.js'
 import { setToggle, setPressureToggle } from './dom/toggle.js'
 import { setButton, setPressureButton } from './dom/button.js'
