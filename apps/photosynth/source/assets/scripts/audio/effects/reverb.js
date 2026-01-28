@@ -8,6 +8,7 @@
 
 import { easeInCubic, easeInExpo, easeOutSine, linear } from '../../maths/easing'
 import { generateBrownNoise, generatePinkNoise, generateWhiteNoise } from '../../maths/noise'
+import { fetchJSON } from '../../utils/fetch'
 import {changeParameter} from './effect'
  
 // const compressor = new DynamicsCompressorNode(audioContext)
@@ -45,9 +46,7 @@ export const loadImpulseJSON = async (directory) => {
 		return loadedImpulseLists[directory]
 	}
 
-	const jsonData = await fetch(`${ACOUSTICS_IMPULSE_FILTERS_DIR}${directory}/${SAMPLE_PLAYLIST}`)
-	// ensure it is JSON...
-	const json = await jsonData.json()
+	const json = await fetchJSON(`${ACOUSTICS_IMPULSE_FILTERS_DIR}${directory}/${SAMPLE_PLAYLIST}`)
 	
 	loadedImpulseLists[directory] = json.files.map( item => `${ACOUSTICS_IMPULSE_FILTERS_DIR}${directory}/${item}` )
 	return loadedImpulseLists[directory]
@@ -420,7 +419,7 @@ export const createReverb = async (
 ) => {
 
 	// Load from a local WAV / MP3 file
-	const loadImpulseFilter = async (filename) => {
+	const loadAudioImpulseFilter = async (filename) => {
 		try{
 			const response = await fetch(filename)
 			const arrayBuffer = await response.arrayBuffer()
@@ -431,12 +430,12 @@ export const createReverb = async (
 	}
 	
 	// first load our filter into memory...
-	const audioBuffer = await loadImpulseFilter(impulseFilterFilename)
+	const audioBuffer = await loadAudioImpulseFilter(impulseFilterFilename)
 	const reverb = createReverbFromBuffer(audioContext, audioBuffer, {normalize, gain} )
 
 	// add our custom methods for this reverb
 	reverb.impulseFilter = async (filterFilename) => {
-		convolver.buffer =  await loadImpulseFilter(filterFilename)
+		convolver.buffer =  await loadAudioImpulseFilter(filterFilename)
 		convolver.normalize = normalize	
 		return filterFilename
 	}
