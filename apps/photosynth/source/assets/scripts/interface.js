@@ -2620,9 +2620,9 @@ export const createInterface = (
 		
 			if (suggested === DISPLAY_TYPES.DISPLAY_LOOKING_GLASS_3D)
 			{
-				console.info("Found display: Holographic displays", t, {available}, displaySelectElement )
+				console.info("Found display: Holographic displays", t, {available})
 			}else{
-				console.info("Found display: Adding",suggested, t, {available}, displaySelectElement )
+				console.info("Found display: Adding",suggested, t, {available})
 			}
 			
 			// 'predictionLoop' here is a method passed into this function that is called
