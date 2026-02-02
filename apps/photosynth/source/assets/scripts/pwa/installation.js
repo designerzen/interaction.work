@@ -350,7 +350,7 @@ export const installOrUpdate = async(debug=false, currentlyRunningVersion='' ) =
 	// annoying really but we leave this in just for parcel to force copy it
 	if (!serviceWorker)
 	{
-		serviceWorker = await navigator.serviceWorker.register( new URL(serviceWorkerPath, {type: 'module'} ))
+		serviceWorker = await navigator.serviceWorker.register( new URL(serviceWorkerPath), {type: 'module'} )
 		// serviceWorker = await navigator.serviceWorker.register("../service-worker.js")	
 		log.push("Service worker falling back to default :*(", serviceWorker)
 			

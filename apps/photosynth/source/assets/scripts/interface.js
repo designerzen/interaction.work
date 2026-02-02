@@ -166,7 +166,7 @@ import { FIFTHS_SCALE_KEYS, JAZZ_MINOR_SCALE_KEYS, MAJOR_SCALE_KEYS, MINOR_SCALE
 import { NOTES_BLACK, NOTES_WHITE } from './audio/tuning/notes.js'
 import VisualiserManager from './visual/visualiser/visualiser-manager.js'
 import { tapTempo } from './timing/tap-tempo.js'
-import { Timeout } from './timing/timeout.js'
+import { Timeout } from './sequencing/timeout.js'
 import { observeOrientationChange } from './display/display-abstract.js'
 import { formatTimeStampFromSeconds } from './timing/timer.js'
 import { configurePersonByIndex, configurePersonByOperatingMode } from './person.presets.js'
