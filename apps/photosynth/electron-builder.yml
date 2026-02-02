@@ -10,7 +10,7 @@ extendInfo:
   NSCameraUsageDescription: "Please grant access to your camera"
 directories:
   buildResources: build/icons
-  output: dist-apps
+  output: releases
 files:
   - dist-electron
   - dist
