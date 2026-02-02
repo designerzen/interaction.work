@@ -66,7 +66,7 @@ jobs:
           echo "Starting Linux build..."
           pnpm dist:linux
           echo "Linux build completed"
-          ls -la dist-apps/ || echo "dist-apps directory not found"
+          ls -la releases/ || echo "releases directory not found"
 
       - name: Build and package (macOS)
         if: runner.os == 'macOS'
@@ -75,7 +75,7 @@ jobs:
           echo "Starting macOS build..."
           pnpm dist:mac
           echo "macOS build completed"
-          ls -la dist-apps/ || echo "dist-apps directory not found"
+          ls -la releases/ || echo "releases directory not found"
 
       - name: Build and package (Windows)
         if: runner.os == 'Windows'
@@ -84,8 +84,8 @@ jobs:
           Write-Host "Starting Windows build..."
           pnpm dist:win
           Write-Host "Windows build completed"
-          Get-Item dist-apps -ErrorAction SilentlyContinue | Get-ChildItem | ForEach-Object { $_.FullName }
-          if (-not (Test-Path dist-apps)) { Write-Host "dist-apps directory not found" }
+          Get-Item releases -ErrorAction SilentlyContinue | Get-ChildItem | ForEach-Object { $_.FullName }
+          if (-not (Test-Path releases)) { Write-Host "releases directory not found" }
         shell: pwsh
 
       - name: Upload artifacts (Linux)
@@ -93,7 +93,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: photosynth-linux
-          path: apps/photosynth/dist-apps/*.AppImage
+          path: apps/photosynth/releases/*.AppImage
           retention-days: 30
 
       - name: Upload artifacts (macOS)
@@ -102,8 +102,8 @@ jobs:
         with:
           name: photosynth-macos
           path: |
-            apps/photosynth/dist-apps/*.dmg
-            apps/photosynth/dist-apps/*.zip
+            apps/photosynth/releases/*.dmg
+            apps/photosynth/releases/*.zip
           retention-days: 30
 
       - name: Upload artifacts (Windows)
@@ -112,9 +112,9 @@ jobs:
         with:
           name: photosynth-windows
           path: |
-            apps/photosynth/dist-apps/*.exe
-            apps/photosynth/dist-apps/*.msi
-            apps/photosynth/dist-apps/*.zip
+            apps/photosynth/releases/*.exe
+            apps/photosynth/releases/*.msi
+            apps/photosynth/releases/*.zip
           retention-days: 30
 
       - name: List build output
@@ -125,8 +125,8 @@ jobs:
           echo "Checking for dist:"
           ls -la apps/photosynth/dist/ | head -20 || echo "dist not found"
           echo ""
-          echo "Checking for dist-apps (expected location):"
-          ls -la apps/photosynth/dist-apps/ || echo "dist-apps not found"
+          echo "Checking for releases (expected location):"
+          ls -la apps/photosynth/releases/ || echo "releases not found"
           echo ""
           echo "Searching for any .AppImage, .dmg, or .exe files in the workspace:"
           find . -maxdepth 5 \( -name "*.AppImage" -o -name "*.dmg" -o -name "*.exe" -o -name "*.msi" \) 2>/dev/null | head -20

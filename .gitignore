@@ -27,7 +27,7 @@ out/
 build
 dist
 dist-electron
-dist-apps
+releases
 
 
 # Debug
