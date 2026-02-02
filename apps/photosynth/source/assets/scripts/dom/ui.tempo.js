@@ -1,8 +1,8 @@
 import {tapTempo} from '../timing/tap-tempo.js' 
 
-import ROLLING_WORKER_URI from '../timing/timing.rolling.worker.js?worker'
-import SETINERVAL_WORKER_URI from '../timing/timing.setinterval.worker.js?worker'
-import SETTIMEOUT_WORKER_URI from '../timing/timing.settimeout.worker.js?worker'
+import ROLLING_WORKER_URI from '../sequencing/timing.rolling.worker.js?worker'
+import SETINERVAL_WORKER_URI from '../sequencing/timing.setinterval.worker.js?worker'
+import SETTIMEOUT_WORKER_URI from '../sequencing/timing.settimeout.worker.js?worker'
 
 import { MOUSE_REPEATING, addMouseRepeaterEvents } from '../hardware/mouse.js'
 

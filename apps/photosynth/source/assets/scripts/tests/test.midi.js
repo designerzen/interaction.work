@@ -17,9 +17,9 @@ import AudioTimer from '../timing/timer.audio.js'
 import MIDIConnectionManager from '../audio/midi/midi-connection-manager.js'
 import WebMIDIClass from '../audio/midi/midi-connection-webmidi.js'
 
-import ROLLING_WORKER_URI from '../timing/timing.rolling.worker.js?worker'
-import SETINERVAL_WORKER_URI from '../timing/timing.setinterval.worker.js?worker'
-import SETTIMEOUT_WORKER_URI from '../timing/timing.settimeout.worker.js?worker'
+import ROLLING_WORKER_URI from '../sequencing/timing.rolling.worker.js?worker'
+import SETINERVAL_WORKER_URI from '../sequencing/timing.setinterval.worker.js?worker'
+import SETTIMEOUT_WORKER_URI from '../sequencing/timing.settimeout.worker.js?worker'
 
 import {addToolTips} from '../dom/tooltips.js'		
 import {setupThemeControls} from '../theme/theme.js'
