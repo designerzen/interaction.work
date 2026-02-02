@@ -1,5 +1,13 @@
 appId: com.designerzen.photosynth
+
+
+type: distribution
 productName: PhotoSYNTH
+entitlements: source-electron/entitlements.plist
+entitlementsInherit: source-electron/entitlements.plist
+extendInfo: 
+  NSMicrophoneUsageDescription: "Please grant access to your microphone"
+  NSCameraUsageDescription: "Please grant access to your camera"
 directories:
   buildResources: build/icons
   output: dist-apps

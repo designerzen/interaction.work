@@ -22,7 +22,7 @@ export default defineConfig({
 		})
 	],
 	root: "source",
-	publicDir: "./public",
+	publicDir: "../public",
 	resolve: {
 		alias: {
 			'@': resolve(__dirname, 'source'),
