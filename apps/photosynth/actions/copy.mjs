@@ -61,6 +61,9 @@ copyFolderSync('./node_modules/@mediapipe/tasks-vision/', PATH_PUBLIC_FOLDER + '
 // WebGPU tasks
 copyFolderSync('./node_modules/@litertjs/core/wasm/', PATH_PUBLIC_FOLDER + '/@litertjs/'  ) 
 
+// Audio assets
+copyFolderSync('../../packages/openGM24/node_modules/open-generalmidi-soundfont/', PATH_PUBLIC_FOLDER + '/assets/audio/'  ) 
+
 // handled by static-copy-plugin
 // copyFolderSync(PATH_PUBLIC_FOLDER + '/', './dist/') 
 // copyFolderSync(PATH_PUBLIC_FOLDER + '/', './dist-electron/main/') 

@@ -27,6 +27,7 @@ out/
 build
 dist
 dist-electron
+dist-apps
 releases
 
 
@@ -46,6 +47,8 @@ coverage.json
 # Public deps that are copied from node_modules
 apps/photosynth/public/@*
 *public/@*
+*public/assets
+
 
 ---*
 apps/photosynth/dist-apps/*

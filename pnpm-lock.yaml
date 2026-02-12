@@ -351,7 +351,7 @@ importers:
 
   packages/openGM24:
     dependencies:
-      netronome:
+      open-generalmidi-soundfont:
         specifier: github:designerzen/Open-GeneralMIDI-SoundFont
         version: https://codeload.github.com/designerzen/Open-GeneralMIDI-SoundFont/tar.gz/3b36c9fd24fe1d9ec4b1f32bec428d30509cb72d
 
@@ -6025,10 +6025,6 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  netronome@https://codeload.github.com/designerzen/Open-GeneralMIDI-SoundFont/tar.gz/3b36c9fd24fe1d9ec4b1f32bec428d30509cb72d:
-    resolution: {tarball: https://codeload.github.com/designerzen/Open-GeneralMIDI-SoundFont/tar.gz/3b36c9fd24fe1d9ec4b1f32bec428d30509cb72d}
-    version: 0.0.0
-
   netronome@https://codeload.github.com/designerzen/netronome/tar.gz/28950e770b39f810945488de6b8f796e63497156:
     resolution: {tarball: https://codeload.github.com/designerzen/netronome/tar.gz/28950e770b39f810945488de6b8f796e63497156}
     version: 2.1.0
@@ -6262,6 +6258,10 @@ packages:
   onetime@6.0.0:
     resolution: {integrity: sha512-1FlR+gjXK7X+AsAHso35MnyN5KqGwJRi/31ft6x0M194ht7S+rWAvd7PHss9xSKMzE0asv1pyIHaJYq+BbacAQ==}
     engines: {node: '>=12'}
+
+  open-generalmidi-soundfont@https://codeload.github.com/designerzen/Open-GeneralMIDI-SoundFont/tar.gz/3b36c9fd24fe1d9ec4b1f32bec428d30509cb72d:
+    resolution: {tarball: https://codeload.github.com/designerzen/Open-GeneralMIDI-SoundFont/tar.gz/3b36c9fd24fe1d9ec4b1f32bec428d30509cb72d}
+    version: 0.0.0
 
   open@8.4.2:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
@@ -15160,8 +15160,6 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  netronome@https://codeload.github.com/designerzen/Open-GeneralMIDI-SoundFont/tar.gz/3b36c9fd24fe1d9ec4b1f32bec428d30509cb72d: {}
-
   netronome@https://codeload.github.com/designerzen/netronome/tar.gz/28950e770b39f810945488de6b8f796e63497156: {}
 
   nice-try@1.0.5: {}
@@ -15447,6 +15445,8 @@ snapshots:
   onetime@6.0.0:
     dependencies:
       mimic-fn: 4.0.0
+
+  open-generalmidi-soundfont@https://codeload.github.com/designerzen/Open-GeneralMIDI-SoundFont/tar.gz/3b36c9fd24fe1d9ec4b1f32bec428d30509cb72d: {}
 
   open@8.4.2:
     dependencies:
