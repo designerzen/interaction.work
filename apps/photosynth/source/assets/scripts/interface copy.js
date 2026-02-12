@@ -52,7 +52,7 @@ import SampleInstrument from './audio/instruments/instrument.sample.js'
 import GamePad, { COMMANDS, GAME_PAD_CONNECTED, GAME_PAD_DISCONNECTED, GamePadManager } from './hardware/gamepad.js'
 
 // import {midiLikeEvents} from './timing/rhythm'
-import { tapTempo, convertBPMToPeriod, now } from './timing/timing.js'
+import { tapTempo, convertBPMToPeriod, now } from 'netronome'
 import AudioTimer from './timing/timer.audio.js'
 
 import { playNextPart, getKitSequence } from './sequencing/patterns.js'

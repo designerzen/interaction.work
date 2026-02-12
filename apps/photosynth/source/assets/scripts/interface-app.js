@@ -164,7 +164,7 @@ import { FIFTHS_SCALE_KEYS, JAZZ_MINOR_SCALE_KEYS, MAJOR_SCALE_KEYS, MINOR_SCALE
 import { NOTES_BLACK, NOTES_WHITE } from './audio/tuning/notes.js'
 import OscillatorInstrument from './audio/instruments/instrument.oscillator.js'
 import VisualiserManager from './visual/visualiser/visualiser-manager.js'
-import { tapTempo } from './timing/tap-tempo.js'
+import { tapTempo } from 'netronome'
 import { observeOrientationChange } from './display/display-abstract.js'
 
 const {DISPLAY_CANVAS_2D, DISPLAY_MEDIA_VISION_2D, DISPLAY_LOOKING_GLASS_3D, DISPLAY_WEB_GL_3D, DISPLAY_COMPOSITE} = DISPLAY_TYPES

@@ -41,7 +41,6 @@ import {
 import { toKebabCase } from "./utils/utils.js"
 import { rescale, lerp, clamp, range, rangeRounded, HALF_PI } from "./maths/maths.js"
 import { easeInSine, easeOutSine , easeInCubic, easeOutCubic, linear, easeOutQuad, easeInQuad} from "./maths/easing.js"
-import { now } from "./timing/timing.js"
 
 // all the different instruments come through the instrument factory!
 import MIDIInstrument from './audio/instruments/instrument.midi.js'
@@ -180,10 +179,12 @@ const createHSLA = (hue, saturation, luminosity, alpha=1) => {
 export default class Person{
 
 	id
-	name = "unnamed"
-
+	#name = "unnamed"
+	
 	playerNumber = -1
-	createdAt = -1
+
+	#now
+	#createdAt = -1
 
 	#audioContext
 	#offlineAudioContext
@@ -219,7 +220,6 @@ export default class Person{
 	active = false
 	singing = false
 	
-
 	isMouthOpen = false
 	isLeftEyeOpen = true
 	isRightEyeOpen = true
@@ -247,6 +247,8 @@ export default class Person{
 	yaw = 0
 	pitch = 0
 	roll = 0
+
+	precision = 100
 
 	// bouding box
 	box = null
@@ -330,6 +332,10 @@ export default class Person{
 		return this.#userMode
 	}
 
+	get name(){
+		return this.#name
+	}
+	
 	/**
 	 * Dimensions and sizes
 	 */
@@ -546,22 +552,22 @@ export default class Person{
 	 * this.audioContext this.audioContext.currentTime :
 	 */
 	get now(){
-		return now()
+		return this.#now()
 	}
 
 	/**
 	 * Is this person alive or dead
 	 */
 	get alive(){
-		return this.createdAt > -1
+		return this.#createdAt > -1
 	}
 
 	/**
 	 * How many milliseconds has this person been "dead"
 	 */
 	get aliveForDuration(){
-		return this.createdAt > -1 ? 
-			this.now - this.createdAt :
+		return this.#createdAt > -1 ? 
+			this.now - this.#createdAt :
 			0
 	}
 
@@ -569,7 +575,7 @@ export default class Person{
 	 * Is this person alive or dead?
 	 */
 	get dead(){
-		return this.createdAt < 0
+		return this.#createdAt < 0
 	}
 
 	/**
@@ -595,15 +601,15 @@ export default class Person{
 	 * @return {Number}
 	 */
 	get deadForDuration(){
-		if (this.createdAt === -1)
+		if (this.#createdAt === -1)
 		{
 			return -1
 		}
-		if (this.createdAt > -1)
+		if (this.#createdAt > -1)
 		{
 			return 0
 		}
-		return this.now + this.createdAt
+		return this.now + this.#createdAt
 	}
 
 	/**
@@ -693,7 +699,7 @@ export default class Person{
 	 * @param {Object} options 
 	 * @param {Object} saveData - JSON data
 	 */
-	constructor( index, options={}, saveData=undefined ) {
+	constructor( index, options={}, saveData=undefined, now=undefined ) {
 		
 		this.options = Object.assign( {}, DEFAULT_PERSON_OPTIONS, options)
 		this.debug = this.options.debug
@@ -701,7 +707,8 @@ export default class Person{
 		// ensure that the name is all lower case and kebabed
 		this.id = IDENTIFIERS[index]
 		// this.id = toKebabCase( IDENTIFIERS[index] ?? "person-" + index )
-		this.name = NAMES[index]
+		this.#name = NAMES[index]
+		this.#now = now ?? performance.now ?? Date.now
 
 		this.playerNumber = index
 
@@ -714,7 +721,7 @@ export default class Person{
 		this.setPalette(this.options)
 
 		// probably not neccessary with reverb effect
-		this.precision = Math.pow( 10, parseInt(this.options.precision) )
+		this.precision = Math.pow( 10, parseInt(this.options.precision) ?? 4 )
 		
 		this.create()
 		//console.log("Created new person", this, "connecting to", destinationNode )
@@ -777,11 +784,11 @@ export default class Person{
 			// })
 		}else{
 			// console.warn(`Created Person "${name}" but could not find associated markup #${name}`)
-			throw Error(`Created Person "${this.name}" but could not find associated markup #${this.name}`)
+			throw Error(`Created Person "${this.#name}" but could not find associated markup #${this.#name}`)
 		}
 
 		if (this.options.debug){
-			console.info("Person "+this.name+" options", this.options)
+			console.info("Person "+this.#name+" options", this.options)
 		}
 	}
 	
@@ -846,7 +853,7 @@ export default class Person{
 	 * @param {Object} data 
 	 */
 	dispatchEvent(type, data = {}){
-		this.button.dispatchEvent(new CustomEvent( type, {detail: data}))
+		this.button.dispatchEvent(new PersonEvent( type, {detail: data}))
 	}
 
 	/**
@@ -866,13 +873,13 @@ export default class Person{
 	 */
 	setAsLost(){
 		// only kill if not already dead?
-		if (this.createdAt < -1)
+		if (this.#createdAt < -1)
 		{
 			// return if actually dead or just dying!
 			return this.percentageDead === 1
 		}
 	
-		this.createdAt = -this.now
+		this.#createdAt = -this.now
 		// return if actually dead or just dying!
 
 		// console.info("Person lost", this)
@@ -897,9 +904,9 @@ export default class Person{
 		this.box = prediction.box
 
 		// resurrect the dead
-		if (this.createdAt === -1)
+		if (this.#createdAt === -1)
 		{
-			this.createdAt = timeNow
+			this.#createdAt = timeNow
 			this.onBirthed()
 		}
 		else if (this.percentageDead  === 1)
@@ -2304,7 +2311,7 @@ export default class Person{
 	 */
 	onDead(){
 		// console.info("Person Killed at "+this.deadForDuration )
-		this.createdAt = -1
+		this.#createdAt = -1
 		this.isUserActive = false
 		this.dispatchEvent(EVENT_PERSON_DEAD, { person:this })
 	}

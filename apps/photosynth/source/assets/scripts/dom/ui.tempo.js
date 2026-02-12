@@ -1,4 +1,4 @@
-import {tapTempo} from '../timing/tap-tempo.js' 
+import { Timer, tapTempo } from 'netronome'
 
 import ROLLING_WORKER_URI from '../sequencing/timing.rolling.worker.js?worker'
 import SETINERVAL_WORKER_URI from '../sequencing/timing.setinterval.worker.js?worker'

@@ -124,8 +124,6 @@ import {midiLikeEvents} from './timing/rhythm.js'
 import { playNextPart, getKitSequence } from './sequencing/patterns.js'
 
 // FADFDFDSFSFDSFSFDssdsvv
-// import Timer from "./timing/timer.js"
-// import AudioTimer from './timing/timer.audio.js'
 import {
 	CMD_START,CMD_STOP,CMD_UPDATE,
 	EVENT_READY, EVENT_STARTING, EVENT_STOPPING, EVENT_TICK
@@ -191,7 +189,7 @@ import { FIFTHS_SCALE_KEYS, JAZZ_MINOR_SCALE_KEYS, MAJOR_SCALE_KEYS, MINOR_SCALE
 import { NOTES_BLACK, NOTES_WHITE } from './audio/tuning/notes.js'
 
 
-import { tapTempo } from './timing/tap-tempo.js'
+import { tapTempo } from 'netronome'
 
 import { observeOrientationChange } from './display/display-abstract.js'
 

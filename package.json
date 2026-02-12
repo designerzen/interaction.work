@@ -24,8 +24,8 @@
     "release:major": "pnpm --filter photosynth release:major"
   },
   "devDependencies": {
-    "lerna": "^9.0.3",
-    "turbo": "^2.8.2"
+    "lerna": "^9.0.4",
+    "turbo": "^2.8.7"
   },
   "keywords": [
     "music",
@@ -35,7 +35,7 @@
     "xr",
     "ar"
   ],
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.29.3",
   "pnpm": {
     "onlyBuiltDependencies": [
       "electron"

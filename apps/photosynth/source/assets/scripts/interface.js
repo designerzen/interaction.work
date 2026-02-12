@@ -167,12 +167,13 @@ import { showError } from './dom/errors.js'
 import { FIFTHS_SCALE_KEYS, JAZZ_MINOR_SCALE_KEYS, MAJOR_SCALE_KEYS, MINOR_SCALE_KEYS } from './audio/tuning/keys.js'
 import { NOTES_BLACK, NOTES_WHITE } from './audio/tuning/notes.js'
 import VisualiserManager from './visual/visualiser/visualiser-manager.js'
-import { tapTempo } from './timing/tap-tempo.js'
+import { tapTempo } from 'netronome'
 import { Timeout } from './sequencing/timeout.js'
 import { observeOrientationChange } from './display/display-abstract.js'
-import { formatTimeStampFromSeconds } from './timing/timer.js'
+import { formatTimeStampFromSeconds } from 'netronome'
 import { configurePersonByIndex, configurePersonByOperatingMode } from './person.presets.js'
 import { setupAccessibilityControls } from './accessibility/accessibility-panel.js'
+import { timerify } from 'node:perf_hooks'
 
 // Asset Paths
 // assets\audio\wave-tables\general-midi.zip
@@ -881,7 +882,7 @@ export const createInterface = (
 		}
 
 		// Create our person with the specified options
-		const person = new Person( index, options, savedData ) 
+		const person = new Person( index, options, savedData, clock.now ) 
 
 		// state can contain more data than simple the options!
 		// so let us loop through the stateMachine and extract any person data...
