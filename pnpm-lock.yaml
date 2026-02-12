@@ -163,7 +163,7 @@ importers:
         version: 1.0.4
       netronome:
         specifier: workspace:*
-        version: link:../../packages/netronomoe
+        version: link:../../packages/netronome
       partysocket:
         specifier: 1.1.10
         version: 1.1.10
@@ -343,7 +343,7 @@ importers:
         specifier: ^9.0.3
         version: 9.0.3
 
-  packages/netronomoe:
+  packages/netronome:
     dependencies:
       netronome:
         specifier: github:designerzen/netronome
