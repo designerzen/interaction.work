@@ -55,7 +55,7 @@ import GamePad, { COMMANDS, GAME_PAD_CONNECTED, GAME_PAD_DISCONNECTED, GamePadMa
 import { tapTempo, convertBPMToPeriod, now } from './timing/timing.js'
 import AudioTimer from './timing/timer.audio.js'
 
-import { playNextPart, getKitSequence } from './timing/patterns.js'
+import { playNextPart, getKitSequence } from './sequencing/patterns.js'
 	
 import {
 	controlPanel,

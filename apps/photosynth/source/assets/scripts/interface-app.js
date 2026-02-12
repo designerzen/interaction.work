@@ -63,7 +63,7 @@ import Person, {
  
 // TIMING
 // import {midiLikeEvents} from './timing/rhythm'
-import { playNextPart, getKitSequence } from './timing/patterns.js'
+import { playNextPart, getKitSequence } from './sequencing/patterns.js'
 import AudioTimer from './timing/timer.audio.js'
 
 // AUDIO 

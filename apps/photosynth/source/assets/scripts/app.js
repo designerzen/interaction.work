@@ -121,7 +121,7 @@ import Person, {
 
 // TIMING
 import {midiLikeEvents} from './timing/rhythm.js'
-import { playNextPart, getKitSequence } from './timing/patterns.js'
+import { playNextPart, getKitSequence } from './sequencing/patterns.js'
 
 // FADFDFDSFSFDSFSFDssdsvv
 // import Timer from "./timing/timer.js"

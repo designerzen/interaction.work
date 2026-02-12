@@ -185,8 +185,8 @@ export default class Person{
 	playerNumber = -1
 	createdAt = -1
 
-	audioContext
-	offlineAudioContext
+	#audioContext
+	#offlineAudioContext
 
 	// instances
 	midiPlayer
@@ -695,7 +695,7 @@ export default class Person{
 	 */
 	constructor( index, options={}, saveData=undefined ) {
 		
-		this.options = Object.assign({  }, DEFAULT_PERSON_OPTIONS, options)
+		this.options = Object.assign( {}, DEFAULT_PERSON_OPTIONS, options)
 		this.debug = this.options.debug
 
 		// ensure that the name is all lower case and kebabed
@@ -738,7 +738,7 @@ export default class Person{
 
 		// allow us to record the performances (not the audio)
 		// useful for showing recordings of a person
-		this.parameterRecorder = new ParamaterRecorder()
+		this.parameterRecorder = new ParamaterRecorder( this.#audioContext )
 		this.isRecordingParameters = this.options.recordData ?? false
 	
 		// this.range = 1 / ( 1 - this.options.mouthCutOff )
@@ -2073,8 +2073,8 @@ export default class Person{
 			throw Error("An InstrumentFactory instance was not provided")
 		}
 
-		this.audioContext = audioContext
-		this.offlineAudioContext = offlineAudioContext
+		this.#audioContext = audioContext
+		this.#offlineAudioContext = offlineAudioContext
 		
 		// this controls the amplitude and connects to the mouth ui
 		this.gainNode = audioContext.createGain()
@@ -2263,7 +2263,7 @@ export default class Person{
 	setMIDI(midiDevice, channel="all"){
 		this.midiChannel = channel
 		this.midi = midiDevice
-		this.midiPlayer = new MIDIInstrument(this.audioContext, midiDevice, channel)
+		this.midiPlayer = new MIDIInstrument(this.#audioContext, midiDevice, channel)
 		this.addInstrument( this.midiPlayer )
 		//console.log("MIDI set for person", this, "Channel:"+channel, {midi,channel, hasMIDI:this.hasMIDI } )
 	}

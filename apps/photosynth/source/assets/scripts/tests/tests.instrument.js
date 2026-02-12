@@ -2,7 +2,7 @@
 
 import {Pane} from 'tweakpane'
 import { active, playing, setupAudio } from '../audio/audio.js'
-import { playNextPart, kitSequence } from '../timing/patterns.js'
+import { playNextPart, kitSequence } from '../sequencing/patterns.js'
 import GamePad, { COMMANDS, GAME_PAD_CONNECTED, GAME_PAD_DISCONNECTED, GamePadManager } from '../hardware/gamepad.js'
 import AudioTimer from '../timing/timer.audio.js' 
 import {convertNoteNameToMIDINoteNumber, GENERAL_MIDI_NUMBERS_BY_NAME, MIDI_NOTE_NAMES, MIDI_NOTE_NUMBER_MAP, MIDI_NOTE_NUMBERS}  from '../audio/tuning/notes.js'

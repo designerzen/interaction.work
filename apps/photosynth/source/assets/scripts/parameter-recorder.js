@@ -1,18 +1,15 @@
 // Ok, here's a fun one...
 
-import { now } from "./timing/timing.js"
+// import { now } from "./timing/timing.js"
 
 // RECORD Vars just save it and it will record the time
 export class ParamaterRecorder{
 
-	constructor( options={} ) {
+	#audioContext:BaseAudioContext
 
-		this.isRecording = false
-		this.parameters
-		this.startTime = now()
-		this.reset()
+	get now(){
+		return this.#audioContext.currentTime
 	}
-
 	get recording(){
 		return this.parameters
 	}
@@ -20,12 +17,20 @@ export class ParamaterRecorder{
 		return this.isRecording
 	}
 
+	constructor( audioContext, options={} ) {
+		this.#audioContext = audioContext
+		this.isRecording = false
+		this.parameters
+		this.startTime = this.now()
+		this.reset()
+	}
+
 	reset(){
 		this.parameters = new Map()
 	}
 
 	add( values, time ){
-		time = time ?? now()
+		time = time ?? this.now()
 		if (!this.isRecording)
 		{
 			this.startTime = time

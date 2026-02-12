@@ -48,3 +48,4 @@ apps/photosynth/public/@*
 *public/@*
 
 ---*
+apps/photosynth/dist-apps/*

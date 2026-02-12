@@ -4,7 +4,7 @@
  */
 import Instrument from './instrument.js'
 import {noteNumberToFrequency} from '../tuning/frequencies.js'
-import { getKitSequence, playNextPart } from '../../timing/patterns.js'
+import { getKitSequence, playNextPart } from '../../sequencing/patterns.js'
 import { createKick } from '../synthesizers/kick.js'
 import { createSnare } from '../synthesizers/snare.js'
 import { createHihat } from '../synthesizers/hihat.js'

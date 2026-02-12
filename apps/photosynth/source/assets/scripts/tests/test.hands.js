@@ -46,9 +46,7 @@ function hasGetUserMedia() {
 }
 
 
-
 const now = () => Date.now()	// performance is too precise!
-
 
 const processResult = results => {
 

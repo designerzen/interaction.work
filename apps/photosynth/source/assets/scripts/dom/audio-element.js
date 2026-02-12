@@ -1,4 +1,3 @@
-import { now } from '../timing/timing.js'
 import { addTooltip, removeTooltip } from './tooltips.js'
 import { audioContext, getMasterMixdown } from '../audio/audio.js'
 import {createButton} from './button.js'
@@ -11,6 +10,8 @@ const createCanvasProgressBar = (width, height) => {
 	return canvas
 }
 
+let audioElementCounter = 0
+
 export const createAudioElement = (src, fileName, downloadCallback, waveform=null ) => {
 	
 	const width = 100
@@ -19,8 +20,7 @@ export const createAudioElement = (src, fileName, downloadCallback, waveform=nul
 	let isPlaying = false
 
 	const buttons = []
-	const unique = Math.ceil( now() * 10000000 )
-	const id = `audio-${unique}`
+	const id = `audio-${++audioElementCounter}`
 	
 	const wrapper = document.createElement("div")
 	wrapper.className = "audio-player paused instrument-"+fileName

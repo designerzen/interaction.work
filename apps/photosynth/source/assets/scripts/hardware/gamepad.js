@@ -1,4 +1,4 @@
-import { now } from "../timing/timing.js"
+const now = () => performance.now() || Date.now()
 
 export const getGamePads = () => navigator.getGamepads() || navigator.webkitGetGamepads() 
 

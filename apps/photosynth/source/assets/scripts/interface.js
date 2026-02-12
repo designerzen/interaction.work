@@ -64,8 +64,10 @@ import Person, {
  
 // TIMING
 // import {midiLikeEvents} from './timing/rhythm'
-import { playNextPart, getKitSequence } from './timing/patterns.js'
-import AudioTimer from './timing/timer.audio.js'
+import { playNextPart, getKitSequence } from './sequencing/patterns.js'
+
+import {AudioTimer} from 'netronome'
+// import AudioTimer from './timing/timer.audio.js'
 
 // AUDIO 
 import { say, hasSpeech} from './audio/speech.js'

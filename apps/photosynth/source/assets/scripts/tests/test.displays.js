@@ -5,7 +5,6 @@
 import Person from "../person.js"
 import { loadDisplayClass, createDisplay, restartCanvas, changeDisplay, getDisplayAvailability  } from '../display/display-manager.js'
 import { DISPLAY_TYPES, DISPLAY_IDS, DISPLAY_LOOKING_GLASS_3D } from '../display/display-types.js'
-import { now } from "../timing/timing.js"
 
 import { AVATAR_DATA } from "../models/avatar-data.js"
 // import Avatar from "../models/avatar.js"
@@ -24,6 +23,9 @@ let displayType
 let selectDisplay
 
 let canvas = document.querySelector('canvas')
+
+// just for demo
+const now = () => performance.now() || Date.now()
 
 const person = new Person( 0, {} )
 
