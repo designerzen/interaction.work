@@ -93,7 +93,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: photosynth-linux
-          path: apps/photosynth/releases/*.AppImage
+          path: |
+           apps/photosynth/releases/*.AppImage
+           apps/photosynth/dist-apps/*.AppImage
+          if-no-files-found: warn
           retention-days: 30
 
       - name: Upload artifacts (macOS)
@@ -104,6 +107,9 @@ jobs:
           path: |
             apps/photosynth/releases/*.dmg
             apps/photosynth/releases/*.zip
+            apps/photosynth/dist-apps/*.dmg
+            apps/photosynth/dist-apps/*.zip
+          if-no-files-found: warn
           retention-days: 30
 
       - name: Upload artifacts (Windows)
@@ -115,6 +121,10 @@ jobs:
             apps/photosynth/releases/*.exe
             apps/photosynth/releases/*.msi
             apps/photosynth/releases/*.zip
+            apps/photosynth/dist-apps/*.exe
+            apps/photosynth/dist-apps/*.msi
+            apps/photosynth/dist-apps/*.zip
+          if-no-files-found: warn
           retention-days: 30
 
       - name: List build output
