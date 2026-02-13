@@ -3758,9 +3758,9 @@ export const createInterface = (
 
 		// FIXME: Also load in hand if available...
 		const loadFaceModel = predictors.face
-		const faceModel = loadFaceModel( elementToAnalyse, settings, progressCallback )
+		const faceModel = loadFaceModel( elementToAnalyse, settings, clock.now, progressCallback )
 		// const loadHandModel = predictors.hands
-		// const handModel = loadFaceModel( elementToAnalyse, settings, progressCallback )
+		// const handModel = loadFaceModel( elementToAnalyse, settings,  clock.now, progressCallback )
 		return faceModel
 		// return Promise.all( [faceModel, handModel] )
 	}

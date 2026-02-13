@@ -10,7 +10,6 @@ import '@tensorflow/tfjs-backend-webgpu'
 import { loadLiteRt, loadAndCompile, setWebGpuDevice } from '@litertjs/core'
 import { runWithTfjsTensors } from '@litertjs/tfjs-interop'
 import { enhanceFaceLandmarksModelPrediction } from './face-landmarks-calculations'
-import { now } from "../timing/timing"
 
 const FACE_LANDMARK_WASM = window.location.origin + "/@litertjs/"
 const FACE_LANDMARK_MODEL_PATH = "url:./tasks/face_landmark.tflite"
@@ -27,10 +26,9 @@ let previousPrediction = []
  * @param {Boolean} flipHorizontally 
  * @returns {Array} Array of people with enhanced face landmark data
  */
-const predict = async (inputElement, liteRtModel, flipHorizontally=true) => {
+const predict = async (inputElement, liteRtModel, now, flipHorizontally=true) => {
 	
 	if (lastVideoTime !== inputElement.currentTime) {
-		const time = now()
 		lastVideoTime = inputElement.currentTime
 		
 		// Convert video frame to tensor and run inference
@@ -55,7 +53,7 @@ const predict = async (inputElement, liteRtModel, flipHorizontally=true) => {
 			const faceBlendshapes = faceQuantity > 1 ? faceBlendshapesArray[i] : faceBlendshapesArray
 			const faceMatrix = faceQuantity > 1 ? faceMatrixArray[i] : faceMatrixArray
 			
-			people[i] = enhanceFaceLandmarksModelPrediction(faceLandmarks, faceBlendshapes, faceMatrix, time, flipHorizontally)
+			people[i] = enhanceFaceLandmarksModelPrediction(faceLandmarks, faceBlendshapes, faceMatrix, now(), flipHorizontally)
 		}
 		
 		previousPrediction = people
@@ -76,7 +74,7 @@ const predict = async (inputElement, liteRtModel, flipHorizontally=true) => {
  * @param {Boolean} flipHorizontally - Should we flip the x direction of the model? 
  * @returns {Function} Async function to fetch model predictions
  */
-export const loadFaceLandmarksModel = async (inputElement, options, progressCallback, flipHorizontally=true) => {
+export const loadFaceLandmarksModel = async (inputElement, options, now, progressCallback, flipHorizontally=true) => {
 	
 	const startLoadProgress = 0.5
 	const loadRange = 0.3
@@ -150,7 +148,7 @@ export const loadFaceLandmarksModel = async (inputElement, options, progressCall
 
 	// Return a function that runs predictions on the video stream
 	const fetchModelData = async () => { 
-		const prediction = await predict(inputElement, model, flipHorizontally)
+		const prediction = await predict(inputElement, model, now, flipHorizontally)
 		return prediction
 	}
 

@@ -1,0 +1,8 @@
+{
+  "name": "open-generalmidi-soundfont",
+  "main": "./index.js",
+  "packageManager": "pnpm@10.28.0",
+  "dependencies": {
+    "open-generalmidi-soundfont": "github:designerzen/Open-GeneralMIDI-SoundFont"
+  }
+}
