@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netronome - Beat Beacon</title>
+    <link rel="stylesheet" href="./src/assets/styles/index.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Netronome</h1>
+            <p class="subtitle">Interactive Beat Beacon Metronome</p>
+        </div>
+
+        <div class="main-content">
+            <div id="app"></div>
+
+            <!-- Control Form -->
+            <form class="control-form">
+                <!-- Play/Pause & Reset -->
+                <div class="form-section">
+                    <div class="controls">
+                        <button type="button" id="playPauseBtn" class="btn-primary">Play</button>
+                        <button type="button" id="resetBtn" class="btn-secondary">Reset</button>
+                    </div>
+                </div>
+
+                <!-- Tempo & Audio Controls -->
+                <div class="form-section">
+                    <div class="form-row">
+                        <label for="bpmSlider">BPM:</label>
+                        <input type="range" id="bpmSlider" min="40" max="240" value="120" step="1">
+                        <input type="number" id="bpmValue" min="40" max="240" value="120">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="clickSound">Click Sound:</label>
+                        <select id="clickSound">
+                            <option value="none">— No Click —</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="volumeSlider">Volume:</label>
+                        <input type="range" id="volumeSlider" min="0" max="100" value="30">
+                        <span id="volumeValue">30%</span>
+                    </div>
+                </div>
+
+                <!-- Info Display -->
+                <div class="form-section">
+                    <div class="info">
+                        <div class="info-item">
+                            <div class="info-label">BPM</div>
+                            <div class="info-value" id="infoBpm">120</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Beats</div>
+                            <div class="info-value" id="infoBeats">4</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Progress</div>
+                            <div class="info-value" id="infoProgress">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Presets Grid -->
+            <div id="presetsContainer" class="presets-section">
+                <h3 class="presets-title">Timing Presets</h3>
+                <div class="presets-grid"></div>
+            </div>
+
+            <div class="instructions">
+                <h3>How to use:</h3>
+                <ul>
+                    <li><strong>Click</strong> on the circle to add beats</li>
+                    <li><strong>Drag</strong> beats to reposition them</li>
+                    <li><strong>Drag outside</strong> the circle to remove beats</li>
+                    <li><strong>Hold Ctrl</strong> while dragging to quantize to 2 divisions</li>
+                    <li><strong>Hold Shift</strong> while dragging to quantize to 4 divisions</li>
+                    <li><strong>Hold Ctrl+Shift</strong> for fine control</li>
+                    <li>Adjust BPM with the slider to change tempo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { App } from './src/App.ts';
+        import { getAudioService } from './src/services/AudioService.ts';
+        import { getAllPresets } from './src/models/TimingPresets.ts';
+        import { PresetThumbnailGenerator } from './src/utils/PresetThumbnailGenerator.ts';
+
+        // Initialize the app
+        const app = new App('app');
+
+        // UI Controls
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const bpmSlider = document.getElementById('bpmSlider');
+        const bpmValue = document.getElementById('bpmValue');
+        const clickSound = document.getElementById('clickSound');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeValue = document.getElementById('volumeValue');
+        
+        let isPlaying = false;
+
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                app.stop();
+                playPauseBtn.textContent = 'Play';
+                playPauseBtn.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                app.start();
+                playPauseBtn.textContent = 'Pause';
+                playPauseBtn.classList.add('playing');
+                isPlaying = true;
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            app.stop();
+            // Reset to default pattern
+            const metronome = app.getMetronome();
+            metronome.empty();
+            metronome.addBeat(0);
+            metronome.addBeat(0.25);
+            metronome.addBeat(0.5);
+            metronome.addBeat(0.75);
+            app.getBeacon().populate(metronome, true);
+            playPauseBtn.textContent = '▶ Play';
+            playPauseBtn.classList.remove('playing');
+            isPlaying = false;
+        });
+
+        bpmSlider.addEventListener('input', (e) => {
+            const bpm = parseInt(e.target.value);
+            bpmValue.value = bpm;
+            app.setBPM(bpm);
+            document.getElementById('infoBpm').textContent = bpm;
+        });
+
+        bpmValue.addEventListener('change', (e) => {
+            const bpm = Math.max(40, Math.min(240, parseInt(e.target.value) || 120));
+            bpmValue.value = bpm;
+            bpmSlider.value = bpm;
+            app.setBPM(bpm);
+            document.getElementById('infoBpm').textContent = bpm;
+        });
+
+        // Listen to metronome events
+        const metronome = app.getMetronome();
+        metronome.addEventListener('progress', (e) => {
+            document.getElementById('infoProgress').textContent = Math.round(e.progress * 100) + '%';
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const container = document.getElementById('app');
+            app.handleResize(container.clientWidth, container.clientHeight);
+        });
+
+        // Audio controls
+        clickSound.addEventListener('change', async (e) => {
+            const audioService = getAudioService();
+            const selectedId = e.target.value === 'none' ? null : e.target.value;
+            try {
+                await audioService.resumeContext();
+                if (selectedId) {
+                    await audioService.play(selectedId);
+                }
+            } catch (error) {
+                console.error('Error playing audio:', error);
+            }
+        });
+
+        volumeSlider.addEventListener('input', (e) => {
+            const volume = parseInt(e.target.value);
+            volumeValue.textContent = volume + '%';
+            const audioService = getAudioService();
+            audioService.volume = volume / 100;
+        });
+
+        // Initialize audio controls
+        async function initializeAudio() {
+            try {
+                const audioService = getAudioService();
+                await audioService.loadManifest();
+                
+                // Clear and populate audio options
+                clickSound.innerHTML = '<option value="none">— No Click —</option>';
+                const assets = audioService.assets;
+                
+                if (assets.length > 0) {
+                    for (const asset of assets) {
+                        const option = document.createElement('option');
+                        option.value = asset.id;
+                        option.textContent = asset.name;
+                        clickSound.appendChild(option);
+                    }
+                }
+            } catch (error) {
+                console.error('Error initializing audio:', error);
+            }
+        }
+
+        // Initialize presets grid
+        function initializePresets() {
+            const presetsGrid = document.querySelector('.presets-grid');
+            const presets = getAllPresets();
+
+            presets.forEach((preset) => {
+                const card = document.createElement('div');
+                card.className = 'preset-card';
+                card.setAttribute('data-preset-id', preset.id);
+
+                // Generate thumbnail canvas
+                const canvas = PresetThumbnailGenerator.generateThumbnail(preset, 100, 60);
+                canvas.className = 'preset-canvas';
+
+                // Preset name
+                const name = document.createElement('div');
+                name.className = 'preset-name';
+                name.textContent = preset.name;
+
+                // Preset BPM
+                const bpm = document.createElement('div');
+                bpm.className = 'preset-bpm';
+                bpm.textContent = preset.bpm + ' BPM';
+
+                card.appendChild(canvas);
+                card.appendChild(name);
+                card.appendChild(bpm);
+
+                // Click handler
+                card.addEventListener('click', () => {
+                    // Update selection
+                    document.querySelectorAll('.preset-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+
+                    // Apply preset
+                    const metronome = app.getMetronome();
+                    metronome.empty();
+                    preset.beats.forEach(beat => metronome.addBeat(beat));
+                    metronome.bpm = preset.bpm;
+                    app.getBeacon().populate(metronome, true);
+
+                    // Update display
+                    document.getElementById('infoBpm').textContent = preset.bpm;
+                    document.getElementById('infoBeats').textContent = preset.beats.length;
+                    bpmValue.value = preset.bpm;
+                    bpmSlider.value = preset.bpm;
+                });
+
+                presetsGrid.appendChild(card);
+            });
+        }
+
+        // Initial setup
+        document.getElementById('infoBpm').textContent = '120';
+        document.getElementById('infoBeats').textContent = '4';
+        initializeAudio();
+        initializePresets();
+    </script>
+</body>
+</html>

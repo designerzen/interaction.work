@@ -1,0 +1,28 @@
+{
+  "name": "netronome",
+  "version": "1.0.0",
+  "description": "Interactive Beat Beacon Metronome - TypeScript/JavaScript conversion from Haxe",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist .vite"
+  },
+  "keywords": [
+    "metronome",
+    "music",
+    "rhythm",
+    "beat",
+    "timing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8",
+    "@vitejs/plugin-basic-ssl": "^1.0.1"
+  }
+}
