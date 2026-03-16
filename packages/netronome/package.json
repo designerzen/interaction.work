@@ -1,11 +1,28 @@
 {
   "name": "netronome",
-  "main": "./index.js",
+  "description": "Musical rhythm and synchronization engine",
+  "version": "3.2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./index.js"
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
-  "packageManager": "pnpm@10.28.0",
-  "dependencies": {
-    "netronome": "github:designerzen/netronome"
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "oxlint",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "oxlint": "^1.49.0",
+    "vitest": "^4.0.18"
   }
 }
