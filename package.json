@@ -5,6 +5,8 @@
   "author": "designerzen <github@designerzen.com>",
   "license": "AGPL-3.0",
   "scripts": {
+    "sync:list": "npx syncpack@alpha list --dependency-types prod",
+    "sync": "npx syncpack@alpha fix --dependency-types prod",
     "start": "pnpm run dev",
     "upgrader": "npx npm-check-updates --interactive -u",
     "test:projects": "vitest run",
@@ -15,9 +17,10 @@
     "electron:dev": "turbo run electron:dev",
     "electron:build": "turbo run electron:build",
     "dev": "turbo run dev --no-daemon",
-	"devi": "pnpm --filter PhotoSYNTH run dev",
+    "devi": "pnpm --filter PhotoSYNTH run dev",
     "lint": "turbo run lint",
     "test": "turbo run test",
+    "devtools": "turbo devtools",
     "check-types": "turbo run check-types",
     "license": "turbo run license",
     "release:patch": "pnpm --filter photosynth release:patch",
@@ -26,7 +29,7 @@
   },
   "devDependencies": {
     "lerna": "^9.0.4",
-    "turbo": "^2.8.7"
+    "turbo": "^2.8.14"
   },
   "keywords": [
     "music",
@@ -36,10 +39,14 @@
     "xr",
     "ar"
   ],
-  "packageManager": "pnpm@10.29.3",
+  "packageManager": "pnpm@10.30.1",
   "pnpm": {
     "onlyBuiltDependencies": [
-      "electron"
+      "electron",
+      "harmoneasy"
+    ],
+    "ignoredBuiltDependencies": [
+      "nx"
     ]
   },
   "engines": {

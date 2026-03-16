@@ -41,6 +41,9 @@
 			"cache": false,
 			"persistent": true
 		},
+		"upgrader": {
+			"cache": false
+		},
 		"test": {
 			"inputs": [
 				"$TURBO_DEFAULT$",

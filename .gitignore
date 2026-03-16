@@ -46,8 +46,9 @@ coverage.json
 
 # Public deps that are copied from node_modules
 apps/photosynth/public/@*
-*public/@*
-*public/assets
+apps/photosynth/public/assets/audio/*
+apps/photosynth/public/assets/audio/acoustics
+apps/photosynth/public/assets/audio/*.wav
 
 
 ---*
