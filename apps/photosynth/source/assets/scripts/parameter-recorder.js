@@ -2,7 +2,7 @@
 // RECORD Vars just save it and it will record the time
 export class ParamaterRecorder{
 
-	#audioContext:BaseAudioContext
+	#audioContext
 
 	get now(){
 		return this.#audioContext.currentTime
