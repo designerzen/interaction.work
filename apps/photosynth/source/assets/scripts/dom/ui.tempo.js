@@ -1,8 +1,4 @@
-import { Timer, tapTempo } from 'netronome'
-
-import ROLLING_WORKER_URI from '../sequencing/timing.rolling.worker.js?worker'
-import SETINERVAL_WORKER_URI from '../sequencing/timing.setinterval.worker.js?worker'
-import SETTIMEOUT_WORKER_URI from '../sequencing/timing.settimeout.worker.js?worker'
+import { Timer, tapTempo, TIMER_TYPES } from 'netronome'
 
 import { MOUSE_REPEATING, addMouseRepeaterEvents } from '../hardware/mouse.js'
 
@@ -105,8 +101,7 @@ export const setupTempoInterface = (timer, midiManager, MIDIConnectionClasses, o
 			
 			// update ui to prevent tempo input
 			document.querySelector(".form-tempo").removeAttribute("disabled")
-		}	
-
+		}
 	}
 
 	const inputTempoReset = document.getElementById('tempo-reset')
@@ -226,15 +221,15 @@ export const setupTempoInterface = (timer, midiManager, MIDIConnectionClasses, o
 		switch(inputTempoWorker.value)
 		{
 			case "SetTimeOut Loop":
-				timer.setTimingWorker(SETTIMEOUT_WORKER_URI)
+				timer.switchTimerType(TIMER_TYPES.TIMER_TYPE_SET_TIMEOUT)
 				break
 
 			case "SetInterval Loop":
-				timer.setTimingWorker(SETINERVAL_WORKER_URI)
+				timer.switchTimerType(TIMER_TYPES.TIMER_TYPE_SET_INTERVAL)
 				break
 
 			case "SetTimeOut Rolling":
-				timer.setTimingWorker(ROLLING_WORKER_URI)
+				timer.switchTimerType(TIMER_TYPES.TIMER_TYPE_AUDIO_WORKLET)
 				break
 		}
 	}
