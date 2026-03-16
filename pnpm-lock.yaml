@@ -397,7 +397,11 @@ importers:
 
   apps/teaser: {}
 
-  packages/netronome: {}
+  packages/netronome:
+    dependencies:
+      netronome:
+        specifier: github:designerzen/netronome
+        version: https://codeload.github.com/designerzen/netronome/tar.gz/ce153ee2d39ce85a48c0ecaad14a89db2705549a
 
   packages/openGM24:
     dependencies:
@@ -6276,6 +6280,10 @@ packages:
   netronome@https://codeload.github.com/designerzen/netronome/tar.gz/b321c624b329d2ecad2b10f332c434902f3c8449:
     resolution: {tarball: https://codeload.github.com/designerzen/netronome/tar.gz/b321c624b329d2ecad2b10f332c434902f3c8449}
     version: 2.4.0
+
+  netronome@https://codeload.github.com/designerzen/netronome/tar.gz/ce153ee2d39ce85a48c0ecaad14a89db2705549a:
+    resolution: {tarball: https://codeload.github.com/designerzen/netronome/tar.gz/ce153ee2d39ce85a48c0ecaad14a89db2705549a}
+    version: 2.5.0
 
   nice-try@1.0.5:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}
@@ -15594,6 +15602,8 @@ snapshots:
   neo-async@2.6.2: {}
 
   netronome@https://codeload.github.com/designerzen/netronome/tar.gz/b321c624b329d2ecad2b10f332c434902f3c8449: {}
+
+  netronome@https://codeload.github.com/designerzen/netronome/tar.gz/ce153ee2d39ce85a48c0ecaad14a89db2705549a: {}
 
   nice-try@1.0.5: {}
 
